@@ -1,0 +1,29 @@
+<head>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="./js/controllers/MainController.js" type="module"></script>
+
+</head>
+<body>
+<div class="page-container">
+    <div class="icon-container"></div>
+    <div class="welcome-container">
+        <span translate="welcome"></span>
+    </div>
+
+    <div class="content-container">
+        <div class="icon-div"></div>
+    </div>
+    <div class="explain-container">
+        <span translate="scan_explain"></span>
+    </div>
+    <div class="scan-button-container" onclick="mainController.scanHandler()">
+        <span translate="scan_button"></span>
+    </div>
+</div>
+
+</body>
+<script type="module">
+  import {translate} from "./js/translations.js";
+
+  document.getElementsByTagName("body").onload = translate()
+</script>
