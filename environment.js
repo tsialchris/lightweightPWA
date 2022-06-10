@@ -1,5 +1,5 @@
 export default {
-  "epiDomain": "dev.epi.axl",
-  "leafletWebApiUrl": "https://gov-dev.pharmaledger.dev/leaflets",
+  "epiDomain": "demo.pla",
+  "leafletWebApiUrl": "https://admin.pla.health/leaflets",
   "epiProtocolVersion": 1
 }
