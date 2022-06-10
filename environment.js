@@ -1,5 +1,5 @@
 export default {
-  "epiDomain": "demo.pla",
+  "epiDomain": "demo.epi",
   "leafletWebApiUrl": "https://admin.pla.health/leaflets",
   "epiProtocolVersion": 1
 }
