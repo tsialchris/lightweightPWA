@@ -22,7 +22,8 @@ function LeafletController() {
     header.append("getProductData", true);
     const myRequest = new Request(fetchUrl, {
       method: "GET",
-      headers: header
+      headers: header,
+      mode: 'no-cors'
     });
     fetch(myRequest)
       .then(response => {
