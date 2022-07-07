@@ -303,7 +303,7 @@
         font-size: 2rem;
     }
 
-    #leaflet-content h5{
+    #leaflet-content h5 {
         font-size: 2.5rem;
     }
 
@@ -482,9 +482,14 @@ body {
 
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
 .page-header {
     padding: 0px 35px;
 }
