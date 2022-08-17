@@ -1,5 +1,5 @@
 export default {
-  "epiDomain": "demo.epi",
-  "leafletWebApiUrl": "https://admin.pla.health/leaflets",
+  "epiDomain": "preqa.epi.axl",
+  "leafletWebApiUrl": "https://preqa.pla.health/leaflets",
   "epiProtocolVersion": 1
 }
