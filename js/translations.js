@@ -13,6 +13,9 @@ export const translations = {
     "leaflet_expired_title": "Expired",
     "leaflet_expired_subtitle": "This item is Expired",
     "leaflet_expired_message": "<p> <b> This product has been identified as expired </b>. </p> <p> Expired medical products may be less effective and may pose a risk to the patient due to changes in composition. Once the expiration date has passed, there is no guarantee that the medicine is safe and effective. Replace expired medicines to make sure you are using the latest product with the latest instructions for use. </p> ",
+    "leaflet_incorrect_date_title": "Incorrect date",
+    "leaflet_incorrect_date_subtitle": "Scanned date is incorrect",
+    "leaflet_incorrect_date_message": "<p> <b> This product's date is incorrect</b>. </p> <p> For your own safety, please contact the pharmacy or doctor who issued the package of medicines. </p> ",
     "select_lang_title": "Leaflet unavailable",
     "select_lang_subtitle": "Language Missing",
     "scan_error_title": "Scan error",
@@ -32,10 +35,10 @@ export const translations = {
     "fwd_about": "About",
     "privacy_modal_subtitle": "Privacy policy",
     "privacy_modal_title": "Our Privacy and Security Principles",
-    "privacy_content": "Lorem ipsum dolor est ................",
+    "privacy_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/privacy-policy/40430c0a-9e30-4690-b4a7-2c2f56433919\"></iframe>",
     "terms_modal_subtitle": "Terms and conditions",
     "terms_modal_title": "The rules you agree to when using our services.",
-    "terms_content": "Lorem ipsum dolor est ................",
+    "terms_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/terms-of-use-for-website/76a94ec4-766a-4a6a-b7fe-c68834af6811\"></iframe>",
     "help_modal_title": "Help",
     "help_modal_subtitle": "FAQs",
     "help_content": "<b>What is EPI?</b><br><br>" +
@@ -64,6 +67,9 @@ export const translations = {
     "leaflet_expired_title": "Abgelaufen",
     "leaflet_expired_subtitle": "Das Verfalldatum dieses Artikels ist überschritten.",
     "leaflet_expired_message": "<p> <b> Dieses Arzneimittel wurde als „abgelaufen” identifiziert </b>. </p> <p> Abgelaufene Arzneimittel können an Wirksamkeit verloren haben und aufgrund der veränderten Zusammensetzung ein Risiko für den Patienten darstellen. Sobald das Verfalldatum überschritten wurde, besteht keine Garantie mehr, dass das Arzneimittel sicher und wirksam ist. Ersetzen Sie abgelaufene Arzneimittel, um sicherzustellen, dass Sie das neueste Arzneimittel mit der neuesten Gebrauchsanweisung verwenden. </p> ",
+    "leaflet_incorrect_date_title": "Falsches Datum",
+    "leaflet_incorrect_date_subtitle": "Gescanntes Datum ist falsch",
+    "leaflet_incorrect_date_message": "<p> <b> Das Datum dieses Produkts ist falsch</b>. </p> <p> Wenden Sie sich zu Ihrer eigenen Sicherheit bitte an die Apotheke oder den Arzt, der die Arzneimittelpackung ausgestellt hat. </p> ",
     "select_lang_title": "Packungsbeilage nicht verfügbar",
     "select_lang_subtitle": "Sprache nicht vorhanden",
     "scan_error_title": "Scanfehler",
@@ -82,10 +88,10 @@ export const translations = {
     "fwd_about": "Über",
     "privacy_modal_subtitle": "Datenschutzrichtlinie",
     "privacy_modal_title": "Unsere Datenschutz- und Sicherheitsgrundsätze",
-    "privacy_content": "Lorem ipsum dolor est ................",
+    "privacy_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/privacy-policy/40430c0a-9e30-4690-b4a7-2c2f56433919\"></iframe>",
     "terms_modal_subtitle": "Allgemeine Geschäftsbedingungen",
     "terms_modal_title": "Die Regeln, denen Sie bei der Nutzung unserer Dienste zustimmen.",
-    "terms_content": "Lorem ipsum dolor est ................",
+    "terms_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/terms-of-use-for-website/76a94ec4-766a-4a6a-b7fe-c68834af6811\"></iframe>",
     "help_modal_title": "Hilfe",
     "help_modal_subtitle": "Häufig gestellte Fragen",
     "help_content": "<b>Was ist EPI?</b><br><br>" +
@@ -93,12 +99,12 @@ export const translations = {
       "<br><br><b>Was ist PharmaLedger?</b><br><br>" +
       "PharmaLedger ist ein Blockchain-Konsortium mit 29 Mitgliedern, darunter 12 globale Pharmaunternehmen. Es zielt darauf ab, Innovationen im Gesundheitswesen für Lieferketten, klinische Studien und Gesundheitsdaten zu ermöglichen. Das Ziel des PharmaLedger-Projekts ist die Bereitstellung einer Blockchain-basierten Plattform für den Gesundheitssektor. unter Verwendung der Lieferkette, klinischer Studien und Gesundheitsdaten als Fallstudien." +
       "<br><br><b>Wie verwende ich die App?</b><br><br>" +
-     "Klicken Sie auf „Paket scannen“ und erlauben Sie der Anwendung, die Kamera zu verwenden. Richten Sie das Paket in einer dezent beleuchteten Umgebung physisch auf den Scanbereich aus und warten Sie auf eine grüne Anzeige und einen Piepton. Sobald das Paket erfolgreich gescannt wurde, wird ein Code angezeigt. Klicken Sie auf die Schaltfläche Produktinformationen, um die Broschüre anzuzeigen." +
-"<br><br><b>Warum liefert mein 2D-Code kein Ergebnis?</b><br><br>" +
-"Es gibt mehrere Gründe, warum der Code auf Ihrer Packung nicht aufgelöst werden konnte. Einer der Gründe ist, dass der Code für die Kamera unleserlich oder unscharf ist. Bitte versuchen Sie, den Code an einem gut beleuchteten Ort zu scannen und den Code gut sichtbar zu machen Der andere Grund könnte sein, dass das Produkt noch nicht Teil der Produktdatenbank von PharmaLedger ist. Bitte erkundigen Sie sich beim Hersteller, ob sein Produkt noch Teil des PharmaLedger ist." +
-"<br><br><b>Was zeigt der Produktstatus in meiner App an?</b><br><br>" +
-"Die Produktstatusanzeige wird verwendet, um zu überprüfen, ob Ihre Verpackung vom Hersteller ausgestellt wurde. Dies bescheinigt nicht, dass die physische Verpackung authentisch ist, sondern ist eine Zusicherung, dass sie digital verifiziert wurde und in der Datenbank des Herstellers verfügbar ist." +
-"<br><br><b>Was sind Produktinformationen?</b><br><br>" +
+      "Klicken Sie auf „Paket scannen“ und erlauben Sie der Anwendung, die Kamera zu verwenden. Richten Sie das Paket in einer dezent beleuchteten Umgebung physisch auf den Scanbereich aus und warten Sie auf eine grüne Anzeige und einen Piepton. Sobald das Paket erfolgreich gescannt wurde, wird ein Code angezeigt. Klicken Sie auf die Schaltfläche Produktinformationen, um die Broschüre anzuzeigen." +
+      "<br><br><b>Warum liefert mein 2D-Code kein Ergebnis?</b><br><br>" +
+      "Es gibt mehrere Gründe, warum der Code auf Ihrer Packung nicht aufgelöst werden konnte. Einer der Gründe ist, dass der Code für die Kamera unleserlich oder unscharf ist. Bitte versuchen Sie, den Code an einem gut beleuchteten Ort zu scannen und den Code gut sichtbar zu machen Der andere Grund könnte sein, dass das Produkt noch nicht Teil der Produktdatenbank von PharmaLedger ist. Bitte erkundigen Sie sich beim Hersteller, ob sein Produkt noch Teil des PharmaLedger ist." +
+      "<br><br><b>Was zeigt der Produktstatus in meiner App an?</b><br><br>" +
+      "Die Produktstatusanzeige wird verwendet, um zu überprüfen, ob Ihre Verpackung vom Hersteller ausgestellt wurde. Dies bescheinigt nicht, dass die physische Verpackung authentisch ist, sondern ist eine Zusicherung, dass sie digital verifiziert wurde und in der Datenbank des Herstellers verfügbar ist." +
+      "<br><br><b>Was sind Produktinformationen?</b><br><br>" +
       "Die elektronische Version der gedruckten Materialien, die in der legalen pharmakologischen Beschreibung eines Arzneimittels verfügbar sind, vorbehaltlich detaillierter regulatorischer Spezifikationen, einschließlich genehmigter chemischer und geschützter Namen, Beschreibung und Klassifizierung, klinischer Pharmakologie, genehmigter Indikationen und Verwendung, Kontraindikationen, Warnungen, Vorsichtsmaßnahmen, Nebenwirkungen Reaktionen, Informationen zu Drogenmissbrauch und -abhängigkeit, Diskussionen über Überdosierungen, Dosierung und Verabreichung, Formulierungen und entsprechende Referenzen; in den USA werden solche Materialien zwischen dem/den Hersteller(n) des Arzneimittels und der US-amerikanischen Food and Drug Administration ausgehandelt."
   }, "fr": {
     "welcome": "Bienvenue dans PharmaLedger",
@@ -114,6 +120,9 @@ export const translations = {
     "leaflet_expired_title": "Périmé",
     "leaflet_expired_subtitle": "Cet article est périmé",
     "leaflet_expired_message": "<p> <b> Ce produit a été identifié comme étant périmé </b>. </p> <p> Les médicaments périmés peuvent être moins efficaces et présenter un risque pour le patient en raison de changements dans leur composition. Une fois la date de péremption passée, il n'existe aucune garantie que le médicament soit efficace et sans danger. Remplacez les médicaments périmés pour avoir la certitude d'utiliser le produit le plus récent avec les dernières instructions d'utilisation. </p> ",
+    "leaflet_incorrect_date_title": "Date incorrecte",
+    "leaflet_incorrect_date_subtitle": "La date scannée est incorrecte",
+    "leaflet_incorrect_date_message": "<p> <b> La date de ce produit est incorrecte</b>. </p> <p> Pour votre propre sécurité, veuillez contacter la pharmacie ou le médecin qui a délivré le paquet de médicaments. </p> ",
     "select_lang_title": "Notice indisponible",
     "select_lang_subtitle": "Langue manquante",
     "scan_error_title": "Erreur de scan",
@@ -132,10 +141,10 @@ export const translations = {
     "fwd_about": "À propos",
     "privacy_modal_subtitle": "Politique de confidentialité",
     "privacy_modal_title": "Nos principes de confidentialité et de sécurité",
-    "privacy_content": "Lorem ipsum dolor est ................",
+    "privacy_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/privacy-policy/40430c0a-9e30-4690-b4a7-2c2f56433919\"></iframe>",
     "terms_modal_subtitle": "Termes et conditions",
     "terms_modal_title": "Les règles que vous acceptez lorsque vous utilisez nos services.",
-    "terms_content": "Lorem ipsum dolor est ................",
+    "terms_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/terms-of-use-for-website/76a94ec4-766a-4a6a-b7fe-c68834af6811\"></iframe>",
     "help_modal_title": "Aide",
     "help_modal_subtitle": "FAQ",
     "help_content": "<b>Qu'est-ce que l'IPE?</b><br><br>" +
@@ -144,10 +153,10 @@ export const translations = {
       "PharmaLedger est un consortium blockchain de 29 membres, dont 12 sociétés pharmaceutiques mondiales. Il vise à permettre l'innovation des soins de santé pour la chaîne d'approvisionnement, les essais cliniques et les données de santé. L'objectif du projet PharmaLedger est de fournir une plate-forme basée sur la blockchain pour le secteur de la santé, en utilisant la chaîne d'approvisionnement, les essais cliniques et les données de santé comme études de cas." +
       "<br><br><b>Comment utiliser l'application?</b><br><br>" +
       "Cliquez sur 'Scan Pack' et autorisez l'application à utiliser l'appareil photo. Dans un environnement correctement éclairé, alignez physiquement le pack sur la zone de numérisation et attendez un indicateur vert et un bip sonore. Une fois le pack scanné avec succès, un code apparaît. Cliquez sur le bouton <Informations sur le produit> pour afficher la notice." +
-        "<br><br><b>Pourquoi mon code 2D ne donne-t-il pas de résultat?</b><br><br>" +
+      "<br><br><b>Pourquoi mon code 2D ne donne-t-il pas de résultat?</b><br><br>" +
       "Il y a plusieurs raisons pour lesquelles le code sur votre pack n'a pas pu être résolu. L'une des raisons étant que le code est illisible ou flou pour l'appareil photo. Veuillez essayer de scanner le code dans un endroit bien éclairé et le code clairement visible sur l'écran. L'autre raison pourrait être que le produit ne fait pas encore partie de la base de données de produits de PharmaLedger. Veuillez vérifier auprès du fabricant si son produit fait déjà partie de PharmaLedger." +
-    "<br><br><b>Qu'indique l'état du produit sur mon application?</b><br><br>" +
-        "L'indicateur d'état du produit est utilisé pour vérifier si votre pack est émis par le fabricant. Cela ne certifie pas que le pack physique est authentique, mais c'est une assurance qu'il a été vérifié numériquement et qu'il est disponible dans la base de données du fabricant." +
+      "<br><br><b>Qu'indique l'état du produit sur mon application?</b><br><br>" +
+      "L'indicateur d'état du produit est utilisé pour vérifier si votre pack est émis par le fabricant. Cela ne certifie pas que le pack physique est authentique, mais c'est une assurance qu'il a été vérifié numériquement et qu'il est disponible dans la base de données du fabricant." +
       "<br><br><b>Qu'est-ce qu'une information produit?</b><br><br>" +
       "La version électronique des documents imprimés disponibles dans la description pharmacologique légale d'un médicament, sous réserve de spécifications réglementaires détaillées, y compris les noms chimiques et propriétaires approuvés, la description et la classification, la pharmacologie clinique, les indications et l'utilisation approuvées, les contre-indications, les avertissements, les précautions, les effets indésirables les réactions, l'abus de drogues et les informations sur la dépendance, la discussion sur le surdosage, la posologie et l'administration, les formulations et les références appropriées; aux États-Unis, ces documents sont négociés entre le(s) fabricant(s) du médicament et la Food and Drug Administration des États-Unis."
   }, "nl": {
@@ -164,6 +173,9 @@ export const translations = {
     "leaflet_expired_title": "Over de datum",
     "leaflet_expired_subtitle": "Dit item is over de datum",
     "leaflet_expired_message": "<p> <b> Dit product is geïdentificeerd als over de datum</b>. </p> <p> Een medisch product dat over de datum is, kan minder werkzaam zijn en een risico voor de patiënt inhouden door veranderingen in de samenstelling. Als de houdbaarheidsdatum verstreken is, is er geen garantie dat het geneesmiddel veilig en werkzaam is. Vervang geneesmiddelen waarvan de houdbaarheidsdatum is verstreken om er zeker van te zijn dat u het nieuwste product met de nieuwste gebruiksaanwijzing gebruikt. </p> ",
+    "leaflet_incorrect_date_title": "Onjuiste datum",
+    "leaflet_incorrect_date_subtitle": "Gescande datum is onjuist",
+    "leaflet_incorrect_date_message": "<p> <b> De datum van dit product is onjuist</b>. </p> <p> Neem voor uw eigen veiligheid contact op met de apotheek of arts die de verpakking met geneesmiddelen heeft afgegeven. </p> ",
     "select_lang_title": "Bijsluiter niet beschikbaar",
     "select_lang_subtitle": "Taal ontbreekt",
     "scan_error_title": "Scanfout",
@@ -182,10 +194,10 @@ export const translations = {
     "fwd_about": "Over",
     "privacy_modal_subtitle": "Privacybeleid",
     "privacy_modal_title": "Onze privacy- en beveiligingsprincipes",
-    "privacy_content": "Lorem ipsum dolor est ................",
+    "privacy_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/privacy-policy/40430c0a-9e30-4690-b4a7-2c2f56433919\"></iframe>",
     "terms_modal_subtitle": "Algemene voorwaarden",
     "terms_modal_title": "De regels waarmee u akkoord gaat bij het gebruik van onze diensten.",
-    "terms_content": "Lorem ipsum dolor est ................",
+    "terms_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/terms-of-use-for-website/76a94ec4-766a-4a6a-b7fe-c68834af6811\"></iframe>",
     "help_modal_title": "Help",
     "help_modal_subtitle": "FAQ's",
     "help_content": "<b>Wat is EPI?</b><br><br>" +
@@ -214,6 +226,9 @@ export const translations = {
     "leaflet_expired_title": "Expirat",
     "leaflet_expired_subtitle": "Acest articol a expirat",
     "leaflet_expired_message": "<p> <b> Acest produs a fost identificat ca fiind expirat </b>. </p> <p> Produsele medicale expirate pot fi mai puțin eficiente și pot prezenta un risc pentru pacient din cauza modificărilor compoziției . Odată ce data de expirare a trecut, nu există nicio garanție că medicamentul este sigur și eficient. Înlocuiți medicamentele expirate pentru a vă asigura că utilizați cel mai recent produs cu cele mai recente instrucțiuni de utilizare. </p> ",
+    "leaflet_incorrect_date_title": "Data incorectă",
+    "leaflet_incorrect_date_subtitle": "Data scanată este incorectă",
+    "leaflet_incorrect_date_message": "<p> <b> Data acestui produs este incorectă</b>. </p> <p> Pentru siguranța dumneavoastră, vă rugăm să contactați farmacia sau medicul care a eliberat pachetul de medicamente. </p> ",
     "select_lang_title": "Prospectul indisponibil",
     "select_lang_subtitle": "Limba lipsește",
     "scan_error_title": "Eroare de scanare",
@@ -232,10 +247,10 @@ export const translations = {
     "fwd_about": "Despre",
     "privacy_modal_subtitle": "Politica de confidențialitate",
     "privacy_modal_title": "Principiile noastre de confidențialitate și securitate",
-    "privacy_content": "Lorem ipsum dolor est ................",
+    "privacy_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/privacy-policy/40430c0a-9e30-4690-b4a7-2c2f56433919\"></iframe>",
     "terms_modal_subtitle": "Termeni și condiții",
     "terms_modal_title": "Regulile cu care sunteți de acord atunci când utilizați serviciile noastre.",
-    "terms_content": "Lorem ipsum dolor est ................",
+    "terms_content": "<iframe style=\"width: 100%; height: 100%; margin-bottom: 24px; border: 0\" src=\"https://app.termly.io/document/terms-of-use-for-website/76a94ec4-766a-4a6a-b7fe-c68834af6811\"></iframe>",
     "help_modal_title": "Ajutor",
     "help_modal_subtitle": "Întrebări frecvente",
     "help_content": "<b>Ce este EPI?</b><br><br>" +
