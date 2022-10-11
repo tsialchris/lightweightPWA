@@ -169,14 +169,6 @@ body {
     color: white;
 }
 
-.bottom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
 .app-menu-container {
     border-radius: 14px;
     background: #fff;
@@ -289,7 +281,7 @@ body {
     background: var(--mintgreen);
     border-radius: 80px;
     position: relative;
-    font-width: 700;
+    font-weight: 700;
     font-size: calc(100% + 0.8vmin);
     height: 6vh;
     margin: 100% auto 0px;
@@ -680,10 +672,6 @@ body {
 
     .welcome-container {
         font-size: 3vh;
-    }
-
-    .bottom-container {
-        font-size: 2.5vh;
     }
 
     .scan-button {
