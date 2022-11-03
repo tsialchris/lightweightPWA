@@ -54,8 +54,8 @@ function MainController() {
       document.querySelector(".terms-content-container").classList.add("hiddenElement");
       document.querySelector(".welcome-container").innerHTML = `<span>${welcomeText}</span>`;
       document.querySelector(".content-container").innerHTML = `<div class="icon-div"></div>`;
-      document.querySelector(".more-options-link").innerHTML = `<span> ${environment.appBuildVersion} </span>`;
     }
+    document.querySelector("#app_version_number").innerHTML = `${environment.appBuildVersion}`;
   }
 
   this.submitTerms = function (status) {
@@ -68,15 +68,19 @@ function MainController() {
     goToPage("scan.html")
   }
 
+  this.goHome = function () {
+    goToPage("index.html")
+  }
+
   this.closeModal = function () {
     document.querySelector("#settings-modal").setAttribute('style', 'display:none !important');
   }
   this.showModal = function (key) {
     this.toggleMenu();
-    if (key === "about") {
-      window.open("https://Pharmaledger.eu", "_blank").focus();
-      return;
-    }
+    /*    if (key === "about") {
+          window.open("https://Pharmaledger.eu").focus();
+          return;
+        }*/
 
     let modal = document.querySelector("#settings-modal");
     modal.setAttribute('style', 'display:flex !important');
@@ -94,6 +98,10 @@ function MainController() {
 }
 
 const mainController = new MainController();
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let epiDomain = urlParams.get("setdomain") || environment.epiDomain;
+let lsEpiDomain = localStorage.setItem("_epiDomain_", epiDomain);
 mainController.checkOnboarding();
 
 window.mainController = mainController;
