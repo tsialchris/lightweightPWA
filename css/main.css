@@ -918,6 +918,10 @@ body {
         max-height: 60%;
     }
 
+    #settings-modal.modal-container .modal-body {
+        max-height: 100%;
+    }
+
     .modal-header {
         min-height: 11%;
         padding-bottom: 3%;
@@ -958,6 +962,7 @@ body {
 
     #settings-modal .modal-content {
         top: 0px;
+        max-height: 100%;
     }
 
     .modal-content .text-section {
