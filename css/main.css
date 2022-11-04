@@ -949,7 +949,7 @@ body {
     .modal-content {
         padding: 7%;
         line-height: 3vh;
-        max-height: 65%;
+        max-height: 45%;
         min-height: 42%;
         font-size: 3vh;
         border-radius: 30px;
