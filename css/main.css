@@ -913,9 +913,9 @@ body {
 
     .modal-container .modal-body {
         border-radius: 25px;
-        margin: 50% 3% 0px;
+        margin: 0px 3%;
         position: relative;
-        height: 75%;
+        max-height: 60%;
     }
 
     .modal-header {
