@@ -429,6 +429,7 @@ body {
     overflow-y: auto;
     position: absolute;
     height: 88%;
+    width: 100%;
 }
 
 #leaflet-content table {
