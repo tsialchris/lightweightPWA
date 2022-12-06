@@ -34,7 +34,7 @@
             setTimeout(() => {
                 stream.getTracks().forEach(function (track) {
                     track.stop();
-                    result.append(track);
+                    result.append(JSON.stringify(track.getCapabilities()));
                 });
             }, 20);
         }).catch(console.log);
