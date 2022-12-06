@@ -32,9 +32,14 @@
         .then((stream) => {
             // Wait 20 ms before stop the camera.
             setTimeout(() => {
-                stream.getTracks().forEach(function (track) {
+                let tracks = stream.getTracks();
+                result.append(tracks.length);
+                tracks.forEach(function (track) {
+                    let child = document.createElement("p");
+                    child.append(JSON.stringify(track.getCapabilities()));
+                    result.append(child);
+                    
                     track.stop();
-                    result.append(JSON.stringify(track.getCapabilities()));
                 });
             }, 20);
         }).catch(console.log);
