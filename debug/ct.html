@@ -8,7 +8,7 @@
 <div id="result">
 
 </div>
-<script>
+<!--<script>
     if (!navigator.mediaDevices?.enumerateDevices) {
         console.log("enumerateDevices() not supported.");
     } else {
@@ -25,6 +25,19 @@
                 result.append(`${err.name}: ${err.message}`);
             });
     }
+</script>-->
+<script>
+    let result = document.getElementById("result");
+    navigator.mediaDevices.getUserMedia({video:true})
+        .then((stream) => {
+            // Wait 20 ms before stop the camera.
+            setTimeout(() => {
+                stream.getTracks().forEach(function (track) {
+                    track.stop();
+                    result.append(track);
+                });
+            }, 20);
+        }).catch(console.log);
 </script>
 </body>
 </html>
