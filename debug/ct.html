@@ -28,18 +28,31 @@
 </script>-->
 <script>
     let result = document.getElementById("result");
+
+    let cameras = [];
+    navigator.mediaDevices.enumerateDevices()
+        .then(function (devices) {
+            devices.forEach(function (device) {
+                if (device.kind === 'videoinput' && device.deviceId) {
+                    cameras.push(device);
+                }
+            });
+            result.append(JSON.stringify(cameras));
+        })
+        .catch(console.log);
+
+
+
+
     navigator.mediaDevices.getUserMedia({video:true})
         .then((stream) => {
             // Wait 20 ms before stop the camera.
             setTimeout(() => {
-                let tracks = stream.getTracks();
-                result.append(tracks.length);
-                tracks.forEach(function (track) {
+                stream.getTracks().forEach(function (track) {
+                    track.stop();
                     let child = document.createElement("p");
                     child.append(JSON.stringify(track.getCapabilities()));
                     result.append(child);
-                    
-                    track.stop();
                 });
             }, 20);
         }).catch(console.log);
