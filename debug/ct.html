@@ -26,7 +26,8 @@
     let verifyConstraints = function(capabilities){
       let result = true;
       if(facingMode){
-        if(capabilities.facingMode && Array.isArray(capabilities.facingMode) && capabilities.facingMode.length>0 && !(capabilities.facingMode.indexOf(facingMode) !== -1)){
+        if(capabilities.facingMode && Array.isArray(capabilities.facingMode) && capabilities.facingMode.length>0 && capabilities.facingMode.indexOf(facingMode) === -1){
+          log(capabilities, facingMode, capabilities.facingMode);
           result = false;
         }
       }
@@ -53,7 +54,6 @@
           track.stop();
 
           //log(device, cameraCapabilities);
-
           if(verifyConstraints(cameraCapabilities)){
             cameras.push({id:device.deviceId, label:device.label, cameraCapabilities});
           }
