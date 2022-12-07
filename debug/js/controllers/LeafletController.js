@@ -1,35 +1,44 @@
 import XMLDisplayService from "../services/XMLDisplayService/XMLDisplayService.js"
-import {goToPage} from "../utils/utils.js";
+import {goToErrorPage, goToPage, isExpired, getExpiryTime} from "../utils/utils.js";
+import constants from "../constants.js"
 import LeafletService from "../services/LeafletService.js";
+import environment from "../../environment.js";
 
 function LeafletController() {
 
-  this.leafletLang = window.currentLanguage || "en";
-  let leafletService = new LeafletService();
+  this.getLeaflet = function (lang) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let gtin = urlParams.get("gtin");
+    let batch = urlParams.get("batch");
+    let expiry = urlParams.get("expiry");
+    let lsEpiDomain = localStorage.getItem("_epiDomain_");
+    lsEpiDomain = lsEpiDomain || environment.epiDomain;
+    let leafletService = new LeafletService(gtin, batch, expiry, lang, lsEpiDomain);
 
-  this.getLeaflet = function () {
     document.querySelector(".loader").setAttribute('style', 'display:block');
 
-    leafletService.setLeafletLanguage(this.leafletLang);
     leafletService.getLeafletResult().then((result) => {
       if (result.resultStatus === "xml_found") {
         try {
           showXML(result);
-          if (result.dateStatus === "expired_date") {
+          if (isExpired(expiry)) {
             showExpired();
           }
-          if (result.dateStatus === "incorrect_date") {
+
+          /* removed for  MVP1
+          if (!getExpiryTime(expiry)) {
             showIncorrectDate();
-          }
+          }*/
         } catch (e) {
-          goToPage("/error.html")
+          goToErrorPage(e.errorCode)
         }
       }
       if (result.resultStatus === "no_xml_for_lang") {
         showAvailableLanguages(result)
       }
     }).catch(err => {
-      goToPage("/error.html")
+      goToErrorPage(err.errorCode)
     })
   };
 
@@ -49,7 +58,7 @@ function LeafletController() {
   this.getLangLeaflet = function () {
     let lang = document.querySelector("input[name='languages']:checked").value
     this.leafletLang = lang;
-    this.getLeaflet();
+    this.getLeaflet(lang);
     document.querySelector("#leaflet-lang-select").setAttribute('style', 'display:none !important');
   }
 
@@ -81,9 +90,9 @@ function LeafletController() {
   let showXML = function (result) {
     document.querySelector(".product-name").innerText = result.productData.name;
     document.querySelector(".product-description").innerText = result.productData.description;
-    document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");
+    /* document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");*/
     let xmlService = new XMLDisplayService("#leaflet-content");
-    let resultDocument = xmlService.getHTMLFromXML(result.pathBase, result.xmlContent, window.location.origin);
+    let resultDocument = xmlService.getHTMLFromXML(result.xmlContent);
     let leafletImages = resultDocument.querySelectorAll("img");
     for (let image of leafletImages) {
       image.setAttribute("src", result.leafletImages[image.getAttribute("src")]);
@@ -108,7 +117,7 @@ function LeafletController() {
     document.querySelector(".loader").setAttribute('style', 'display:none');
     if (result.availableLanguages.length >= 1) {
       document.querySelector(".proceed-button.no-leaflet").setAttribute('style', 'display:none');
-     // document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
+    //  document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
       let languagesContainer = document.querySelector(".languages-container");
       result.availableLanguages.forEach((lang, index) => {
         let langRadio = `<div class="flag-label-wrapper"><img src="./images/flags/${lang.value}.png" class="language-flag"/><span for="${lang.value}"> ${lang.label} - (${lang.nativeName})</span> </div><input type="radio" name="languages" ${index === 0 ? "checked" : ""} value="${lang.value}" id="${lang.value}">`;
@@ -118,14 +127,15 @@ function LeafletController() {
         languagesContainer.appendChild(radioFragment);
       })
     } else {
-      document.querySelector(".proceed-button.has-leaflets").setAttribute('style', 'display:none');
-      document.querySelector(".text-section.has-leaflets").setAttribute('style', 'display:none');
+      goToErrorPage(constants.errorCodes.no_uploaded_epi);
+      /*      document.querySelector(".proceed-button.has-leaflets").setAttribute('style', 'display:none');
+            document.querySelector(".text-section.has-leaflets").setAttribute('style', 'display:none');*/
     }
   }
 }
 
 const leafletController = new LeafletController();
-leafletController.getLeaflet(leafletController.leafletLang);
+leafletController.getLeaflet(window.currentLanguage || "en");
 window.leafletController = leafletController;
 
 

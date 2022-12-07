@@ -1,17 +1,22 @@
 import RandomRoundRobinService from "./RandomRoundRobinService.js";
 import environment from "../../environment.js";
+import constants from "../constants.js"
+import CustomError from "../utils/CustomError.js";
+import {goToErrorPage, validateGTIN} from "../utils/utils.js";
 
 class LeafletService {
-  constructor() {
+  constructor(gtin, batch, expiry, leafletLang, epiDomain) {
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    this.gtin = urlParams.get("gtin");
-    this.batch = urlParams.get("batch");
-    this.expiry = urlParams.get("expiry");
-    this.leafletLang = window.currentLanguage || "en";
-    let lsEpiDomain = localStorage.getItem("_epiDomain_");
-    this.epiDomain = lsEpiDomain || environment.epiDomain;
+    this.gtin = gtin;
+    this.batch = batch;
+    this.expiry = expiry;
+    this.leafletLang = leafletLang;
+    this.epiDomain = epiDomain;
+
+    let gtinValidationResult = validateGTIN(this.gtin);
+    if (!gtinValidationResult.isValid) {
+      goToErrorPage(gtinValidationResult.errorCode);
+    }
   }
 
   setLeafletLanguage(lang) {
@@ -59,39 +64,41 @@ class LeafletService {
         });
         fetch(urlRequest, {signal: controller.signal})
           .then(response => {
-            response.json().then(result => {
-              console.log(result);
-              clearTimeout(timeoutId);
-              resolve(result.domain);
-            }).catch(e => {
-              resolve(null);
-            })
+            if (response.status === 200) {
+              response.json().then(result => {
+                console.log(result);
+                clearTimeout(timeoutId);
+                resolve(result.domain);
+              })
+            }
+            if (response.status === 500) {
+              reject();
+            }
           }).catch(e => {
-          resolve(null)
+          //possible network fail so try an other endpoint
+          resolve(null);
         })
       })
     }
 
     return new Promise(async (resolve, reject) => {
-      try {
-        let gtinOwner = null;
+      let gtinOwner = null;
+      setTimeout(() => {
+        if (!gtinOwner) {
+          reject(new CustomError(constants.errorCodes.gto_timeout));
+          return;
+        }
+      }, totalWaitTime)
 
-        setTimeout(() => {
-          if (!gtinOwner) {
-            reject(new Error("Could not get a valid result"));
-            return;
-          }
-        }, totalWaitTime)
-
-        do {
+      do {
+        try {
           gtinOwner = await fetchGTO();
-        } while (!gtinOwner)
+        } catch (e) {
+          reject(new CustomError(constants.errorCodes.gtin_not_created))
+        }
+      } while (!gtinOwner)
+      resolve(gtinOwner);
 
-        resolve(gtinOwner);
-
-      } catch (e) {
-        reject(e)
-      }
     })
   }
 
@@ -114,21 +121,22 @@ class LeafletService {
       const timeoutId = setTimeout(() => controller.abort(), timePerCall);
       fetch(leafletRequest, {signal: controller.signal})
         .then(response => {
-          response.json().then(result => {
-            if (result.resultStatus === "xml_found" || (result.resultStatus === "no_xml_for_lang" && result.availableLanguages.length >= 1)) {
+          if (response.status === 200) {
+            response.json().then(result => {
               resolve(result);
-            } else {
+            }).catch((err) => {
+              //should not happen but if happens try another endpoint from bdns list
               resolve(null)
-            }
-          }).catch((err) => {
+            });
+          } else {
+            //try another endpoint from bdns list
             resolve(null)
-          });
+          }
         })
         .catch((error) => {
           resolve(null)
         });
     })
-
   }
 
   async getLeafletResult(timePerCall = 10000, totalWaitTime = 30000, gto_TimePerCall = 2000, gto_TotalWaitTime = 10000) {
@@ -136,7 +144,7 @@ class LeafletService {
       let leafletResult = null;
       setTimeout(() => {
         if (!leafletResult) {
-          reject(new Error("Could not get a valid result"));
+          reject({errorCode: constants.errorCodes.leaflet_timeout});
           return
         }
       }, totalWaitTime)
@@ -148,14 +156,21 @@ class LeafletService {
             console.log(result);
             leafletResult = result;
             resolve(leafletResult);
-
           } catch (e) {
             console.log("error on request leafletRequest ", e)
-            reject(e);
+            reject({errorCode: constants.errorCodes.leaflet_timeout});
+            return;
           }
         } else {
           let bdnsResult = await this.getBDNS();
-          let ownerDomain = await this.detectGTINOwner(this.gtin, bdnsResult, gto_TimePerCall, gto_TotalWaitTime);
+          let ownerDomain;
+          try {
+            ownerDomain = await this.detectGTINOwner(this.gtin, bdnsResult, gto_TimePerCall, gto_TotalWaitTime);
+          } catch (e) {
+            let errCode = e.code ? e.code : constants.errorCodes.gtin_not_created;
+            reject({errorCode: e.code});
+            return;
+          }
           let anchoringServices = this.getAnchoringServices(bdnsResult, ownerDomain);
           let roundRobinService = new RandomRoundRobinService(anchoringServices);
 
@@ -175,7 +190,7 @@ class LeafletService {
           return;
         }
       } catch (e) {
-        reject(e)
+        reject({errorCode: constants.errorCodes.leaflet_timeout});
       }
     })
   }

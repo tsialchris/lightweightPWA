@@ -1,10 +1,39 @@
 import {goToPage} from "../utils/utils.js"
+import {getTranslation} from "../translations.js";
 
 function ErrorController() {
-  this.scanAgainHandler = function(){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let errorCode = urlParams.get("errorCode") || "010";
+  switch (errorCode) {
+    case "001":
+    case "002":
+    case "003":
+    case "004":
+    case "005":
+    case "006":
+    case "007":
+    case "008":
+    case "009":
+    case "010":
+      document.querySelector(".modal-title.header-title").innerHTML = getTranslation("product_not_found_title");
+      document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${getTranslation("product_not_found")} </b></p> <p>${getTranslation("err_code")} ${errorCode}</p>`;
+      break;
+    case "011":
+      document.querySelector(".modal-title.header-title").innerHTML = getTranslation("product_not_loaded_title");
+      document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${getTranslation("product_not_loaded")} </b></p>`;
+      break;
+  }
+  if (document.querySelector(".modal-title.header-title").innerText.length > 22) {
+    document.querySelector(".modal-title.header-title").style.fontSize = "3vh";
+    document.querySelector(".modal-icon").style.height = "7vh";
+  }
+
+  this.scanAgainHandler = function () {
     goToPage("/scan.html")
   }
 }
+
 
 const errorController = new ErrorController();
 

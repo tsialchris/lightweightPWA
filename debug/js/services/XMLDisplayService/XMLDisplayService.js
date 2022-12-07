@@ -1,4 +1,6 @@
 import {defualtXslContent, acordisXslContent} from "./leafletXSL.js"
+import CustomError from "../../utils/CustomError.js";
+import constants from "../../constants.js";
 
 class XMLDisplayService {
   constructor(containerIdSelector) {
@@ -16,7 +18,7 @@ class XMLDisplayService {
     }
   }
 
-  getHTMLFromXML = function (pathBase, xmlContent, docUrl) {
+  getHTMLFromXML = function (xmlContent) {
     let xsltProcessor = new XSLTProcessor();
     xsltProcessor.setParameter(null, "resources_path", "");
     let parser = new DOMParser();
@@ -24,13 +26,13 @@ class XMLDisplayService {
     let xmlDoc = parser.parseFromString(xmlContent, "text/xml");
     if (!xmlDoc || !xmlDoc.children) {
       console.log("Error on parsing xml file. Please check xml file format and content");
-      throw new Error("Error on parsing xml file");
+      throw new CustomError(constants.errorCodes.xmlParseError, "Error on parsing xml file");
     }
     let xslContent;
     switch (xmlDoc.children[0].tagName) {
       case "root":
         let rootInnerHtml = xmlDoc.children[0].innerHTML;
-        let newXmlDoc = document.implementation.createDocument(docUrl, "document");
+        let newXmlDoc = document.implementation.createDocument(null, "document");
         newXmlDoc.children[0].innerHTML = rootInnerHtml;
         xmlDoc = newXmlDoc;
         xslContent = acordisXslContent;
@@ -46,13 +48,13 @@ class XMLDisplayService {
 
     if (!xslContent) {
       console.log("Error on parsing xsl file. Couldn't find a valid xslContent");
-      throw new Error("Error on parsing xsl file. Please check if xml file respects accepted document structure");
+      throw new CustomError(constants.errorCodes.xslParseError, "Error on parsing xsl file. Please check if xml file respects accepted document structure");
     }
 
     let xslDoc = parser.parseFromString(xslContent, "text/xml");
 
     xsltProcessor.importStylesheet(xslDoc);
-    const ownerDocument = document.implementation.createDocument(null, "epi");
+    const ownerDocument = document.implementation.createDocument("", "epi", null);
     let resultDocument = xsltProcessor.transformToFragment(xmlDoc, ownerDocument);
     return resultDocument;
   }

@@ -32,8 +32,57 @@ export default function Scanner(domElement, testMode) {
 		internalSetup();
 
 		if (!options.useBasicSetup) {
-			await connectCamera();
+			await connectCamera(options.deviceId);
 		}
+	}
+
+	this.getCameras = async (facingMode) => {
+		let verifyConstraints = function(capabilities){
+			let result = true;
+			if(facingMode){
+				if(capabilities.facingMode &&
+					Array.isArray(capabilities.facingMode) &&
+					capabilities.facingMode.length>0 &&
+					capabilities.facingMode.indexOf(facingMode) === -1){
+					result = false;
+				}
+			}
+			return result;
+		}
+
+		//force user permission request
+		//this fixes an issue on ios: if enumerateDevices is called before user grants permission
+		//the number of returned devices is short (some devices are missing)
+		let stream = await navigator.mediaDevices.getUserMedia({
+			video: true
+		});
+		let track = stream.getVideoTracks()[0];
+		//we need to ensure that no camera remains active
+		track.stop();
+
+		//if we get to this point... we have user permissions, and we can go on detecting the cameras
+		let cameras = [];
+		let devices = await navigator.mediaDevices.enumerateDevices();
+		for (let i = 0; i < devices.length; i++) {
+			let device = devices[i];
+			if (device.kind === 'videoinput') {
+				let stream = await navigator.mediaDevices.getUserMedia({
+					video: {
+						deviceId: device.deviceId
+					}
+				});
+				let track = stream.getVideoTracks()[0];
+				let cameraCapabilities = track.getCapabilities();
+
+				//we need to ensure that no camera remains active
+				track.stop();
+
+				if(verifyConstraints(cameraCapabilities)){
+					cameras.push({id:device.deviceId, label:device.label});
+				}
+			}
+		}
+		return cameras;
 	}
 
 	this.shutDown = async () =>{
@@ -279,7 +328,7 @@ export default function Scanner(domElement, testMode) {
 		return promise;
 	}
 
-	const connectCamera = async () => {
+	const connectCamera = async (deviceId) => {
 		return new Promise(async (resolve, reject) => {
 			let stream;
 			let constraints = {
@@ -288,14 +337,19 @@ export default function Scanner(domElement, testMode) {
 				advanced: [{ focusMode: "continuous" }]
 			};
 
+			if(deviceId){
+				//if we are called with a deviceId we ignore any video constraints set with facing mode
+				constraints.video = {deviceId};
+			}
+
 			try {
 				stream = await window.navigator.mediaDevices.getUserMedia(constraints);
 				const track = stream.getVideoTracks()[0];
 				//const capabilities = track.getCapabilities();
 				//console.log(capabilities);
 
-				//constraints.video.height = 1080;
-				//constraints.video.width = 1920;
+				constraints.video.height = 1080;
+				constraints.video.width = 1920;
 
 				await track.applyConstraints(constraints.video);
 			} catch (error) {

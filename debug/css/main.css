@@ -44,7 +44,8 @@
 
 body {
     padding: 0;
-    max-width: 414px;
+    width: 21.6%;
+    min-width: 414px;
     margin-right: auto;
     margin-left: auto;
     background-image: url("./../images/background.jpg");
@@ -53,6 +54,10 @@ body {
     background-size: cover;
     display: flex;
     font-family: "DM Sans";
+}
+
+b {
+    font-family: "DM Sans bold";
 }
 
 .loader {
@@ -80,7 +85,6 @@ body {
 
 .page-header {
     padding: 0px 35px;
-    font-size: 2.5vh;
 }
 
 .page-container {
@@ -89,8 +93,9 @@ body {
     padding: 0px 35px;
     border-radius: 30px;
     align-self: center;
-    max-height: 960px;
-    width: 414px;
+    max-height: 94%;
+    min-height: 960px;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -112,26 +117,27 @@ body {
     text-align: center;
     line-height: 1.5em;
     font-size: calc(100% + 0.8vmin);
-    max-height: 86%;
+    padding-bottom: 14px;
 }
 
 .terms-content-container {
-    height: 100%;
+    flex-grow: 1;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .extra-text {
-    padding: 0 24px 15px;
+    padding: 24px 24px 15px;
 }
 
 .terms-container {
-    max-height: 60vh;
     height: 100%;
     overflow: auto;
     background: #F0EEEC;
     border-radius: 20px;
-    margin-top: 30px;
     color: #516266;
-    padding: 24px 0;
     text-align: justify;
     position: relative;
     display: flex;
@@ -145,6 +151,10 @@ body {
 .terms-container .terms-buttons-container {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
 }
 
 .menu-icon {
@@ -319,7 +329,7 @@ body {
     box-shadow: -1px 8px 24px rgba(0, 0, 0, 0.16);
     border-radius: 5vh;
     font-family: 'DM Sans bold';
-    font-size: 2vh;
+    font-size: 1.5vh;
     text-align: center;
     position: absolute;
     bottom: 4vh;
@@ -355,7 +365,6 @@ body {
 .scan-page #scanner-placeholder {
     overflow: hidden;
     position: relative !important;
-    max-width: 414px;
     height: 90%;
 }
 
@@ -366,10 +375,6 @@ body {
     padding-right: 6%;
 }
 
-#scan-error {
-    top: calc((100% - 960px) / 2);
-}
-
 .page-container.error-page {
     padding: 0px;
     background: #fff;
@@ -377,7 +382,6 @@ body {
 
 .page-container.error-page .page-header {
     background: var(--green-200);
-    border-radius: 30px 30px 0px 0px;
 }
 
 .leaflet-page .page-header, .error-page .page-header {
@@ -394,12 +398,13 @@ body {
     background: #fff;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    font-size: 2vh;
 }
 
 #leaflet-content,
 #leaflet-content .select-lang-text,
 #leaflet-content .languages-list {
-    font-size: calc(100% + 0.8vmin);
+    font-size: calc(100% + 0.3vmin);
 }
 
 #leaflet-content .select-lang-text {
@@ -414,16 +419,17 @@ body {
 }
 
 #leaflet-content h5 {
-    font-family: 'DM Sans';
-    font-size: 110%;
+    font-family: 'DM Sans bold';
+    font-size: 100%;
     margin-right: 1rem;
 }
 
-.leaflet-content-wrapper{
+.leaflet-content-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
 }
+
 #leaflet-content {
     text-align: start;
     overflow-y: auto;
@@ -447,7 +453,7 @@ body {
 }
 
 .error-page .page-content {
-    padding: 0px 24px;
+    padding: 0px 1.5vh;
 }
 
 .leaflet-accordion-item {
@@ -485,7 +491,7 @@ body {
     background-position: top;
     background-size: contain;
     background-repeat: no-repeat;
-    top: 7px;
+    top: 2px;
 }
 
 .leaflet-accordion-item.active:before {
@@ -526,8 +532,9 @@ body {
     justify-content: center;
     border-radius: 30px 30px 0px 0px;
     height: fit-content;
-    padding: 1.5vh 1.5vh 0vh;
-    min-height: 14%;
+    padding: 1.5vh;
+    min-height: 12%;
+    height: fit-content;
 }
 
 .modal-header.centred-header .icon-title-container {
@@ -543,14 +550,21 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 12px;
+    width: -webkit-fill-available;
+    position: relative;
 }
 
 .leaflet-page .product-name,
-.modal-header .modal-title,
-.error-page .header-title {
-    font-size: 2.5vh;
+.modal-header .header-title,
+.modal-header .modal-title {
+    font-size: 3.5vh;
     font-family: 'DM Sans bold';
+}
+
+.leaflet-page .product-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-header.centred-header .modal-title {
@@ -559,6 +573,7 @@ body {
 
 .modal-header.left-aligned-header .modal-title {
     text-align: left;
+    margin-right: 12px;
 }
 
 #settings-modal .modal-header {
@@ -577,14 +592,14 @@ body {
     position: absolute;
     display: none !important;
     background: rgba(0, 0, 0, 0.7);
-    height: 100%;
-    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-self: center;
     z-index: 100;
-    max-width: 414px;
-    max-height: 960px;
+    width: 21.6%;
+    min-width: 414px;
+    height: 94%;
+    min-height: 960px;
     border-radius: 30px;
 }
 
@@ -595,8 +610,9 @@ body {
 }
 
 .modal-header.left-aligned-header .modal-icon {
-    height: 2.5vh;
-    width: 15%;
+    height: 75%;
+    aspect-ratio: 1;
+    background-position: center;
 }
 
 .modal-header.centred-header .modal-icon {
@@ -842,12 +858,17 @@ body {
         transform: translate(-30%, 10%);
     }
 
+    .modal-header.left-aligned-header {
+        border-radius: 0;
+    }
+
     .page-container.error-page .page-header .header-title:after {
         margin-left: 1.5rem;
     }
 
 
     .leaflet-page .product-name,
+    .modal-header .modal-title,
     .error-page .header-title {
         font-size: 4vh;
         font-family: 'DM Sans bold';
@@ -863,18 +884,21 @@ body {
     }
 
 
-    #leaflet-content{
+    #leaflet-content {
         width: 100vw;
     }
 
-    #leaflet-content,
-    #leaflet-content .select-lang-text,
-    #leaflet-content .languages-list {
-        font-size: calc(100% + 2.5vmin);
-    }
-
+    /*    #leaflet-content,
+        #leaflet-content .select-lang-text,
+        #leaflet-content .languages-list {
+            font-size: calc(100% + 2.5vmin);
+        }*/
     #leaflet-content h5 {
         margin-right: 4rem;
+    }
+
+    .leaflet-accordion-item:before {
+        top: 7px;
     }
 
     .leaflet-accordion-item table,
@@ -891,6 +915,8 @@ body {
         top: 0px;
         max-width: 100%;
         max-height: 100%;
+        width: 100%;
+        height: 100%;
         position: fixed;
     }
 
@@ -915,11 +941,6 @@ body {
 
     .info-modal .modal-header, .info-modal .modal-content {
         border-radius: unset;
-    }
-
-    .modal-header .modal-title {
-        font-size: 3vh;
-        font-family: 'DM Sans bold';
     }
 
     .modal-header .modal-subtitle {
@@ -1008,8 +1029,8 @@ body {
 @media only screen and (orientation: landscape) {
     body {
         min-height: 1000px;
-        width: 100%;
-        max-width: 414px;
+        min-width: 414px;
+        width: 21.6%;
         margin: auto;
     }
 }
