@@ -34,6 +34,12 @@
       return result;
     }
 
+    //force user permission request
+    let stream = await navigator.mediaDevices.getUserMedia({
+      video: true
+    });
+    let track = stream.getVideoTracks()[0];
+    track.stop();
 
     let cameras = [];
     let devices = await navigator.mediaDevices.enumerateDevices();
@@ -75,7 +81,7 @@
 
     let environmentCameras = await getCameras("environment");
     log("environmentCameras ", `[${environmentCameras.length}] `, environmentCameras);
-    
+
     let allCameras = await getCameras();
     log("all ", `[${allCameras.length}] `, allCameras);
   }
