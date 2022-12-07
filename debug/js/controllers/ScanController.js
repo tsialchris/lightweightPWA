@@ -116,7 +116,7 @@ function ScanController() {
   }
 
   this.switchCamera = function () {
-    this.scanService.stop();
+    //this.scanService.stop();
     clearInterval(this.scanInterval);
     scanController.init(true);
   }
