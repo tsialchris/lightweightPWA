@@ -69,10 +69,13 @@
 
 
   async function test(){
-    let environmentCameras = await getCameras("environment");
-    log("environmentCameras ", `[${environmentCameras.length}] `, environmentCameras);
+
     let userCameras = await getCameras("user");
     log("userCameras ", `[${userCameras.length}] `, userCameras);
+
+    let environmentCameras = await getCameras("environment");
+    log("environmentCameras ", `[${environmentCameras.length}] `, environmentCameras);
+    
     let allCameras = await getCameras();
     log("all ", `[${allCameras.length}] `, allCameras);
   }
