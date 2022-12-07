@@ -136,7 +136,7 @@ class ScanService {
 
       await this.scanner.setup({
         useBasicSetup: !!this.usingNativeLayer,
-        deviceId: typeof this.currentCameraIndex !== "undefined" ? this.availableCameras[this.currentCameraIndex] : this.currentCameraIndex
+        deviceId: typeof this.currentCameraIndex !== "undefined" ? this.availableCameras[this.currentCameraIndex].id : this.currentCameraIndex
       });
 
       this.status = SCANNER_STATUS.ACTIVE;
