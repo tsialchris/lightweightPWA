@@ -37,6 +37,7 @@
 
     let cameras = [];
     let devices = await navigator.mediaDevices.enumerateDevices();
+    log("Number of devices from enumerate ", devices.length);
     for (let i = 0; i < devices.length; i++) {
       let device = devices[i];
       if (device.kind === 'videoinput') {
