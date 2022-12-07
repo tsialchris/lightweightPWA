@@ -10,8 +10,19 @@
 <script>
   let output = document.getElementById("console");
 
-  async function getCameras(facingMode) {
+  function log(...args){
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createElement("br"));
+    for(let arg of args){
+      if(typeof arg === "object"){
+        arg = JSON.stringify(arg);
+      }
+      output.append(arg);
+    }
+  }
 
+  let firstRun = true;
+  async function getCameras(facingMode) {
     let verifyConstraints = function(capabilities){
       let result = true;
       if(facingMode){
@@ -24,7 +35,7 @@
 
 
     let cameras = [];
-    let devices = await navigator.mediaDevices.enumerateDevices()
+    let devices = await navigator.mediaDevices.enumerateDevices();
     for (let i = 0; i < devices.length; i++) {
       let device = devices[i];
       if (device.kind === 'videoinput') {
@@ -37,10 +48,14 @@
           });
           let track = stream.getVideoTracks()[0];
           let cameraCapabilities = track.getCapabilities();
+
+          //we need to ensure that no camera remains active
           track.stop();
-          //console.log(device, cameraCapabilities);
+
+          //log(device, cameraCapabilities);
+
           if(verifyConstraints(cameraCapabilities)){
-            cameras.push({id:device.deviceId, label:device.label});
+            cameras.push({id:device.deviceId, label:device.label, cameraCapabilities});
           }
         } catch (err) {
           alert(err);
@@ -50,16 +65,7 @@
     return cameras;
   }
 
-  function log(...args){
-    output.appendChild(document.createElement("br"));
-    output.appendChild(document.createElement("br"));
-    for(let arg of args){
-      if(typeof arg === "object"){
-        arg = JSON.stringify(arg);
-      }
-      output.append(arg);
-    }
-  }
+
 
   async function test(){
     let environmentCameras = await getCameras("environment");
