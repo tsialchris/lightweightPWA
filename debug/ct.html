@@ -5,57 +5,72 @@
     <title>Title</title>
 </head>
 <body>
-<div id="result">
-
-</div>
-<!--<script>
-    if (!navigator.mediaDevices?.enumerateDevices) {
-        console.log("enumerateDevices() not supported.");
-    } else {
-        let result = document.getElementById("result");
-        // List cameras and microphones.
-        navigator.mediaDevices.enumerateDevices()
-            .then((devices) => {
-                result.append(JSON.stringify(devices));
-               /* devices.forEach((device) => {
-                    result.append(`${device.kind}: ${device.label} id = ${device.deviceId}`);
-                });*/
-            })
-            .catch((err) => {
-                result.append(`${err.name}: ${err.message}`);
-            });
-    }
-</script>-->
+<div id="console"></div>
+</body>
 <script>
-    let result = document.getElementById("result");
+  let output = document.getElementById("console");
+
+  async function getCameras(facingMode) {
+
+    let verifyConstraints = function(capabilities){
+      let result = true;
+      if(facingMode){
+        if(capabilities.facingMode && Array.isArray(capabilities.facingMode) && capabilities.facingMode.length>0 && capabilities.facingMode.indexOf(facingMode) === -1){
+          result = false;
+        }
+      }
+      return result;
+    }
+
 
     let cameras = [];
-    navigator.mediaDevices.enumerateDevices()
-        .then(function (devices) {
-            devices.forEach(function (device) {
-                if (device.kind === 'videoinput' && device.deviceId) {
-                    cameras.push(device);
-                }
-            });
-            result.append(JSON.stringify(cameras));
-        })
-        .catch(console.log);
+    let devices = await navigator.mediaDevices.enumerateDevices()
+    for (let i = 0; i < devices.length; i++) {
+      let device = devices[i];
+      if (device.kind === 'videoinput') {
 
+        try {
+          let stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              deviceId: device.id
+            }
+          });
+          let track = stream.getVideoTracks()[0];
+          let cameraCapabilities = track.getCapabilities();
+          track.stop();
+          //console.log(device, cameraCapabilities);
+          if(verifyConstraints(cameraCapabilities)){
+            cameras.push({id:device.deviceId, label:device.label});
+          }
+        } catch (err) {
+          alert(err);
+        }
+      }
+    }
+    return cameras;
+  }
 
+  function log(...args){
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createElement("br"));
+    for(let arg of args){
+      if(typeof arg === "object"){
+        arg = JSON.stringify(arg);
+      }
+      output.append(arg);
+    }
+  }
 
+  async function test(){
+    let environmentCameras = await getCameras("environment");
+    log("environmentCameras ", environmentCameras);
+    let userCameras = await getCameras("user");
+    log("userCameras ", userCameras);
+    let allCameras = await getCameras();
+    log("all ", allCameras);
+  }
 
-    navigator.mediaDevices.getUserMedia({video:true})
-        .then((stream) => {
-            // Wait 20 ms before stop the camera.
-            setTimeout(() => {
-                stream.getTracks().forEach(function (track) {
-                    track.stop();
-                    let child = document.createElement("p");
-                    child.append(JSON.stringify(track.getCapabilities()));
-                    result.append(child);
-                });
-            }, 20);
-        }).catch(console.log);
+  test();
+
 </script>
-</body>
 </html>
