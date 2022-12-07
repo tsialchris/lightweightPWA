@@ -21,7 +21,6 @@
     }
   }
 
-  let firstRun = true;
   async function getCameras(facingMode) {
     let verifyConstraints = function(capabilities){
       let result = true;
@@ -34,11 +33,17 @@
     }
 
     //force user permission request
-    let stream = await navigator.mediaDevices.getUserMedia({
-      video: true
-    });
-    let track = stream.getVideoTracks()[0];
-    track.stop();
+    //this fixes an issue on ios: if enumerateDevices is called before user grants permission
+    //the number of returned devices is short (some devices are missing)
+    try{
+      let stream = await navigator.mediaDevices.getUserMedia({
+        video: true
+      });
+      let track = stream.getVideoTracks()[0];
+      track.stop();
+    }catch(err){
+      alert(err);
+    }
 
     let cameras = [];
     let devices = await navigator.mediaDevices.enumerateDevices();
@@ -61,7 +66,7 @@
 
           //log(device, cameraCapabilities);
           if(verifyConstraints(cameraCapabilities)){
-            cameras.push({id:device.deviceId, label:device.label, cameraCapabilities});
+            cameras.push({id:device.deviceId, label:device.label});
           }
         } catch (err) {
           alert(err);
@@ -71,18 +76,16 @@
     return cameras;
   }
 
-
-
   async function test(){
-
-    let userCameras = await getCameras("user");
-    log("userCameras ", `[${userCameras.length}] `, userCameras);
 
     let environmentCameras = await getCameras("environment");
     log("environmentCameras ", `[${environmentCameras.length}] `, environmentCameras);
 
+/*    let userCameras = await getCameras("user");
+    log("userCameras ", `[${userCameras.length}] `, userCameras);
+
     let allCameras = await getCameras();
-    log("all ", `[${allCameras.length}] `, allCameras);
+    log("all ", `[${allCameras.length}] `, allCameras);*/
   }
 
   test();
