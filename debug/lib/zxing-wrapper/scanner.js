@@ -82,7 +82,6 @@ export default function Scanner(domElement, testMode) {
 				}
 			}
 		}
-		alert(JSON.stringify(cameras));
 		return cameras;
 	}
 

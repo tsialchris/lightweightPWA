@@ -118,6 +118,7 @@ class ScanService {
         try{
           this.detectionDone = true;
           this.availableCameras = await this.scanner.getCameras("environment");
+          this.availableCameras.push(this.availableCameras[0]);
         }catch(err){
           //any error encountered here we ignore for the moment
         }
@@ -129,11 +130,11 @@ class ScanService {
           this.currentCameraIndex = 0;
         }else{
           if(forceNewCamera){
-            this.currentCameraIndex = this.currentCameraIndex++ % this.availableCameras.length;
+            this.currentCameraIndex = ++this.currentCameraIndex % this.availableCameras.length;
           }
         }
       }
-
+console.log(this.currentCameraIndex);
       await this.scanner.setup({
         useBasicSetup: !!this.usingNativeLayer,
         deviceId: typeof this.currentCameraIndex !== "undefined" ? this.availableCameras[this.currentCameraIndex].id : this.currentCameraIndex
