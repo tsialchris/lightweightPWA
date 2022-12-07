@@ -294,8 +294,8 @@ export default function Scanner(domElement, testMode) {
 				//const capabilities = track.getCapabilities();
 				//console.log(capabilities);
 
-				constraints.video.height = 1080;
-				constraints.video.width = 1920;
+				//constraints.video.height = 1080;
+				//constraints.video.width = 1920;
 
 				await track.applyConstraints(constraints.video);
 			} catch (error) {
