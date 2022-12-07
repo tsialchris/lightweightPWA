@@ -118,7 +118,6 @@ class ScanService {
         try{
           this.detectionDone = true;
           this.availableCameras = await this.scanner.getCameras("environment");
-          this.availableCameras.push(this.availableCameras[0]);
         }catch(err){
           //any error encountered here we ignore for the moment
         }
