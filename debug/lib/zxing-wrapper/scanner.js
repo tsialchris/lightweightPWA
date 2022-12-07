@@ -82,6 +82,7 @@ export default function Scanner(domElement, testMode) {
 				}
 			}
 		}
+		alert(cameras);
 		return cameras;
 	}
 
