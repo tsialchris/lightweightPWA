@@ -27,7 +27,6 @@
       let result = true;
       if(facingMode){
         if(capabilities.facingMode && Array.isArray(capabilities.facingMode) && capabilities.facingMode.length>0 && capabilities.facingMode.indexOf(facingMode) === -1){
-          log(capabilities, facingMode, capabilities.facingMode);
           result = false;
         }
       }
@@ -43,7 +42,7 @@
 
     let cameras = [];
     let devices = await navigator.mediaDevices.enumerateDevices();
-    log("Number of devices from enumerate ", devices.length);
+    log("Number of devices (video + audio) from enumerate ", devices.length);
     for (let i = 0; i < devices.length; i++) {
       let device = devices[i];
       if (device.kind === 'videoinput') {
