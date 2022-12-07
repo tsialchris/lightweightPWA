@@ -133,7 +133,7 @@ class ScanService {
           }
         }
       }
-console.log(this.currentCameraIndex);
+
       await this.scanner.setup({
         useBasicSetup: !!this.usingNativeLayer,
         deviceId: typeof this.currentCameraIndex !== "undefined" ? this.availableCameras[this.currentCameraIndex].id : this.currentCameraIndex

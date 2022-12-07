@@ -62,7 +62,9 @@ export default function Scanner(domElement, testMode) {
 
 		//if we get to this point... we have user permissions, and we can go on detecting the cameras
 		let cameras = [];
+		let listNeedsSorting = false;
 		let devices = await navigator.mediaDevices.enumerateDevices();
+
 		for (let i = 0; i < devices.length; i++) {
 			let device = devices[i];
 			if (device.kind === 'videoinput') {
@@ -73,14 +75,46 @@ export default function Scanner(domElement, testMode) {
 				});
 				let track = stream.getVideoTracks()[0];
 				let cameraCapabilities = track.getCapabilities();
+				cameraCapabilities.index = i;
 
 				//we need to ensure that no camera remains active
 				track.stop();
 
 				if(verifyConstraints(cameraCapabilities)){
-					cameras.push({id:device.deviceId, label:device.label});
+					//if the flag was not set to true, and we found information about focusMode
+					if(!listNeedsSorting && cameraCapabilities.focusMode){
+						listNeedsSorting = true;
+					}
+					cameras.push({id:device.deviceId, label:device.label, cameraCapabilities});
 				}
 			}
+		}
+
+		//before returning the camera's list we need to put in front the camera with the best changes of being the right one
+		//at this point in time, we believe that if we find multiple camera we should prioritize the one with focusMode continuous
+		if(listNeedsSorting && cameras.length>1){
+			cameras.sort((a,b)=>{
+				let aFocusMode = a.cameraCapabilities.focusMode;
+				aFocusMode = aFocusMode && Array.isArray(aFocusMode) && aFocusMode.indexOf("continuous") !== -1;
+
+				let bFocusMode = b.cameraCapabilities.focusMode;
+				bFocusMode = bFocusMode && Array.isArray(bFocusMode) && bFocusMode.indexOf("continuous") !== -1;
+
+				if(aFocusMode === bFocusMode && aFocusMode === true){
+					//both cameras have focusMode continuous
+					return 0;
+				}
+
+				if(aFocusMode && !bFocusMode){
+					//camera "a" has focusMode continuous
+					return -1;
+				}
+
+				if(!aFocusMode && bFocusMode){
+					//camera "b" has focusMode continuous
+					return 1;
+				}
+			});
 		}
 		return cameras;
 	}
