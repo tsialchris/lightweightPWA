@@ -66,7 +66,7 @@
 
           //log(device, cameraCapabilities);
           if(verifyConstraints(cameraCapabilities)){
-            cameras.push({id:device.deviceId, label:device.label});
+            cameras.push({id:device.deviceId, label:device.label, cameraCapabilities});
           }
         } catch (err) {
           alert(err);
