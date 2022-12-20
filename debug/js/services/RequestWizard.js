@@ -17,7 +17,6 @@ export default function(smallTimeout, totalTimeout){
             const controller = new AbortController();
 
             const cancelFetchTimeout = function(){
-                resolve();
                 controller.abort();
             }
 
