@@ -120,9 +120,7 @@ class LeafletService {
 
     let header = new Headers();
     header.append("epiProtocolVersion", environment.epiProtocolVersion || "1");
-    header.append("getProductData", "true");
-
-
+    
     return smartUrl.getRequest({
       method: "GET", headers: header
     });
