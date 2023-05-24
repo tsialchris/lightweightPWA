@@ -1173,6 +1173,13 @@ body[dir="RTL"] #leaflet-content h5 {
     }
 }
 
+@media only screen and (orientation: landscape) {
+    .modal-container {
+        position: relative;
+        min-height: unset;
+    }
+}
+
 @media only screen and (orientation: landscape) and (max-device-width: 768px) {
     body {
         min-height: 1000px;
@@ -1189,11 +1196,6 @@ body[dir="RTL"] #leaflet-content h5 {
         height: 48vh;
         border-top-left-radius: inherit;
         border-top-right-radius: inherit;
-    }
-
-    .modal-container {
-        position: relative;
-        min-height: unset;
     }
 
     .popup-modal .modal-content {
