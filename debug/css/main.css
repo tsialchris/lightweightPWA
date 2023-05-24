@@ -1193,7 +1193,7 @@ body[dir="RTL"] #leaflet-content h5 {
 
     .modal-container {
         position: relative;
-        max-height: 94%;
+        min-height: 94%;
     }
 
     .popup-modal .modal-content {
