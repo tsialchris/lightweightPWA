@@ -1178,9 +1178,7 @@ body[dir="RTL"] #leaflet-content h5 {
         position: relative;
         min-height: unset;
     }
-}
 
-@media only screen and (orientation: landscape) and (max-device-width: 768px) {
     body {
         min-height: 1000px;
         min-width: 435px;
@@ -1191,6 +1189,10 @@ body[dir="RTL"] #leaflet-content h5 {
         background-position: center center;
         background-size: cover;
     }
+
+}
+
+@media only screen and (orientation: landscape) and (max-device-width: 768px) {
 
     .modal-header.centered-header {
         height: 48vh;
