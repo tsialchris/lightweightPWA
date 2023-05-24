@@ -1,5 +1,5 @@
 import XMLDisplayService from "../services/XMLDisplayService/XMLDisplayService.js"
-import {goToErrorPage, goToPage, isExpired, getExpiryTime} from "../utils/utils.js";
+import {goToErrorPage, goToPage, isExpired, getExpiryTime, setTextDirectionForLanguage} from "../utils/utils.js";
 import constants from "../constants.js"
 import LeafletService from "../services/LeafletService.js";
 import environment from "../../environment.js";
@@ -47,6 +47,12 @@ function LeafletController() {
     accordionItems.forEach((accItem, index) => {
       accItem.addEventListener("click", (evt) => {
         accItem.classList.toggle("active");
+        if (accItem.classList.contains("active")) {
+          accItem.setAttribute('aria-expanded', "true");
+        }
+        else {
+          accItem.setAttribute('aria-expanded', "false");
+        }
         accItem.querySelector(".leaflet-accordion-item-content").addEventListener("click", (event) => {
           event.stopImmediatePropagation();
           event.stopPropagation();
@@ -59,6 +65,7 @@ function LeafletController() {
     let lang = document.querySelector("input[name='languages']:checked").value
     this.leafletLang = lang;
     this.getLeaflet(lang);
+    setTextDirectionForLanguage(lang);
     document.querySelector("#leaflet-lang-select").setAttribute('style', 'display:none !important');
   }
 
@@ -75,9 +82,11 @@ function LeafletController() {
     if (modalId === "leaflet-lang-select") {
       goToPage("/index.html");
     }
+    document.getElementById("settings-modal").style.display = "block";
   }
 
   let showExpired = function () {
+    document.getElementById("settings-modal").style.display = "none";
     document.querySelector("#expired-modal").setAttribute('style', 'display:flex !important');
   }
   let showIncorrectDate = function () {
@@ -88,6 +97,7 @@ function LeafletController() {
   let self = this;
 
   let showXML = function (result) {
+    document.getElementById("settings-modal").style.display = "block";
     document.querySelector(".product-name").innerText = result.productData.name;
     document.querySelector(".product-description").innerText = result.productData.description;
     /* document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");*/
@@ -110,14 +120,15 @@ function LeafletController() {
   }
 
   let showAvailableLanguages = function (result) {
+    document.getElementById("settings-modal").style.display = "none";
     // document.querySelector(".product-name").innerText = translations[window.currentLanguage]["select_lang_title"];
     // document.querySelector(".product-description").innerText = translations[window.currentLanguage]["select_lang_subtitle"];
     // let langList = `<div class="select-lang-text">${translations[window.currentLanguage]["select_lang_text"]}</div><select class="languages-list">`;
-    document.querySelector("#leaflet-lang-select").setAttribute('style', 'display:flex !important');
     document.querySelector(".loader").setAttribute('style', 'display:none');
     if (result.availableLanguages.length >= 1) {
+      document.querySelector("#leaflet-lang-select").setAttribute('style', 'display:flex !important');
       document.querySelector(".proceed-button.no-leaflet").setAttribute('style', 'display:none');
-    //  document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
+      //  document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
       let languagesContainer = document.querySelector(".languages-container");
       result.availableLanguages.forEach((lang, index) => {
         let langRadio = `<div class="flag-label-wrapper"><img src="./images/flags/${lang.value}.png" class="language-flag"/><span for="${lang.value}"> ${lang.label} - (${lang.nativeName})</span> </div><input type="radio" name="languages" ${index === 0 ? "checked" : ""} value="${lang.value}" id="${lang.value}">`;
@@ -135,7 +146,7 @@ function LeafletController() {
 }
 
 const leafletController = new LeafletController();
-leafletController.getLeaflet(window.currentLanguage || "en");
+leafletController.getLeaflet(localStorage.getItem("_appLang_") || "en");
 window.leafletController = leafletController;
 
 

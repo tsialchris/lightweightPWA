@@ -29,21 +29,26 @@ function MainController() {
   }
 
   this.toggleMenu = function () {
-    document.querySelector(".app-menu-container").classList.toggle("hidden")
+    let menuContainer = document.querySelector(".app-menu-container");
+    menuContainer.classList.toggle("hidden");
+    document.querySelector(".scan-button-container .scan-button").setAttribute("tabindex", "-1");
+    if (menuContainer.classList.contains("hidden")) {
+      document.querySelector(".scan-button-container .scan-button").setAttribute("tabindex", "2");
+    }
   }
 
   this.checkOnboarding = function () {
     let usrAgreedTerms = getCookie("usr_agreed_terms");
     if (!usrAgreedTerms) {
       let welcomeText = getTranslation("onboarding_welcome");
-      document.querySelector(".welcome-container").innerHTML = `<span>${welcomeText}</span>`;
+      document.querySelector(".welcome-container").innerHTML = `<h1>${welcomeText}</h1>`;
       document.querySelector(".content-container").classList.add("hiddenElement");
       document.querySelector(".explain-container").classList.add("hiddenElement");
       document.querySelector(".scan-button-container").classList.add("hiddenElement");
     } else {
       let welcomeText = getTranslation("welcome");
       document.querySelector(".terms-content-container").classList.add("hiddenElement");
-      document.querySelector(".welcome-container").innerHTML = `<span>${welcomeText}</span>`;
+      document.querySelector(".welcome-container").innerHTML = `<h1>${welcomeText}</h1>`;
       document.querySelector(".content-container").innerHTML = `<div class="icon-div"></div>`;
     }
     document.querySelector("#app_version_number").innerHTML = `${environment.appBuildVersion}`;
@@ -65,6 +70,7 @@ function MainController() {
 
   this.closeModal = function () {
     document.querySelector("#settings-modal").setAttribute('style', 'display:none !important');
+    document.querySelector(".page-container").setAttribute('style', 'display:flex !important');
   }
   this.showModal = function (key) {
     this.toggleMenu();
@@ -74,7 +80,9 @@ function MainController() {
         }*/
 
     let modal = document.querySelector("#settings-modal");
+
     modal.setAttribute('style', 'display:flex !important');
+    document.querySelector(".page-container").setAttribute('style', 'display:none !important');
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
     let contentKey = key + "_content";
