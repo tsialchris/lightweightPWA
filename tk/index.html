@@ -1,0 +1,81 @@
+<head>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="./js/controllers/MainController.js" type="module"></script>
+    <title>PharmaLedger</title>
+</head>
+<body>
+<div class="page-container">
+    <div class="icon-container" role="banner">
+        <div class="pharmaledger-logo">
+            <img src="images/app-icon.svg" alt="PharmaLedger Association Logo">
+        </div>
+        <button class="menu-icon" onclick="mainController.toggleMenu()" tabindex="1" aria-label="menu"></button>
+        <ul class="app-menu-container hidden">
+            <li class="forward-to-page" onclick="mainController.showModal('terms')" role="button" tabindex="2">
+                <div class="label" translate="fwd_terms"></div>
+                <div class="fwd-icon"></div>
+            </li>
+            <li class="forward-to-page" onclick="mainController.showModal('privacy')" role="button" tabindex="3">
+                <div class="label" translate="fwd_privacy"></div>
+                <div class="fwd-icon"></div>
+            </li>
+            <li class="forward-to-page" onclick="mainController.showModal('about')" role="button" tabindex="4">
+                <div class="label" translate="fwd_about"></div>
+                <div class="fwd-icon"></div>
+            </li>
+            <li class="forward-to-page" onclick="mainController.showModal('help')" role="button" tabindex="5">
+                <div class="label" translate="fwd_help"></div>
+                <div class="fwd-icon"></div>
+            </li>
+            <li class="more-options-link"><span translate="app_version"></span> <span id="app_version_number"></span>
+            </li>
+        </ul>
+    </div>
+    <div class="welcome-container" role="main">
+        <h1 translate="welcome"></h1>
+    </div>
+    <div class="terms-content-container" role="contentinfo">
+        <div class="terms-container">
+            <span class="extra-text" translate="disagree_extra_text"></span>
+            <div class="terms-content" translate="terms_content"></div>
+            <div class="terms-buttons-container">
+                <button class="scan-button terms-button disagree" onclick="mainController.submitTerms(false)" translate="disagree"></button>
+                <button class="scan-button terms-button agree" onclick="mainController.submitTerms(true)" translate="agree"></button>
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="icon-div"></div>
+    </div>
+    <div class="explain-container">
+        <span translate="scan_explain"></span>
+    </div>
+    <div class="scan-button-container">
+        <button class="scan-button full_width" onclick="mainController.scanHandler()">
+            <span translate="scan_button"></span>
+        </button>
+    </div>
+
+</div>
+<div id="settings-modal" class="modal-container info-modal">
+    <div class="modal-body">
+        <div class="modal-header left-aligned-header">
+            <div class="icon-title-container">
+                <h1 class="modal-title"></h1>
+                <!--<div class="modal-icon"></div>-->
+            </div>
+            <div class="modal-subtitle"></div>
+            <button class="close-modal" onclick="mainController.closeModal()" aria-label="close"></button>
+        </div>
+        <div class="modal-content">
+            <div class="generated-content-container"></div>
+        </div>
+    </div>
+    <button class="scan-button go-home-button" onclick="mainController.goHome()" translate="go_home"></button>
+</div>
+</body>
+<script type="module">
+  import {translate} from "./js/translations.js";
+
+  document.getElementsByTagName("body").onload = translate();
+</script>
