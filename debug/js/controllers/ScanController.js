@@ -1,7 +1,16 @@
-import {convertFromISOtoYYYY_HM, goToErrorPage, goToPage, validateGTIN} from "../utils/utils.js";
+import {
+  convertFromISOtoYYYY_HM,
+  goToErrorPage,
+  goToPage,
+  enableConsolePersistence,
+} from "../utils/utils.js";
+
+enableConsolePersistence();
+document.getElementsByTagName("body").onload = translate();
+
 import interpretGS1scan from "../utils/interpretGS1scan/interpretGS1scan.js";
 import ScanService from "../services/ScanService.js";
-import {getTranslation} from "../translations.js";
+import {getTranslation, translate} from "../translations.js";
 import constants from "../constants.js";
 
 function ScanController() {
@@ -111,15 +120,15 @@ function ScanController() {
     } catch (err) {
       if (err.message) {
         if (err.message.includes("INVALID CHECK DIGIT:")) {
-          goToErrorPage(constants.errorCodes.gtin_wrong_digit);
+          goToErrorPage(constants.errorCodes.gtin_wrong_digit, err);
           return;
         }
         if (err.message.includes("SYNTAX ERROR:")) {
-          goToErrorPage(constants.errorCodes.gtin_wrong_chars);
+          goToErrorPage(constants.errorCodes.gtin_wrong_chars, err);
           return;
         }
       }
-      goToErrorPage(constants.errorCodes.unknown_error);
+      goToErrorPage(constants.errorCodes.unknown_error, err);
     }
   }
 
@@ -128,6 +137,17 @@ function ScanController() {
     clearInterval(this.scanInterval);
     scanController.init(true);
   }
+
+  let addEventListeners = () => {
+    document.getElementById("cancel-scan-button").addEventListener("click", this.cancelHandler)
+    document.getElementById("change-camera-button").addEventListener("click", this.switchCamera)
+    document.getElementById("close-modal-button").addEventListener("click", (event) => {
+      this.closeModal(event.currentTarget.getAttribute("modal-id"));
+    })
+
+  }
+
+  addEventListeners();
 }
 
 const scanController = new ScanController();
