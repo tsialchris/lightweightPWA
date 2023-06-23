@@ -37,6 +37,9 @@ function ErrorController() {
   this.scanAgainHandler = function () {
     goToPage("/scan.html")
   }
+  this.goHomeHandler = function () {
+    goToPage("/index.html")
+  }
 }
 
 
