@@ -1,10 +1,28 @@
 <head>
+    <script>
+      /**
+       * If browser back button was used, flush cache
+       * This ensures that user will always see an accurate, up-to-date view based on their state
+       * https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked
+       */
+      (function () {
+        window.onpageshow = function(event) {
+          if (event.persisted) {
+            window.location.reload();
+          }
+        };
+      })();
+    </script>
     <link href="css/main.css" rel="stylesheet">
-
     <title>PharmaLedger</title>
 </head>
 
 <body>
+
+<div class="loader-container">
+    <div class="loader"></div>
+</div>
+
 <div id="settings-modal" class="page-container leaflet-page info-modal">
     <div class="modal-body">
         <div class="page-header modal-header left-aligned-header">
@@ -15,11 +33,11 @@
             <div class="product-description"></div>
         </div>
         <div class="page-content">
-            <div class="loader"></div>
             <div class="leaflet-content-wrapper">
                 <div id="leaflet-content">
                 </div>
-                <div class="scan-button go-home-button" onclick="leafletController.scanAgainHandler()" translate="scan_again"></div>
+                <button id="scan-again-button" class="scan-button go-home-button"
+                        translate="scan_again"></button>
             </div>
 
         </div>
@@ -27,54 +45,53 @@
 </div>
 <div id="expired-modal" class="modal-container popup-modal error-modal">
     <div class="modal-body">
-        <div class="modal-header centred-header">
+        <div class="modal-header centered-header">
             <div class="icon-title-container">
                 <div class="modal-icon"></div>
-                <div class="modal-title" id="expired-title" translate="leaflet_expired_title"></div>
+                <h1 class="modal-title" id="expired-title" translate="leaflet_expired_title" role="alert"></h1>
             </div>
-            <div class="close-modal" onclick="leafletController.closeModal('expired-modal')"></div>
+            <button class="close-modal" modal-id="expired-modal" tabindex="0"
+                    aria-label="close error message"></button>
         </div>
-        <div class="modal-content" translate="leaflet_expired_message"></div>
+        <div class="modal-content" translate="leaflet_expired_message" role="alert"></div>
     </div>
 </div>
 <div id="incorrect-date-modal" class="modal-container popup-modal error-modal">
     <div class="modal-body">
-        <div class="modal-header centred-header">
+        <div class="modal-header centered-header">
             <div class="icon-title-container">
                 <div class="modal-icon"></div>
                 <div class="modal-title" id="incorrect-date-title" translate="leaflet_incorrect_date_title"></div>
             </div>
-            <div class="close-modal" onclick="leafletController.closeModal('incorrect-date-modal')"></div>
+            <div class="close-modal" modal-id="incorrect-date-modal"
+                 aria-label="close error modal"></div>
         </div>
         <div class="modal-content" translate="leaflet_incorrect_date_message"></div>
     </div>
 </div>
 <div id="leaflet-lang-select" class="modal-container popup-modal warning-modal">
     <div class="modal-body">
-        <div class="modal-header centred-header">
+        <div class="modal-header centered-header">
             <div class="icon-title-container">
                 <div class="modal-icon"></div>
-                <div class="modal-title" id="lang-title" translate="select_lang_title"></div>
+                <h1 class="modal-title" id="lang-title" translate="select_lang_title" role="alert"></h1>
             </div>
-            <div class="close-modal" onclick="leafletController.closeModal('leaflet-lang-select')"></div>
+            <button class="close-modal" modal-id="leaflet-lang-select"
+                    aria-label="close"></button>
         </div>
-        <div class="modal-content">
+        <div class="modal-content" role="alert">
             <div class="text-section has-leaflets" translate="leaflet_lang_select_message"></div>
-           <!-- <div class="text-section no-leaflet" translate="no_leaflet_message"></div>-->
+            <!-- <div class="text-section no-leaflet" translate="no_leaflet_message"></div>-->
             <div class="languages-container"></div>
-            <div class="proceed-button has-leaflets" onclick="leafletController.getLangLeaflet()"
-                 translate="lang_proceed"></div>
-            <div class="proceed-button no-leaflet" onclick="leafletController.scanAgainHandler()"
+            <button id="proceed-button" class="proceed-button has-leaflets"
+                    translate="lang_proceed"></button>
+            <div id="modal-scan-again-button" class="proceed-button no-leaflet"
                  translate="scan_again"></div>
-            <div class="go-back-button go-home-button" onclick="leafletController.goHome()" translate="go_home"></div>
+            <button id="go-back-button" class="go-back-button go-home-button"
+                    translate="go_home"></button>
         </div>
 
     </div>
 </div>
 </body>
-<script type="module">
-  import {translate} from "./js/translations.js";
-
-  document.getElementsByTagName("body").onload = translate();
-</script>
 <script src="./js/controllers/LeafletController.js" type="module"></script>

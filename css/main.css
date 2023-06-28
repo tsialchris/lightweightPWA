@@ -68,7 +68,7 @@ b {
     height: 70px;
     animation: spin 2s linear infinite;
     top: 38%;
-    left: calc(50% - 35px);
+    left: calc(50% - 51px);
     position: absolute;
     z-index: 200;
 }
@@ -95,7 +95,7 @@ b {
     max-height: 94%;
     min-height: 960px;
     width: 100%;
-    height: 100vh;
+    height: min(100vh, 1000px);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -103,9 +103,20 @@ b {
 
 
 .icon-container {
-    background: url(../images/app-icon.svg) no-repeat center;
+    /*background: url(../images/app-icon.svg) no-repeat center;*/
     height: 13.5%;
     background-size: 25%;
+}
+
+.pharmaledger-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 130px;
+}
+
+.pharmaledger-logo > img {
+    width: 25%;
 }
 
 .welcome-container {
@@ -117,6 +128,11 @@ b {
     font-size: calc(100% + 0.8vmin);
     padding-bottom: 14px;
     margin: 0 35px;
+}
+
+.welcome-container h1 {
+    font-size: inherit;
+    margin: 0;
 }
 
 .terms-content-container {
@@ -167,10 +183,11 @@ b {
     width: 8%;
     aspect-ratio: 1/1;
     background-size: contain;
-    position: relative;
+    position: absolute;
     float: right;
-    top: 40%;
-    right: 7%
+    top: 5%;
+    right: 7%;
+    border: 0;
 }
 
 .scan-button.terms-button {
@@ -199,9 +216,10 @@ b {
     z-index: 10;
     text-align: left;
     padding: 5px 0px;
-    top: 10%;
+    top: calc(7% + 10px);
     font-size: 1.2rem;
     box-shadow: 0px 15px 20px rgba(28, 34, 40, 0.3);
+    list-style-type: none;
 }
 
 .app-menu-container:before {
@@ -225,6 +243,11 @@ b {
 .forward-to-page {
     display: flex;
     justify-content: space-between;
+    margin: 6%;
+}
+
+.more-options-link {
+    margin: 6%;
 }
 
 .forward-to-page .label {
@@ -343,6 +366,7 @@ b {
     background: var(--mintgreen);
     box-shadow: -1px 8px 24px rgba(0, 0, 0, 0.16);
     border-radius: 5vh;
+    border: 0;
     font-family: 'DM Sans bold';
     font-size: 2vh;
     text-align: center;
@@ -390,6 +414,11 @@ b {
     padding-bottom: 4%;
     padding-left: 6%;
     padding-right: 6%;
+    background: transparent;
+    color: white;
+    border: 0;
+    font-family: 'DM Sans semi-bold';
+    font-size: 1em;
 }
 
 .page-container.error-page {
@@ -435,7 +464,7 @@ b {
     color: blue;
 }
 
-#leaflet-content h5 {
+#leaflet-content h2 {
     font-family: 'DM Sans bold';
     font-size: 100%;
     margin-right: 1rem;
@@ -467,6 +496,9 @@ b {
 
 #leaflet-content img {
     width: 100%;
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
 }
 
 .leaflet-link {
@@ -540,7 +572,7 @@ b {
     position: relative;
 }
 
-.modal-header.centred-header {
+.modal-header.centered-header {
     height: 18vh;
     position: relative;
     border-top-right-radius: 30px;
@@ -559,7 +591,7 @@ b {
     height: fit-content;
 }
 
-.modal-header.centred-header .icon-title-container {
+.modal-header.centered-header .icon-title-container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -581,6 +613,7 @@ b {
 .modal-header .modal-title {
     font-size: calc(100% + 1.7vh);
     font-family: 'DM Sans bold';
+    margin: 0;
 }
 
 .leaflet-page .product-name {
@@ -589,13 +622,18 @@ b {
     text-overflow: ellipsis;
 }
 
-.modal-header.centred-header .modal-title {
+.modal-header.centered-header .modal-title {
     text-align: center;
 }
 
 .modal-header.left-aligned-header .modal-title {
     text-align: left;
     margin-right: 12px;
+}
+
+#settings-modal {
+    display: none;
+    position: relative;
 }
 
 #settings-modal .modal-header {
@@ -609,18 +647,22 @@ b {
 }
 
 .modal-container {
-    position: absolute;
+    position: relative;
     display: none !important;
     background: rgba(0, 0, 0, 0.7);
     flex-direction: column;
     justify-content: center;
     align-self: center;
     z-index: 100;
-    height: 94%;
+    height: min(94%, 1000px);
     min-height: 960px;
     border-radius: 30px;
-    width: 24%;
     min-width: 435px;
+    width: 24%;
+}
+
+#scan-error {
+    position: absolute;
 }
 
 .modal-header .modal-icon {
@@ -635,7 +677,7 @@ b {
     background-position: center;
 }
 
-.modal-header.centred-header .modal-icon {
+.modal-header.centered-header .modal-icon {
     height: 22%;
     width: 100%;
     background-position: center;
@@ -661,6 +703,7 @@ b {
     width: 20px;
     right: 24px;
     top: 21px;
+    border: 0;
 }
 
 .modal-content .text-section {
@@ -688,14 +731,10 @@ b {
 .info-modal .modal-content.help {
     overflow: auto;
 }
+
 .info-modal .modal-content.about {
     overflow: hidden;
     padding: 0px;
-}
-
-.info-modal .modal-content.help > div {
-    padding: 24px;
-
 }
 
 .warning-modal .modal-header {
@@ -728,6 +767,10 @@ b {
     padding: 0;
 }
 
+.modal-content.terms h2 {
+    font-size: inherit;
+}
+
 .modal-content .languages-container {
     overflow: hidden;
 }
@@ -751,7 +794,7 @@ b {
 .modal-content .languages-container .language-item-container .language-flag {
     vertical-align: baseline;
     width: 10%;
-    top: 5px;
+    top: 7px;
     position: relative;
     margin-right: 5px;
     border-radius: 8px;
@@ -774,9 +817,11 @@ b {
     padding: 8px;
     gap: 10px;
     height: 56px;
+    width: 100%;
     margin-top: 16px;
     background: var(--olivegreen);
     border-radius: 62px;
+    border: 0;
     color: #fff;
     font-size: 2vh;
     font-family: 'DM Sans bold';
@@ -785,21 +830,138 @@ b {
 
 .go-back-button {
     font-family: 'DM Sans bold';
-    font-size: 14px;
+    font-size: 2vh;
     line-height: 140%;
     text-align: center;
     color: #516266;
     margin-top: 24px;
+    width: 100%;
+    border: 0;
+    background: none;
 }
 
-@media only screen and (max-device-width: 900px) {
+body[dir="RTL"] .menu-icon {
+    right: 87%;
+    float: unset;
+}
+
+body[dir="RTL"] .app-menu-container {
+    text-align: right;
+    border-radius: 0px 14px 14px 14px;
+    right: 0px;
+}
+
+body[dir="RTL"] .app-menu-container:before {
+    border-right: 10px solid transparent;
+    border-left: 10px solid #fff;
+    right: calc(100% - 20px);
+}
+
+body[dir="RTL"] .forward-to-page .fwd-icon,
+body[dir="RTL"] .menu-icon {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+body[dir="RTL"] .modal-header .close-modal {
+    left: 24px;
+    right: unset;
+}
+
+body[dir="RTL"] .modal-container,
+body[dir="RTL"] .leaflet-page .page-content,
+body[dir="RTL"] .error-page .page-content {
+    text-align: right;
+}
+
+body[dir="RTL"] .scan-button.go-home-button {
+    left: 4vh;
+    right: unset;
+}
+
+body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
+    margin-left: 12px;
+    margin-right: unset;
+}
+
+body[dir="RTL"] .terms-container .terms-buttons-container {
+    margin-right: 25px;
+}
+
+body[dir="RTL"] .modal-content .languages-container .language-item-container input {
+    margin-right: 90%;
+    margin-left: unset;
+}
+
+body[dir="RTL"] .leaflet-accordion-item:before {
+    float: unset;
+    background-position: bottom;
+    top: 1.35em;
+    display: block;
+    right: 94%;
+
+}
+
+body[dir="RTL"] #leaflet-content h5 {
+    margin-right: unset;
+    margin-block-start: unset;
+    padding-left: 10%;
+}
+
+.loader-container {
+    position: absolute;
+    display: none;
+    background: white;
+    height: 90%;
+    min-height: 960px;
+    border-radius: 30px;
+    width: 24%;
+    min-width: 435px;
+    align-self: center;
+    z-index: 100;
+}
+
+.loader-container.scan-page-loader {
+    background: black;
+    opacity: 0.7;
+}
+
+@media only screen and (max-device-width: 768px) {
     body, .page-container {
-        background: var(--olivegreen);
+        background: white;
         height: 100%;
         max-height: 100%;
         width: 100%;
         max-width: 100%;
         min-height: unset;
+        margin: 0;
+        overflow: auto;
+    }
+
+    .pharmaledger-logo {
+        top: 25%;
+        position: relative;
+    }
+
+    .page-container {
+        background: var(--olivegreen);
+        border-radius: 0;
+    }
+
+    content-container {
+        max-width: 74%;
+    }
+
+    .leaflet-page .page-content, .error-page .page-content {
+        height: 93%;
+    }
+
+    .loader-container {
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
     }
 
     .icon-div {
@@ -818,7 +980,8 @@ b {
     }
 
     .scan-button-container {
-        padding-bottom: 5%;
+        padding-bottom: 12%;
+        margin-top: 7%;
     }
 
     .scan-button {
@@ -910,7 +1073,9 @@ b {
         font-family: 'DM Sans bold';
     }
 
-    .leaflet-page .product-description, .error-page .header-subtitle, .error-page .page-content {
+    .leaflet-page .product-description,
+    .error-page .header-subtitle,
+    .error-page .page-content {
         font-size: calc(100% + 2.5vmin);
         border-radius: 0px;
     }
@@ -955,6 +1120,7 @@ b {
         width: 100%;
         height: 100%;
         position: fixed;
+        border-radius: unset;
     }
 
     .modal-container .modal-body {
@@ -971,7 +1137,7 @@ b {
         height: auto;
     }
 
-    .modal-header.centred-header {
+    .modal-header.centered-header {
         border-top-right-radius: 60px;
         border-top-left-radius: 60px;
     }
@@ -1041,7 +1207,7 @@ b {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 2%;
+        padding: 10%;
         gap: 3%;
         height: 6%;
         margin-top: 4%;
@@ -1063,10 +1229,69 @@ b {
 }
 
 @media only screen and (orientation: landscape) {
+
     body {
         min-height: 1000px;
         min-width: 435px;
-        width: 24%;
+        width: max(24%, 460px);
+        height: 100%;
         margin: auto;
+        background-image: url(./../images/background.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .pharmaledger-logo {
+        top: 0;
+    }
+
+    .modal-container {
+        position: relative;
+    }
+
+    #scan-error {
+        position: absolute;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-device-width: 768px) {
+
+    body {
+        width: max(60%, 460px);
+    }
+
+    .modal-header.centered-header {
+        height: 48vh;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    .popup-modal .modal-content {
+        border-radius: inherit;
+        top: -22px;
+    }
+
+    .modal-header .close-modal {
+        height: 3vw;
+        width: 3vw;
+    }
+
+    .scan-button.go-home-button {
+        position: absolute;
+    }
+
+    .proceed-button {
+        height: 14%;
+    }
+}
+
+.ignore-tab {
+    tab-index: -1;
+}
+
+@media only screen and (max-width: 435px) {
+    body {
+        min-width: 300px;
     }
 }

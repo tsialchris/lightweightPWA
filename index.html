@@ -5,39 +5,47 @@
 </head>
 <body>
 <div class="page-container">
-    <div class="icon-container">
-        <div class="menu-icon" onclick="mainController.toggleMenu()"></div>
-        <div class="app-menu-container hidden">
-            <div class="forward-to-page" onclick="mainController.showModal('terms')">
+    <div class="icon-container" role="banner">
+        <div class="pharmaledger-logo">
+            <img src="images/app-icon.svg" alt="PharmaLedger Association Logo">
+        </div>
+        <button id="hamburger-menu-button" class="menu-icon" tabindex="1" aria-label="menu"></button>
+        <ul class="app-menu-container hidden">
+            <li id="terms-link" class="forward-to-page" modal-name="terms" role="button" tabindex="2">
                 <div class="label" translate="fwd_terms"></div>
                 <div class="fwd-icon"></div>
-            </div>
-            <div class="forward-to-page" onclick="mainController.showModal('privacy')">
+            </li>
+            <li id="privacy-link" class="forward-to-page" modal-name="privacy" role="button"
+                tabindex="3">
                 <div class="label" translate="fwd_privacy"></div>
                 <div class="fwd-icon"></div>
-            </div>
-            <div class="forward-to-page" onclick="mainController.showModal('about')">
+            </li>
+            <li id="about-link" class="forward-to-page" modal-name="about" role="button"
+                tabindex="4">
                 <div class="label" translate="fwd_about"></div>
                 <div class="fwd-icon"></div>
-            </div>
-            <div class="forward-to-page" onclick="mainController.showModal('help')">
+            </li>
+            <li id="help-link" class="forward-to-page" modal-name="help" role="button"
+                tabindex="5">
                 <div class="label" translate="fwd_help"></div>
                 <div class="fwd-icon"></div>
-            </div>
-            <div class="more-options-link"><span translate="app_version"></span> <span id="app_version_number"></span>
-            </div>
-        </div>
+            </li>
+            <li class="more-options-link"><span translate="app_version"></span> <span id="app_version_number"></span>
+            </li>
+        </ul>
     </div>
-    <div class="welcome-container">
-        <span translate="welcome"></span>
+    <div class="welcome-container" role="main">
+        <h1 translate="welcome"></h1>
     </div>
-    <div class="terms-content-container">
+    <div class="terms-content-container" role="contentinfo">
         <div class="terms-container">
             <span class="extra-text" translate="disagree_extra_text"></span>
             <div class="terms-content" translate="terms_content"></div>
             <div class="terms-buttons-container">
-                <div class="scan-button terms-button disagree" onclick="mainController.submitTerms(false)" translate="disagree"></div>
-                <div class="scan-button terms-button agree" onclick="mainController.submitTerms(true)" translate="agree"></div>
+                <button id="disagree-button" class="scan-button terms-button disagree"
+                        translate="disagree"></button>
+                <button id="agree-button" class="scan-button terms-button agree"
+                        translate="agree"></button>
             </div>
         </div>
     </div>
@@ -48,9 +56,9 @@
         <span translate="scan_explain"></span>
     </div>
     <div class="scan-button-container">
-        <div class="scan-button full_width" onclick="mainController.scanHandler()">
+        <button id="scan-button" class="scan-button full_width">
             <span translate="scan_button"></span>
-        </div>
+        </button>
     </div>
 
 </div>
@@ -58,21 +66,17 @@
     <div class="modal-body">
         <div class="modal-header left-aligned-header">
             <div class="icon-title-container">
-                <div class="modal-title"></div>
+                <h1 class="modal-title"></h1>
                 <!--<div class="modal-icon"></div>-->
             </div>
             <div class="modal-subtitle"></div>
-            <div class="close-modal" onclick="mainController.closeModal()"></div>
+            <button id="close-modal-button" class="close-modal" aria-label="close"></button>
         </div>
         <div class="modal-content">
             <div class="generated-content-container"></div>
         </div>
     </div>
-    <div class="scan-button go-home-button" onclick="mainController.goHome()" translate="go_home"></div>
+    <button id="go-home-button" class="scan-button go-home-button" translate="go_home"></button>
 </div>
 </body>
-<script type="module">
-  import {translate} from "./js/translations.js";
 
-  document.getElementsByTagName("body").onload = translate();
-</script>

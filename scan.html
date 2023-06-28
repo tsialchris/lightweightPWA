@@ -1,24 +1,44 @@
 <head>
+    <script>
+      /**
+       * If browser back button was used, flush cache
+       * This ensures that user will always see an accurate, up-to-date view based on their state
+       * https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked
+       */
+      (function () {
+        window.onpageshow = function(event) {
+          if (event.persisted) {
+            window.location.reload();
+          }
+        };
+      })();
+    </script>
     <link href="css/main.css" rel="stylesheet">
     <script src="./js/controllers/ScanController.js" type="module"></script>
     <title>PharmaLedger</title>
 </head>
 <body>
+
+<div class="loader-container scan-page-loader">
+    <div class="loader"></div>
+</div>
+
 <div class="page-container scan-page">
     <div class="scan-header">
-        <div class="scan-cancel" translate="cancel" onclick="scanController.cancelHandler()" ></div>
-        <div class="camera-switch" onclick="scanController.switchCamera()" translate="change_camera"></div>
+        <button id="cancel-scan-button" class="scan-cancel" translate="cancel"></button>
+        <button id="change-camera-button" class="camera-switch" translate="change_camera"></button>
     </div>
     <div id="scan-error" class="modal-container error-modal popup-modal">
         <div class="modal-body">
-            <div class="modal-header centred-header">
+            <div class="modal-header centered-header">
                 <div class="icon-title-container">
                     <div class="modal-icon"></div>
-                    <div class="modal-title" translate="scan_error_title"></div>
+                    <h1 class="modal-title" translate="scan_error_title" role="alert"></h1>
                 </div>
-                <div class="close-modal" onclick="scanController.closeModal('scan-error')"></div>
+                <button id="close-modal-button" class="close-modal" modal-id="scan-error"
+                        aria-label="close error message"></button>
             </div>
-            <div class="modal-content" translate="camera_error_message">
+            <div class="modal-content" translate="camera_error_message" role="alert">
             </div>
 
         </div>
@@ -30,7 +50,3 @@
 
 </div>
 </body>
-<script type="module">
-  import {translate} from "./js/translations.js";
-  document.getElementsByTagName("body").onload = translate()
-</script>

@@ -1,6 +1,10 @@
 import {goToPage} from "../utils/utils.js"
-import {getTranslation} from "../translations.js";
+import {getTranslation, translate} from "../translations.js";
 import environment from "../../environment.js";
+import constants from "../constants.js";
+
+
+document.getElementsByTagName("body").onload = translate();
 
 function MainController() {
 
@@ -29,21 +33,34 @@ function MainController() {
   }
 
   this.toggleMenu = function () {
-    document.querySelector(".app-menu-container").classList.toggle("hidden")
+    let menuContainer = document.querySelector(".app-menu-container");
+    menuContainer.classList.toggle("hidden");
+    document.querySelector(".scan-button-container .scan-button").setAttribute("tabindex", "-1");
+    let liElements = menuContainer.querySelectorAll('li');
+    liElements.forEach(function (li) {
+      li.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          li.click();
+        }
+      });
+    });
+    if (menuContainer.classList.contains("hidden")) {
+      document.querySelector(".scan-button-container .scan-button").setAttribute("tabindex", "2");
+    }
   }
 
   this.checkOnboarding = function () {
     let usrAgreedTerms = getCookie("usr_agreed_terms");
     if (!usrAgreedTerms) {
       let welcomeText = getTranslation("onboarding_welcome");
-      document.querySelector(".welcome-container").innerHTML = `<span>${welcomeText}</span>`;
+      document.querySelector(".welcome-container").innerHTML = `<h1>${welcomeText}</h1>`;
       document.querySelector(".content-container").classList.add("hiddenElement");
       document.querySelector(".explain-container").classList.add("hiddenElement");
       document.querySelector(".scan-button-container").classList.add("hiddenElement");
     } else {
       let welcomeText = getTranslation("welcome");
       document.querySelector(".terms-content-container").classList.add("hiddenElement");
-      document.querySelector(".welcome-container").innerHTML = `<span>${welcomeText}</span>`;
+      document.querySelector(".welcome-container").innerHTML = `<h1>${welcomeText}</h1>`;
       document.querySelector(".content-container").innerHTML = `<div class="icon-div"></div>`;
     }
     document.querySelector("#app_version_number").innerHTML = `${environment.appBuildVersion}`;
@@ -67,6 +84,7 @@ function MainController() {
     document.querySelector("#settings-modal").setAttribute('style', 'display:none !important');
     document.querySelector(".page-container").setAttribute('style', 'display:flex !important');
   }
+
   this.showModal = function (key) {
     this.toggleMenu();
     /*    if (key === "about") {
@@ -89,15 +107,37 @@ function MainController() {
     contentElement.innerHTML = getTranslation(contentKey);
   }
 
+  let addEventListeners = () => {
+    document.getElementById("hamburger-menu-button").addEventListener("click", this.toggleMenu)
+    document.querySelectorAll(".app-menu-container li.forward-to-page").forEach(item => {
+      item.addEventListener("click", (event) => {
+        this.showModal(event.currentTarget.getAttribute("modal-name"))
+      })
+    })
+    document.getElementById("disagree-button").addEventListener("click", () => {
+      this.submitTerms(false)
+    })
+    document.getElementById("agree-button").addEventListener("click", () => {
+      this.submitTerms(true)
+    })
+    document.getElementById("scan-button").addEventListener("click", this.scanHandler)
+    document.getElementById("close-modal-button").addEventListener("click", this.closeModal)
+    document.getElementById("go-home-button").addEventListener("click", this.goHome)
+
+
+  }
+  addEventListeners();
 }
+
 
 const mainController = new MainController();
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let epiDomain = urlParams.get("setdomain") || localStorage.getItem("_epiDomain_") || environment.epiDomain;
-localStorage.setItem("_epiDomain_", epiDomain);
+let epiDomain = urlParams.get("setdomain") || localStorage.getItem(constants.EPI_DOMAIN) || environment.epiDomain;
+localStorage.setItem(constants.EPI_DOMAIN, epiDomain);
 
 mainController.checkOnboarding();
 
 window.mainController = mainController;
+
