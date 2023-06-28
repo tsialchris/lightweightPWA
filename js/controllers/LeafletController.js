@@ -193,7 +193,7 @@ function LeafletController() {
 
 document.querySelector(".loader-container").setAttribute('style', 'display:block');
 const leafletController = new LeafletController();
-window.history.replaceState({prevPage: "leaflet"},"","index.html");
+//window.history.replaceState({prevPage: "leaflet"},"","index.html");
 
 window.leafletController = leafletController;
 
