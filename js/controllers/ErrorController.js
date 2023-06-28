@@ -55,5 +55,5 @@ function ErrorController() {
 
 const errorController = new ErrorController();
 
-window.history.replaceState({prevPage: "error"}, "", "index.html");
+//window.history.replaceState({prevPage: "error"}, "", "index.html");
 window.errorController = errorController;
