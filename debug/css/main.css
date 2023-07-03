@@ -198,6 +198,10 @@ b {
     padding: 1vh 2vh;
 }
 
+#scanner-placeholder canvas#overlay {
+    height: 100%;
+}
+
 .terms-button.agree {
     background: var(--olivegreen);
     color: white;
@@ -921,7 +925,8 @@ body[dir="RTL"] #leaflet-content h5 {
     height: 90%;
     min-height: 960px;
     border-radius: 30px;
-    width: 100%;
+    left: 0px;
+    right: 0px;
     min-width: 435px;
     align-self: center;
     z-index: 100;
