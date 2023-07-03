@@ -914,6 +914,7 @@ body[dir="RTL"] #leaflet-content h5 {
     padding-left: 10%;
 }
 
+
 .loader-container {
     position: absolute;
     display: none;
@@ -921,8 +922,7 @@ body[dir="RTL"] #leaflet-content h5 {
     height: 90%;
     min-height: 960px;
     border-radius: 30px;
-    left: 0px;
-    right: 0px;
+    width: max(24%, 460px);
     min-width: 435px;
     align-self: center;
     z-index: 100;
@@ -974,6 +974,14 @@ body[dir="RTL"] #leaflet-content h5 {
     .scan-page #scanner-placeholder {
         height: 100%;
         max-width: 100%;
+    }
+
+    .loader-container {
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
     }
 
     #scan-error {
