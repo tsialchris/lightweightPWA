@@ -198,29 +198,6 @@ b {
     padding: 1vh 2vh;
 }
 
-
-.scan-page #scanner-placeholder {
-    height: 100%;
-    max-width: 100%;
-}
-
-#scan-error {
-    top: 0px;
-}
-
-#scanner-placeholder canvas#scene {
-    width: 200%;
-    height: 200%;
-}
-
-#scanner-placeholder canvas#overlay {
-    width: 200%;
-    height: 200%;
-    top: -10%;
-    left: 0%;
-    transform: translate(-30%, 10%);
-}
-
 .terms-button.agree {
     background: var(--olivegreen);
     color: white;
@@ -992,6 +969,28 @@ body[dir="RTL"] #leaflet-content h5 {
     .modal-header .close-modal {
         width: 3vh;
         height: 3vh;
+    }
+
+    .scan-page #scanner-placeholder {
+        height: 100%;
+        max-width: 100%;
+    }
+
+    #scan-error {
+        top: 0px;
+    }
+
+    #scanner-placeholder canvas#scene {
+        width: 200%;
+        height: 200%;
+    }
+
+    #scanner-placeholder canvas#overlay {
+        width: 200%;
+        height: 200%;
+        top: -10%;
+        left: 0%;
+        transform: translate(-30%, 10%);
     }
 
     .leaflet-page .product-name,
