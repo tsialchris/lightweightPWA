@@ -1014,7 +1014,6 @@ body[dir="RTL"] #leaflet-content h5 {
         height: 100%;
     }
 
-    .leaflet-page .page-content,
     .error-page .page-content {
         font-size: calc(100% + 2.5vmin);
     }
@@ -1031,10 +1030,9 @@ body[dir="RTL"] #leaflet-content h5 {
         margin-bottom: 20px;
     }
 
-/*    .modal-content .languages-container .language-item-container .language-flag {
-        top: 6px;
-    }*/
-
+    /*    .modal-content .languages-container .language-item-container .language-flag {
+            top: 6px;
+        }*/
     .modal-content .languages-container .language-item-container input {
         min-height: 18px;
     }
@@ -1053,7 +1051,6 @@ body[dir="RTL"] #leaflet-content h5 {
         width: 100%;
     }
 
-    #leaflet-content,
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
         font-size: calc(100% + 0.15vmin);
@@ -1061,6 +1058,11 @@ body[dir="RTL"] #leaflet-content h5 {
 
     #leaflet-content h5 {
         margin-right: 4rem;
+        font-size: calc(100% - 0.4vmin);
+    }
+
+    .leaflet-accordion-item-content {
+        font-size: calc(100% - 0.6vmin);
     }
 
     .modal-header.left-aligned-header {
