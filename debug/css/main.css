@@ -1014,8 +1014,6 @@ body[dir="RTL"] #leaflet-content h5 {
     }
 
     .product-description,
-    .scan-cancel,
-    .camera-switch,
     .leaflet-page .page-content,
     .error-page .page-content {
         font-size: calc(100% + 2vmin);
@@ -1054,7 +1052,7 @@ body[dir="RTL"] #leaflet-content h5 {
     #leaflet-content,
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
-        font-size: calc(100% + 1.5vmin);
+        font-size: calc(100% + 0.5vmin);
     }
 
     #leaflet-content h5 {
