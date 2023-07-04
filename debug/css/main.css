@@ -1036,11 +1036,11 @@ body[dir="RTL"] #leaflet-content h5 {
     }*/
 
     .modal-content .languages-container .language-item-container input {
-        min-height: 25px;
+        min-height: 18px;
     }
 
     .flag-label-wrapper label {
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
 
     .go-back-button,
