@@ -517,8 +517,8 @@ b {
 }
 
 .leaflet-accordion-item h5 {
-    margin-block-end: 1em;
-    margin-block-start: 1em;
+    margin-block-end: 0.7em;
+    margin-block-start: 0.9em;
 }
 
 .leaflet-accordion-item-content {
