@@ -1058,7 +1058,8 @@ body[dir="RTL"] #leaflet-content h5 {
         line-height: 3vh;
     }
 
-    #leaflet-content h5 {
+    #leaflet-content h5,
+    .leaflet-accordion-item-content {
         font-size: calc(100% + 1.6vmin);
         margin-right: 4rem;
     }
