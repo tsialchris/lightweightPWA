@@ -1054,17 +1054,15 @@ body[dir="RTL"] #leaflet-content h5 {
     #leaflet-content,
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
-        font-size: calc(100% + 0.15vmin);
+        font-size: calc(100% + 1.6vmin);
+        line-height: 3vh;
     }
 
     #leaflet-content h5 {
+        font-size: calc(100% + 1.6vmin);
         margin-right: 4rem;
     }
-
-    .leaflet-accordion-item-content {
-        font-size: calc(100% - 0.6vmin);
-    }
-
+    
     .modal-header.left-aligned-header {
         padding: 1rem 1vh;
         min-height: 7%;
