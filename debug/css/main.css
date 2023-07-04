@@ -1004,7 +1004,7 @@ body[dir="RTL"] #leaflet-content h5 {
     .leaflet-page .product-name,
     .modal-header .modal-title,
     .error-page .header-title {
-        font-size: calc(100% + 4vmin);
+        font-size: calc(100% + 3.5vmin);
         font-family: 'DM Sans bold';
     }
 
@@ -1013,10 +1013,13 @@ body[dir="RTL"] #leaflet-content h5 {
         height: 100%;
     }
 
-    .product-description,
     .leaflet-page .page-content,
     .error-page .page-content {
-        font-size: calc(100% + 2vmin);
+        font-size: calc(100% + 2.5vmin);
+    }
+
+    .product-description {
+        font-size: calc(100% + 0.1vmin);
     }
 
     .flag-label-wrapper {
@@ -1057,6 +1060,11 @@ body[dir="RTL"] #leaflet-content h5 {
 
     #leaflet-content h5 {
         margin-right: 4rem;
+    }
+
+    .modal-header.left-aligned-header {
+        padding: 1.5rem 1vh;
+        min-height: 7%;
     }
 }
 
