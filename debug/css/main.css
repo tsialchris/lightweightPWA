@@ -1051,6 +1051,7 @@ body[dir="RTL"] #leaflet-content h5 {
         width: 100%;
     }
 
+    #leaflet-content,
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
         font-size: calc(100% + 0.15vmin);
@@ -1058,7 +1059,6 @@ body[dir="RTL"] #leaflet-content h5 {
 
     #leaflet-content h5 {
         margin-right: 4rem;
-        font-size: calc(100% - 0.4vmin);
     }
 
     .leaflet-accordion-item-content {
