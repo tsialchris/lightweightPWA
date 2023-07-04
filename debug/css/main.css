@@ -512,7 +512,7 @@ b {
 
 .leaflet-accordion-item {
     padding: 0px 1vh;
-    border-bottom: 1px solid #E5EAEB;
+    border-bottom: 0.5px solid #E5EAEB;
     line-height: 3vh;
 }
 
@@ -1055,7 +1055,7 @@ body[dir="RTL"] #leaflet-content h5 {
     #leaflet-content,
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
-        font-size: calc(100% + 0.5vmin);
+        font-size: calc(100% + 0.15vmin);
     }
 
     #leaflet-content h5 {
@@ -1063,7 +1063,7 @@ body[dir="RTL"] #leaflet-content h5 {
     }
 
     .modal-header.left-aligned-header {
-        padding: 1.5rem 1vh;
+        padding: 1rem 1vh;
         min-height: 7%;
     }
 }
