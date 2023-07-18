@@ -90,9 +90,9 @@ b {
     width: 100%;
     height: fit-content;
     left: 0px;
-    padding: 15px;
+    padding: 30px 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
 }
 
@@ -120,7 +120,7 @@ b {
 
 #logs-container {
     position: absolute;
-    top: 175px;
+    top: 100px;
     left: 0px;
     right: 0px;
     background: white;
@@ -996,6 +996,15 @@ body[dir="RTL"] #leaflet-content h5 {
     .pharmaledger-logo {
         top: 25%;
         position: relative;
+    }
+
+    .logs-buttons-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #logs-container {
+        top: 175px;
     }
 
     .page-container {
