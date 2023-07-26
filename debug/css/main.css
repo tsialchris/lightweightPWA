@@ -83,6 +83,15 @@ b {
     }
 }
 
+#logs-container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    background: white;
+    height: 100%;
+    padding: 20PX;
+}
+
 .page-header {
     padding: 0px 35px;
 }
@@ -103,16 +112,17 @@ b {
 
 
 .icon-container {
-    /*background: url(../images/app-icon.svg) no-repeat center;*/
     height: 13.5%;
+    min-height: 13.5%;
     background-size: 25%;
 }
 
 .pharmaledger-logo {
+    position: absolute;
+    top: calc(5% - 6px);
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 130px;
 }
 
 .pharmaledger-logo > img {
@@ -125,7 +135,7 @@ b {
     height: auto;
     text-align: center;
     line-height: 1.5em;
-    font-size: calc(100% + 0.8vmin);
+    font-size: calc(100% + 1.2vmin);
     padding-bottom: 14px;
     margin: 0 35px;
 }
@@ -135,13 +145,19 @@ b {
     margin: 0;
 }
 
+.terms-content-container h2 {
+    text-align: left;
+    font-size: calc(100% + 1vmin);
+}
+
+
 .terms-content-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-height: 70%;
-    margin: 0 35px 24px;
+    margin: 0 24px 24px;
     font-size: calc(100% + 0.1vmin);
 }
 
@@ -212,11 +228,12 @@ b {
     background: #fff;
     color: var(--olivegreen);
     position: absolute;
-    width: calc(100% - 70px);
+    width: calc(100% - 60px);
     z-index: 10;
     text-align: left;
     padding: 5px 0px;
     top: calc(7% + 10px);
+    left: 10px;
     font-size: 1.2rem;
     box-shadow: 0px 15px 20px rgba(28, 34, 40, 0.3);
     list-style-type: none;
@@ -345,15 +362,12 @@ b {
 }
 
 .scan-button-container {
-    flex-grow: 1;
     display: flex;
     width: 100%;
-    flex-direction: column;
-    max-width: 75%;
-    align-self: center;
-    position: relative;
-    justify-content: end;
-    padding-bottom: 20%;
+    flex-direction: row;
+    position: absolute;
+    justify-content: center;
+    bottom: 5vh;
 }
 
 .scan-button {
@@ -383,6 +397,7 @@ b {
     position: relative;
     right: 0;
     padding: 2vh 10px;
+    width: 75%;
 }
 
 .page-container.scan-page, .page-container.leaflet-page {
@@ -767,10 +782,6 @@ b {
     padding: 0;
 }
 
-.modal-content.terms h2 {
-    font-size: inherit;
-}
-
 .modal-content .languages-container {
     overflow: hidden;
 }
@@ -949,6 +960,13 @@ body[dir="RTL"] #leaflet-content h5 {
     .page-container {
         background: var(--olivegreen);
         border-radius: 0;
+    }
+
+    .loader {
+        width: 50px;
+        height: 50px;
+        top: 42%;
+        left: calc(50vw - 40px);
     }
 
     .modal-container {
@@ -1386,10 +1404,6 @@ body[dir="RTL"] #leaflet-content h5 {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
-    }
-
-    .pharmaledger-logo {
-        top: 0;
     }
 
     .modal-container {
