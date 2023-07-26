@@ -509,9 +509,11 @@ b {
     display: none;
 }
 
-#leaflet-content figure,
+#leaflet-content figure {
+    display: flex;
+}
+
 #leaflet-content img {
-    display: block;
     width: 100%;
     width: -moz-available; /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
