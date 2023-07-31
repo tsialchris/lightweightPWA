@@ -38,7 +38,7 @@ function SmartUrl(bdnsEntry){
     }
 
     this.concatWith = (path) => {
-        return new SmartUrl(bdnsEntry === url ? concatUrls(url, path) :{url: concatUrls(url, path), headers:bdnsEntry.headers});
+        return new SmartUrl(bdnsEntry === url ? concatUrls(url, path) : {url: concatUrls(url, path), headers : bdnsEntry.headers});
     }
 }
 
