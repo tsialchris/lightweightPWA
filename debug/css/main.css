@@ -233,7 +233,7 @@ b {
     padding: 5px 0px;
     top: calc(7% + 10px);
     left: 10px;
-    font-size: 1.2rem;
+    font-size: calc(100% + 0.1vmin);
     box-shadow: 0px 15px 20px rgba(28, 34, 40, 0.3);
     list-style-type: none;
 }
@@ -585,10 +585,11 @@ b {
 .modal-container .modal-body {
     margin: 0px 12px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header.centered-header {
-    height: 18vh;
     position: relative;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
@@ -601,18 +602,15 @@ b {
     justify-content: center;
     border-radius: 30px 30px 0px 0px;
     height: fit-content;
-    padding: 2.5rem 1.5rem;
-    min-height: 7%;
-    height: fit-content;
+    padding: 1.5rem 24px;
+    height: 14%;
 }
 
 .modal-header.centered-header .icon-title-container {
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: center;
-    gap: 8px;
-    padding-top: 1vh;
+    padding-top: 2vh;
 }
 
 .modal-header.left-aligned-header .icon-title-container {
@@ -626,9 +624,9 @@ b {
 .leaflet-page .product-name,
 .modal-header .header-title,
 .modal-header .modal-title {
-    font-size: calc(100% + 1.7vh);
+    font-size: calc(100% + 1.7vmin);
     font-family: 'DM Sans bold';
-    margin: 0 40px 0 0;
+    margin: 0;
 }
 
 .leaflet-page .product-name {
@@ -639,10 +637,12 @@ b {
 
 .modal-header.centered-header .modal-title {
     text-align: center;
+    margin: 0 0 24px 0;
 }
 
 .modal-header.left-aligned-header .modal-title {
     text-align: left;
+    margin-right: 12px;
 }
 
 #settings-modal {
@@ -669,7 +669,6 @@ b {
     align-self: center;
     z-index: 100;
     height: min(94%, 1000px);
-    min-height: 960px;
     border-radius: 30px;
     min-width: 435px;
     width: 24%;
@@ -692,7 +691,7 @@ b {
 }
 
 .modal-header.centered-header .modal-icon {
-    height: 22%;
+    height: 35px;
     width: 100%;
     background-position: center;
 }
@@ -722,7 +721,6 @@ b {
 
 .modal-content .text-section {
     padding-bottom: 24px;
-    font-size: 2vh;
     font-family: 'DM Sans semi-bold';
     text-align: justify;
 }
@@ -764,7 +762,7 @@ b {
     position: relative;
     overflow: auto;
     color: #04313B;
-    min-height: 354px;
+    min-height: 170px;
     padding: 24px;
     max-height: 60vh;
     border-radius: 0px 0px 30px 30px;
@@ -773,7 +771,8 @@ b {
 .popup-modal .modal-content {
     top: -15px;
     border-radius: 15px 15px 30px 30px;
-    font-size: 2vh;
+    font-size: calc(100% + 1vmin);
+    font-weight: bold;
 }
 
 .modal-content.terms,
@@ -970,13 +969,6 @@ body[dir="RTL"] #leaflet-content h2 {
     }
 
     .modal-container {
-        position: relative;
-        display: none !important;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 100;
-        height: 100%;
-        min-height: unset;
-        border-radius: 0px;
         min-width: 100%;
     }
 
@@ -986,10 +978,22 @@ body[dir="RTL"] #leaflet-content h2 {
     }
 
     .modal-header .close-modal {
-        width: 3vh;
-        height: 3vh;
+        right: 15px;
     }
 
+    .modal-header.left-aligned-header {
+        height: unset;
+    }
+
+    .info-modal {
+        min-height: 100%;
+    }
+
+    .leaflet-page .product-name,
+    .modal-header .header-title,
+    .modal-header .modal-title {
+        font-size: calc(100% + 2.5vmin);
+    }
     .scan-page #scanner-placeholder {
         height: 100%;
         max-width: 100%;
@@ -1020,13 +1024,13 @@ body[dir="RTL"] #leaflet-content h2 {
         transform: translate(-30%, 10%);
     }
 
-    .leaflet-page .product-name,
-    .modal-header .modal-title,
-    .error-page .header-title {
-        font-size: calc(100% + 3.5vmin);
-        font-family: 'DM Sans bold';
-    }
-
+    /*  .leaflet-page .product-name,
+      .modal-header .modal-title,
+      .error-page .header-title {
+          font-size: calc(100% + 3.5vmin);
+          font-family: 'DM Sans bold';
+      }
+  */
     .leaflet-page .page-content, .error-page .page-content {
         border-radius: 0px;
         height: 100%;
@@ -1083,11 +1087,6 @@ body[dir="RTL"] #leaflet-content h2 {
     #leaflet-content h2,
     .leaflet-accordion-item-content {
         font-size: calc(100% + 1.3vmin);
-    }
-
-    .modal-header.left-aligned-header {
-        padding: 1rem 1vh;
-        min-height: 7%;
     }
 }
 
