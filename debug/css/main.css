@@ -316,8 +316,10 @@ b {
 .content-container {
     align-self: center;
     background-image: url(../images/medicine-pack.png);
-    max-width: 75%;
-    width: -webkit-fill-available;
+    max-width: 55%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
     aspect-ratio: 1 / 1;
     background-position: 15% 97%;
     background-repeat: no-repeat;
@@ -671,7 +673,7 @@ b {
     height: min(94%, 1000px);
     border-radius: 30px;
     min-width: 435px;
-    width: 24%;
+    width: max(24%, 460px);
 }
 
 #scan-error {
