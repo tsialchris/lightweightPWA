@@ -317,8 +317,8 @@ b {
     align-self: center;
     background-image: url(../images/medicine-pack.png);
     max-width: 55%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
     width: fill-available;
     aspect-ratio: 1 / 1;
     background-position: 15% 97%;
@@ -972,6 +972,7 @@ body[dir="RTL"] #leaflet-content h2 {
 
     .modal-container {
         min-width: 100%;
+        width: 100%;
     }
 
     .modal-header.left-aligned-header,
@@ -996,6 +997,7 @@ body[dir="RTL"] #leaflet-content h2 {
     .modal-header .modal-title {
         font-size: calc(100% + 2.5vmin);
     }
+
     .scan-page #scanner-placeholder {
         height: 100%;
         max-width: 100%;
