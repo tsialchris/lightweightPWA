@@ -1,7 +1,7 @@
 export default {
   "epiDomain": "demo.epi",
   "epiProtocolVersion": 1,
-  "appBuildVersion": "test_release.1.3m",
+  "appBuildVersion": "test_release.1.3n",
   "timePerCall": 10000,
   "totalWaitTime": 60000,
   "gto_TimePerCall": 3000,
