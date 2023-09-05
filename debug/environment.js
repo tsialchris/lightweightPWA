@@ -1,5 +1,5 @@
 export default {
-  "epiDomain": "demo.epi",
+  "epiDomain": "preqa.epi",
   "epiProtocolVersion": 1,
   "appBuildVersion": "test_release.1.3u",
   "timePerCall": 10000,
