@@ -532,7 +532,7 @@ b {
 .leaflet-accordion-item {
     padding: 0px 1vh;
     border-bottom: 0.5px solid #E5EAEB;
-    line-height: 3vh;
+    line-height: initial;
 }
 
 .leaflet-accordion-item h2 {
@@ -559,12 +559,12 @@ b {
     visibility: visible;
     position: relative;
     float: right;
-    width: 7%;
-    height: 3vh;
+    width: 6%;
     background-image: url(../images/accordion-open.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    aspect-ratio: 1;
 }
 
 .leaflet-accordion-item.active:before {
