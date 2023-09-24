@@ -565,6 +565,7 @@ b {
     background-size: contain;
     background-repeat: no-repeat;
     aspect-ratio: 1;
+    margin-top: 4px;
 }
 
 .leaflet-accordion-item.active:before {
