@@ -532,7 +532,7 @@ b {
 .leaflet-accordion-item {
     padding: 0px 1vh;
     border-bottom: 0.5px solid #E5EAEB;
-    line-height: initial;
+    line-height: 1.2;
 }
 
 .leaflet-accordion-item h2 {
@@ -1100,7 +1100,7 @@ body[dir="RTL"] #leaflet-content h2 {
     #leaflet-content .select-lang-text,
     #leaflet-content .languages-list {
         font-size: calc(100% - 0.5vmin);
-        line-height: 3vh;
+        line-height: 1.2;
     }
 
     #leaflet-content h2 {
