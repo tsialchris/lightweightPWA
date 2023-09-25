@@ -559,13 +559,12 @@ b {
     visibility: visible;
     position: relative;
     float: right;
-    width: 6%;
     background-image: url(../images/accordion-open.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    aspect-ratio: 1;
-    margin-top: 4px;
+    width: 26px;
+    height: 26px;
 }
 
 .leaflet-accordion-item.active:before {
