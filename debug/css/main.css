@@ -105,7 +105,7 @@ b {
     display: flex;
     flex-direction: column;
     position: relative;
-    height: max(96vh, 960px);
+    height: min(96vh, 960px);
     min-width: max(24%, 460px);
 }
 
@@ -417,8 +417,7 @@ b {
     justify-content: space-between;
     height: 10%;
     align-items: end;
-    font-family: 'DM Sans semi-bold';
-    font-size: calc(100% + 0.1vmin);
+    margin: 4% 0;
 }
 
 .scan-page #scanner-placeholder {
@@ -430,14 +429,13 @@ b {
 
 
 .scan-cancel, .camera-switch {
-    padding-bottom: 4%;
     padding-left: 6%;
     padding-right: 6%;
     background: transparent;
     color: white;
     border: 0;
     font-family: 'DM Sans semi-bold';
-    font-size: 1em;
+    font-size: calc(100% + 0.1vmin);
 }
 
 .page-container.error-page {
@@ -595,6 +593,10 @@ b {
     flex-direction: column;
     justify-content: center;
     max-height: 90%;
+}
+
+.info-modal.modal-container .modal-body {
+    max-height: 100%;
 }
 
 .modal-header.centered-header {
