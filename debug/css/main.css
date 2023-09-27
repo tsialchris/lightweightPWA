@@ -107,6 +107,7 @@ b {
     position: relative;
     height: min(96vh, 960px);
     min-width: max(24%, 460px);
+    min-height: 960px;
 }
 
 
@@ -614,7 +615,7 @@ b {
     height: fit-content;
     padding: 1.5rem 24px;
     height: 12%;
-    width: 100%;
+    width: calc(100% - 48px);
 }
 
 .gap-element {
@@ -687,7 +688,7 @@ b {
     border-radius: 30px;
     min-width: 435px;
     width: max(24%, 460px);
-
+    min-height: 960px;
 }
 
 #scan-error {
@@ -999,6 +1000,7 @@ body[dir="RTL"] #leaflet-content h2 {
         border-radius: unset;
         flex-direction: column;
         justify-content: center;
+        min-height: unset;
     }
 
     .modal-header.left-aligned-header,
