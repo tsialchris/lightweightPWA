@@ -136,7 +136,7 @@ function LeafletController() {
     for (let image of leafletImages) {
       let imageSrc = image.getAttribute("src");
       let dataUrlRegex = new RegExp(/^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i);
-      if (!!imageSrc.match(dataUrlRegex) || imageSrc.startsWith("data:")) {
+      if(!!imageSrc.match(dataUrlRegex) || imageSrc.startsWith("data:")){
         //we don't alter already embedded images
         continue;
       }
@@ -174,12 +174,12 @@ function LeafletController() {
         site for flags https://flagpedia.net/download
       */
       result.availableLanguages.forEach((lang, index) => {
-        let langRadio = `<div class="flag-label-wrapper">
-        <label for="${lang.value}"> 
-          <img src="./images/flags/${lang.value}.svg" class="language-flag"/> ${lang.label} - (${lang.nativeName})
-        </label> 
-        </div><input type="radio" name="languages" ${index === 0 ? "checked" : ""} value="${lang.value}" id="${lang.value}">`;
-        let radioFragment = document.createElement('div');
+        let langRadio = `
+         <div class="language-flag" style="background-image: url(./images/flags/${lang.value}.svg);"></div>
+         <div>${lang.label} - (${lang.nativeName})</div>
+         <input type="radio" name="languages" ${index === 0 ? "checked" : ""} value="${lang.value}" id="${lang.value}">
+        `;
+        let radioFragment = document.createElement('label');
         radioFragment.classList.add("language-item-container");
         radioFragment.innerHTML = langRadio;
         languagesContainer.appendChild(radioFragment);
