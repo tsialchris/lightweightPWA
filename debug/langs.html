@@ -14,7 +14,11 @@
 </div>
 </body>
 <script>
-  document.querySelector("#logs-container #lang-list").innerHTML = window.navigator.languages.toString();
+  let langs = "";
+  window.navigator.languages.forEach(lang=>{
+    langs = langs + lang + "; ";
+  })
+  document.querySelector("#logs-container #lang-list").innerHTML = langs;
   document.querySelector("#logs-container #lang").innerHTML = window.navigator.language;
 </script>
 </html>
