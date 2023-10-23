@@ -9,11 +9,13 @@
 
 <body>
 <div id="logs-container">
+   Languages: <span id="lang-list"> </span> <br/>
+   Language:  <span id="lang"> </span> <br/>
 </div>
 </body>
 <script>
-  let langs = window.navigator.languages;
-  document.querySelector("#logs-container").innerHTML = langs;
+  document.querySelector("#logs-container #lang-list").innerHTML = window.navigator.languages;
+  document.querySelector("#logs-container #lang").innerHTML = window.navigator.language;
 </script>
 </html>
 
