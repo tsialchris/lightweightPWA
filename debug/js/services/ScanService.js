@@ -98,7 +98,8 @@ class ScanService {
     this.scanner.changeWorker("lib/zxing-wrapper/worker/zxing-0.18.6-worker.js");
 
     this.scanner.drawOverlay = (centralPoints, canvasDimensions) => {
-      return createOverlay(centralPoints, canvasDimensions);
+      return
+     // return createOverlay(centralPoints, canvasDimensions);
     }
 
     Object.defineProperty(this, 'status', {

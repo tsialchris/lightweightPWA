@@ -1,7 +1,7 @@
 export default {
   "epiDomain": "preqa.epi",
   "epiProtocolVersion": 1,
-  "appBuildVersion": "2023.0.4_lang_test",
+  "appBuildVersion": "test_overlay",
   "timePerCall": 10000,
   "totalWaitTime": 60000,
   "gto_TimePerCall": 3000,
