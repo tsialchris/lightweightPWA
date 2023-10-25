@@ -397,9 +397,10 @@ export default function Scanner(domElement, testMode) {
 			video.muted = true;
 			video.loop = true;
 			if (!gotFullSupport()) {
-				video.setAttribute("width", "100%");
-				video.setAttribute("height", "100%");
+				video.width = 100;
+				video.height = 100;
 				video.setAttribute("playsinline", "");
+				video.setAttribute("style", "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);");
 				video.controls = false;
 			}
 			video.addEventListener("loadeddata", () => {
