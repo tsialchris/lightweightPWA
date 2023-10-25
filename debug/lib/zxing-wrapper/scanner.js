@@ -397,8 +397,8 @@ export default function Scanner(domElement, testMode) {
 			video.muted = true;
 			video.loop = true;
 			if (!gotFullSupport()) {
-				video.width = 1;
-				video.height = 1;
+				video.width = 100;
+				video.height = 100;
 				video.setAttribute("playsinline", "");
 			}
 			video.addEventListener("loadeddata", () => {
