@@ -397,9 +397,10 @@ export default function Scanner(domElement, testMode) {
 			video.muted = true;
 			video.loop = true;
 			if (!gotFullSupport()) {
-				video.width = 100;
-				video.height = 100;
+				video.setAttribute("width", "100%");
+				video.setAttribute("height", "100%");
 				video.setAttribute("playsinline", "");
+				video.controls = false;
 			}
 			video.addEventListener("loadeddata", () => {
 				canvas.width = video.videoWidth;
