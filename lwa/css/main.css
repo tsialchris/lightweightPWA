@@ -152,7 +152,6 @@ body[dir="RTL"] .loader {
 }
 
 .welcome-container h1 {
-    font-size: inherit;
     margin: 0;
 }
 
