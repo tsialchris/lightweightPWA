@@ -152,7 +152,7 @@ body[dir="RTL"] .loader {
 .welcome-container h1 {
     margin: 0;
     font-size: calc(100% + 1.2vmin);
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .terms-content-container h2 {
