@@ -168,7 +168,22 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  let h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+  let userAgent = navigator.userAgent;
+  let browserName;
+  let h;
+  if (userAgent.match(/chrome|chromium|crios/i)) {
+    browserName = "chrome";
+    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+
+  } else if (userAgent.match(/firefox|fxios/i)) {
+    browserName = "firefox";
+  } else if (userAgent.match(/safari/i)) {
+    browserName = "safari";
+    h = window.visualViewport.scale * 100;
+  } else if (userAgent.match(/opr/i)) {
+    browserName = "opera";
+  }
+
   alert(`Zoom factor  = ${h}%`)
 }
 
