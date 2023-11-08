@@ -168,6 +168,8 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  let h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+  alert(`Zoom factor  = ${h}%`)
 }
 
 const queryString = window.location.search;
