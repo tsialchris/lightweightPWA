@@ -63,6 +63,9 @@ body {
     height: 100%;
 }
 
+.font-control {
+    font-size: 1em;
+}
 
 b {
     font-family: "DM Sans bold";
