@@ -9,6 +9,10 @@
     --red-100: #FEEFEE;
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
+    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
+    --font-size--small: 1.4rem; /* 14px */
+    --font-size--default: 1.6rem; /* 16px */
+    --font-size--large: 2.4rem; /* 24px */
 }
 
 /* dm-sans-regular - latin-ext_latin */
@@ -61,10 +65,7 @@ body {
     display: flex;
     font-family: "DM Sans";
     height: 100%;
-}
-
-.font-control {
-    font-size: 1em;
+    font-size: var(--font-size--default);
 }
 
 b {
