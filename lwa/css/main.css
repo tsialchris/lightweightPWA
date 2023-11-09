@@ -68,10 +68,9 @@ body {
 }
 
 .font-control {
-    height: auto;
+    height: 100%;
     position: relative;
-    top: -50000px;
-    left: -50000px;
+    top: -5000px;
 }
 
 b {
