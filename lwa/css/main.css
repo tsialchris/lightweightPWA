@@ -51,7 +51,6 @@ html {
     min-height: 100%;
     width: 100%;
     height: 100%;
-    font-size: var(--font-size--default);
 }
 
 body {
@@ -66,9 +65,11 @@ body {
     display: flex;
     font-family: "DM Sans";
     height: 100%;
+    font-size: var(--font-size--default);
 }
 
 .font-control {
+    line-height: 1;
     position: relative;
     top: -5000px;
 }
