@@ -175,12 +175,17 @@ window.onload = (event) => {
     browserName = "chrome";
     h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
 
-  } else if (userAgent.match(/firefox|fxios/i)) {
+  }
+  if (userAgent.match(/firefox|fxios/i)) {
     browserName = "firefox";
-  } else if (userAgent.match(/safari/i)) {
+    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+  }
+
+  if (userAgent.match(/safari/i)) {
     browserName = "safari";
     h = window.visualViewport.scale * 100;
-  } else if (userAgent.match(/opr/i)) {
+  }
+  if (userAgent.match(/opr/i)) {
     browserName = "opera";
   }
 
