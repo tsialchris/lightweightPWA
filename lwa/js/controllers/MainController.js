@@ -171,21 +171,14 @@ window.onload = (event) => {
   let userAgent = navigator.userAgent;
   let browserName;
   let h;
-  if (userAgent.match(/chrome|chromium|crios/i)) {
+  if (userAgent.match(/chrome|chromium|crios/i) || userAgent.match(/firefox|fxios/i)) {
     browserName = "chrome";
-    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+    h = document.querySelector(".font-control").clientHeight / 0.16
 
-  }
-  if (userAgent.match(/firefox|fxios/i)) {
-    browserName = "firefox";
-    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
-  }
-
-  if (userAgent.match(/safari/i)) {
+  } else if (userAgent.match(/safari/i)) {
     browserName = "safari";
     h = window.visualViewport.scale * 100;
-  }
-  if (userAgent.match(/opr/i)) {
+  } else if (userAgent.match(/opr/i)) {
     browserName = "opera";
   }
 
