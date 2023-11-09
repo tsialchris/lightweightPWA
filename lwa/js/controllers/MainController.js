@@ -171,12 +171,14 @@ window.onload = (event) => {
   let userAgent = navigator.userAgent;
   let browserName;
   let h;
+  let fh1, fh2;
   if (userAgent.match(/chrome|chromium|crios/i)) {
     browserName = "chrome";
     h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
 
   } else if (userAgent.match(/firefox|fxios/i)) {
-    browserName = "firefox";
+    fh1 = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16);
+    fh2 = h = window.visualViewport.scale * 100;
   } else if (userAgent.match(/safari/i)) {
     browserName = "safari";
     h = window.visualViewport.scale * 100;
@@ -184,7 +186,7 @@ window.onload = (event) => {
     browserName = "opera";
   }
 
-  alert(`Zoom factor  = ${h}%`)
+  alert(`Zoom factor  = ${h}% , ${fh1}, ${fh2}`)
 }
 
 const queryString = window.location.search;
