@@ -171,11 +171,11 @@ window.onload = (event) => {
   let userAgent = navigator.userAgent;
   let browserName;
   let h;
-  if (userAgent.match(/chrome|chromium|crios/i) || userAgent.match(/firefox|fxios/i)) {
+  if (userAgent.match(/chrome|chromium|crios/i)) {
     browserName = "chrome";
     h = document.querySelector(".font-control").clientHeight / 0.16
 
-  } else if (userAgent.match(/safari/i)) {
+  } else if (userAgent.match(/safari/i) || userAgent.match(/firefox|fxios/i)) {
     browserName = "safari";
     h = window.visualViewport.scale * 100;
   } else if (userAgent.match(/opr/i)) {
