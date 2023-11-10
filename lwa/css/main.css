@@ -10,9 +10,9 @@
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
     font-size: 7mm;
-    --font-size--small: calc(1rem - 2mm); /* 14px */
-    --font-size--default: 1rem; /* 16px */
-    --font-size--large: calc(1rem - 2mm) /* 24px */
+    --font-size--small: 5mm;
+    --font-size--default: 7mm;
+    --font-size--large: 9mm;
 }
 
 /* dm-sans-regular - latin-ext_latin */
@@ -65,7 +65,7 @@ body {
     display: flex;
     font-family: "DM Sans";
     height: 100%;
-    font-size: var(--font-size--default);
+    font-size: var(--font-size--small);
 }
 
 .font-control {
