@@ -178,18 +178,16 @@ body[dir="RTL"] .loader {
 
 .welcome-container h1 {
     margin: 0;
-    font-size: var(--font-size--large);
+    font-size: var(--font-size--default);
     line-height: 1.2;
 }
 
 .terms-content-container h2 {
     text-align: left;
-    font-size: var(--font-size--default);;
 }
 
 body[dir="RTL"] .terms-content-container h2 {
     text-align: right;
-    font-size: var(--font-size--default);;
 }
 
 

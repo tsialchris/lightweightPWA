@@ -190,7 +190,7 @@ window.onload = (event) => {
   let fh1, fh2;
   if (userAgent.match(/chrome|chromium|crios/i)) {
     browserName = "chrome";
-    h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5)
+    h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
 
   } else if (userAgent.match(/firefox|fxios/i)) {
     fh1 = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16);
