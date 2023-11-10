@@ -186,7 +186,7 @@ window.onload = (event) => {
     browserName = "opera";
   }
 
-  alert(`Zoom factor  = ${h}% , ${fh1}, ${fh2}`)
+  console.log(`Zoom factor  = ${h}% , ${fh1}, ${fh2}`)
 }
 
 const queryString = window.location.search;
