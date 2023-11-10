@@ -68,11 +68,27 @@ body {
     font-size: var(--font-size--small);
 }
 
+h1 {
+    font-size: var(--font-size--large);
+}
+
+h2 {
+    font-size: var(--font-size--default);
+}
+
+h3 {
+    font-size: var(--font-size--small);
+}
+
+p {
+    font-size: var(--font-size--small);
+}
+
 .font-control {
     line-height: 1;
     position: relative;
     top: -5000px;
-    font-size: 1rem;
+    font-size: var(--font-size--small);
 }
 
 b {

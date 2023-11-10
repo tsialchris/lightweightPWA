@@ -160,6 +160,21 @@ function MainController() {
   addEventListeners();
 }
 
+function getFontSizeInMillimeters(element) {
+  // Obțineți stilul computat pentru elementul dat
+  const style = window.getComputedStyle(element);
+
+  // Extrageți dimensiunea fontului în pixeli și convertiți-o într-un număr
+  const fontSizeInPixels = parseFloat(style.fontSize);
+
+  // Definiți conversia de la inch la milimetri
+  const mmPerInch = 25.4;
+
+  // Convertiți pixelii în puncte (1 punct = 1/72 inch), apoi în milimetri
+  const fontSizeInMillimeters = fontSizeInPixels * (1 / 72) * mmPerInch;
+
+  return fontSizeInMillimeters;
+}
 
 const mainController = new MainController();
 
@@ -168,13 +183,14 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+
   let userAgent = navigator.userAgent;
   let browserName;
   let h;
   let fh1, fh2;
   if (userAgent.match(/chrome|chromium|crios/i)) {
     browserName = "chrome";
-    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+    h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5)
 
   } else if (userAgent.match(/firefox|fxios/i)) {
     fh1 = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16);
