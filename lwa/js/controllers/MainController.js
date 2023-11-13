@@ -1,4 +1,4 @@
-import {goToPage, getFontSizeInMillimeters} from "../utils/utils.js"
+import {goToPage, getFontSizeInMillimeters, updateFontScale} from "../utils/utils.js"
 import {getTranslation, translate} from "../translations.js";
 import environment from "../../environment.js";
 import constants from "../constants.js";
@@ -169,6 +169,11 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  updateFontScale();
+  window.visualViewport.addEventListener("resize", (e) => {
+    console.log(e);
+    updateFontScale()
+  })
   try {
     console.log(" after -------------------------")
     console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);

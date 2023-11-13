@@ -719,11 +719,6 @@ function setDefaultLanguage() {
 }
 
 export function translate() {
-  updateFontScale();
-  window.visualViewport.addEventListener("resize", (e) => {
-    console.log(e);
-    updateFontScale()
-  })
   setDefaultLanguage();
   let matches = document.querySelectorAll("[translate]");
   matches.forEach((item) => {
