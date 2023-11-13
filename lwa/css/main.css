@@ -89,6 +89,7 @@ p {
     position: relative;
     top: -5000px;
     font-size: 1em;
+    width: 100%;
 }
 
 b {
