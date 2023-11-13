@@ -65,7 +65,7 @@ body {
     display: flex;
     font-family: "DM Sans";
     height: 100%;
-    font-size: 1.6rem; /* 16px */
+    font-size: 1.4rem; /* 14px approx 5mm */ 
 }
 
 h1 {
