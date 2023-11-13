@@ -169,19 +169,15 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  updateFontScale();
+
   window.visualViewport.addEventListener("resize", (e) => {
     console.log(e);
-    updateFontScale()
-  })
-  try {
+    updateFontScale();
     console.log(" after -------------------------")
     console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
     console.log(`h2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
     console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
-  } catch (e) {
-
-  }
+  })
 }
 
 const queryString = window.location.search;
