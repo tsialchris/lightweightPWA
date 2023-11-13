@@ -183,7 +183,6 @@ body[dir="RTL"] .loader {
 
 .welcome-container h1 {
     margin: 0;
-    font-size: var(--font-size--L);
     line-height: 1.2;
 }
 
