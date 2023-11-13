@@ -205,10 +205,15 @@ function getFontSizeInMillimeters(element) {
 }
 
 function updateFontScale() {
-  console.log(" before -------------------------")
-  console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
-  console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
-  console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
+  try {
+    console.log(" before -------------------------")
+    console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
+    console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
+    console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
+  } catch (e) {
+
+  }
+
 
   let userAgent = navigator.userAgent;
   let h;
@@ -242,10 +247,15 @@ function updateFontScale() {
   document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
   document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
   document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
-  console.log(" after  -------------------------")
-  console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
-  console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
-  console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
+  try {
+    console.log(" after -------------------------")
+    console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
+    console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
+    console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
+  } catch (e) {
+
+  }
+
 
 }
 
