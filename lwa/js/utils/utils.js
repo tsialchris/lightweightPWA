@@ -239,9 +239,9 @@ function updateFontScale() {
   if (h > 150 && h < 200) {
     h = 175;
   }
-  /*  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
-    document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
-    document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);*/
+  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
+  document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
+  document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
 
 }
 
