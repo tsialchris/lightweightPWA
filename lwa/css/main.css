@@ -9,7 +9,7 @@
     --red-100: #FEEFEE;
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
-    font-size: 5mm;
+    font-size: 62.5%;/* (62.5/100) * 16px = 10px */
     --font-size--basic: 5mm;
     --font-size--L: 7mm;
     --font-size--XL: 9mm;
@@ -51,7 +51,6 @@ html {
     min-height: 100%;
     width: 100%;
     height: 100%;
-    font-size: var(--font-size--basic);
 }
 
 body {
