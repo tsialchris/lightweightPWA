@@ -215,6 +215,10 @@ function updateFontScale() {
   } else if (userAgent.match(/firefox|fxios/i)) {
     //TO DO
   } else if (userAgent.match(/safari/i)) {
+    window.visualViewport.addEventListener("resize", (e) => {
+      console.log(e);
+      this.updateFontScale()
+    })
     h = window.visualViewport.scale * 100;
   } else if (userAgent.match(/opr/i)) {
     //TO DO
@@ -235,9 +239,9 @@ function updateFontScale() {
   if (h > 150 && h < 200) {
     h = 175;
   }
-/*  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
-  document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
-  document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);*/
+  /*  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
+    document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
+    document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);*/
 
 }
 
