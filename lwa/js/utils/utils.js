@@ -209,7 +209,7 @@ function updateFontScale() {
   let userAgent = navigator.userAgent;
   let h;
   if (userAgent.match(/chrome|chromium|crios/i)) {
-    h = Math.round(parseFloat(getComputedStyle(document.querySelector(".font-control")).height) / 0.17)
+    h = Math.round(parseFloat(getComputedStyle(document.querySelector(".font-control")).height) / 0.1)
 
     // h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
   } else if (userAgent.match(/firefox|fxios/i)) {
