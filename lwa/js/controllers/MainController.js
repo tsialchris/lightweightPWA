@@ -164,14 +164,6 @@ function MainController() {
 const mainController = new MainController();
 
 window.onload = (event) => {
-  try {
-    console.log(" before -------------------------")
-    console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
-    console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
-    console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
-  } catch (e) {
-
-  }
 
   translate();
   mainController.checkOnboarding();
@@ -180,7 +172,7 @@ window.onload = (event) => {
   try {
     console.log(" after -------------------------")
     console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
-    console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
+    console.log(`h2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
     console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
   } catch (e) {
 
