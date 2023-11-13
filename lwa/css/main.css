@@ -9,7 +9,7 @@
     --red-100: #FEEFEE;
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
-    font-size: 62.5%;/* (62.5/100) * 16px = 10px */
+    font-size: 62.5%; /* (62.5/100) * 16px = 10px */
     --font-size--basic: 5mm;
     --font-size--L: 7mm;
     --font-size--XL: 9mm;
@@ -65,7 +65,7 @@ body {
     display: flex;
     font-family: "DM Sans";
     height: 100%;
-    font-size: var(--font-size--basic);
+    font-size: 1.6rem; /* 16px */
 }
 
 h1 {
