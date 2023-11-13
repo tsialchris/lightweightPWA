@@ -168,7 +168,6 @@ window.onload = (event) => {
   translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
-  document.querySelector(".font-control").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
   try {
     console.log(" after -------------------------")
