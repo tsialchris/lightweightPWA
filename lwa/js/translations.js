@@ -720,7 +720,7 @@ function setDefaultLanguage() {
 
 export function translate() {
   updateFontScale();
-  window.addEventListener("resize", (e) => {
+  window.visualViewport.addEventListener("resize", (e) => {
     console.log(e);
     updateFontScale()
   })
