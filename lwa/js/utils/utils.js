@@ -205,11 +205,15 @@ function getFontSizeInMillimeters(element) {
 }
 
 function updateFontScale() {
+  console.log(" before -------------------------")
+  console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
+  console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
+  console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
 
   let userAgent = navigator.userAgent;
   let h;
   if (userAgent.match(/chrome|chromium|crios/i)) {
-    h = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16)
+    h = Math.round(getComputedStyle(document.querySelector(".font-control div")).height.split("px")[0] / 0.17)
 
     // h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
   } else if (userAgent.match(/firefox|fxios/i)) {
@@ -238,6 +242,10 @@ function updateFontScale() {
   document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
   document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
   document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
+  console.log(" after  -------------------------")
+  console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
+  console.log(`H2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
+  console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
 
 }
 
