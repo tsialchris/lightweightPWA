@@ -1,4 +1,4 @@
-import {setTextDirectionForLanguage} from "./utils/utils.js";
+import {setTextDirectionForLanguage, updateFontScale} from "./utils/utils.js";
 import constants from "./constants.js";
 
 export const translations = {
@@ -719,6 +719,7 @@ function setDefaultLanguage() {
 }
 
 export function translate() {
+  updateFontScale();
   setDefaultLanguage();
   let matches = document.querySelectorAll("[translate]");
   matches.forEach((item) => {

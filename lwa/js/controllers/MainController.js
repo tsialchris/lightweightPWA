@@ -160,21 +160,7 @@ function MainController() {
   addEventListeners();
 }
 
-function getFontSizeInMillimeters(element) {
-  // Obțineți stilul computat pentru elementul dat
-  const style = window.getComputedStyle(element);
 
-  // Extrageți dimensiunea fontului în pixeli și convertiți-o într-un număr
-  const fontSizeInPixels = parseFloat(style.fontSize);
-
-  // Definiți conversia de la inch la milimetri
-  const mmPerInch = 25.4;
-
-  // Convertiți pixelii în puncte (1 punct = 1/72 inch), apoi în milimetri
-  const fontSizeInMillimeters = fontSizeInPixels * (1 / 72) * mmPerInch;
-
-  return fontSizeInMillimeters;
-}
 
 const mainController = new MainController();
 
@@ -183,26 +169,6 @@ window.onload = (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-
-  let userAgent = navigator.userAgent;
-  let browserName;
-  let h;
-  let fh1, fh2;
-  if (userAgent.match(/chrome|chromium|crios/i)) {
-    browserName = "chrome";
-    h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
-
-  } else if (userAgent.match(/firefox|fxios/i)) {
-    fh1 = Math.round(getComputedStyle(document.querySelector(".font-control")).height.split("px")[0] / 0.16);
-    fh2 = h = window.visualViewport.scale * 100;
-  } else if (userAgent.match(/safari/i)) {
-    browserName = "safari";
-    h = window.visualViewport.scale * 100;
-  } else if (userAgent.match(/opr/i)) {
-    browserName = "opera";
-  }
-
-  console.log(`Zoom factor  = ${h}% , ${fh1}, ${fh2}`)
 }
 
 const queryString = window.location.search;

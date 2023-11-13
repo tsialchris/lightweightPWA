@@ -22,7 +22,14 @@ const constants = {
     "get_dsu_timeout": "012",
     "misconfiguration": "099"
   },
-  rtlLangCodes: ["ar", "he"]
+  rtlLangCodes: ["ar", "he"],
   //other rtl language codes to be used for later:  "arc", "arz", "ckb", "dv", "fa", "ha", "he", "khw", "ks", "ps", "sd", "ur", "uz_AF", "yi"
+
+  fontScaleMap: {
+    basic_font: {100: "5mm", 150: "7mm", 200: "9mm", 300: "14mm"},
+    l_font: {100: "7mm", 150: "8mm", 200: "10mm", 300: "15mm"},
+    xl_font: {100: "9mm", 150: "10mm", 200: "12mm", 300: "17mm"},
+  }
+
 }
 export default constants;

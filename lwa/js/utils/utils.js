@@ -188,6 +188,44 @@ function enableConsolePersistence() {
 
 }
 
+function getFontSizeInMillimeters(element) {
+  // Obțineți stilul computat pentru elementul dat
+  const style = window.getComputedStyle(element);
+
+  // Extrageți dimensiunea fontului în pixeli și convertiți-o într-un număr
+  const fontSizeInPixels = parseFloat(style.fontSize);
+
+  // Definiți conversia de la inch la milimetri
+  const mmPerInch = 25.4;
+
+  // Convertiți pixelii în puncte (1 punct = 1/72 inch), apoi în milimetri
+  const fontSizeInMillimeters = fontSizeInPixels * (1 / 72) * mmPerInch;
+
+  return fontSizeInMillimeters;
+}
+
+function updateFontScale() {
+
+  let userAgent = navigator.userAgent;
+  let h;
+  if (userAgent.match(/chrome|chromium|crios/i)) {
+    h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
+  } else if (userAgent.match(/firefox|fxios/i)) {
+    //TO DO
+  } else if (userAgent.match(/safari/i)) {
+    h = window.visualViewport.scale * 100;
+  } else if (userAgent.match(/opr/i)) {
+    //TO DO
+  }
+
+  console.log(`Scale factor = ${h}%`)
+
+  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
+  document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
+  document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
+
+}
+
 export {
   convertFromISOtoYYYY_HM,
   convertToLastMonthDay,
@@ -199,4 +237,5 @@ export {
   goToErrorPage,
   setTextDirectionForLanguage,
   enableConsolePersistence,
+  updateFontScale
 }
