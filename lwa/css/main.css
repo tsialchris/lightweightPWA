@@ -84,9 +84,10 @@ p {
     font-size: var(--font-size--basic);
 }
 
-.font-control {
+
+.font-control div {
     line-height: 1;
-    position: relative;
+    position: absolute;
     top: -5000px;
     font-size: 1em;
     width: 100%;
