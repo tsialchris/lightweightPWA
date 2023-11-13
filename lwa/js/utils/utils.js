@@ -208,6 +208,7 @@ function updateFontScale() {
 
   let userAgent = navigator.userAgent;
   let h;
+  let baseFontSize = document.documentElement.style['--font-size--basic'] || 5;
   if (userAgent.match(/chrome|chromium|crios/i)) {
     h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
   } else if (userAgent.match(/firefox|fxios/i)) {
