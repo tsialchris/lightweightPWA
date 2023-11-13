@@ -26,9 +26,9 @@ const constants = {
   //other rtl language codes to be used for later:  "arc", "arz", "ckb", "dv", "fa", "ha", "he", "khw", "ks", "ps", "sd", "ur", "uz_AF", "yi"
 
   fontScaleMap: {
-    basic_font: {100: "5mm", 150: "7mm", 200: "9mm", 300: "14mm"},
-    l_font: {100: "7mm", 150: "8mm", 200: "10mm", 300: "15mm"},
-    xl_font: {100: "9mm", 150: "10mm", 200: "12mm", 300: "17mm"},
+    basic_font: {100: "5mm", 130: "6mm", 150: "7mm", 175: "8mm", 200: "9mm", 250: "11mm", 300: "14mm"},
+    l_font: {100: "7mm", 130: "7.5mm", 150: "8mm", 175: "9mm", 200: "10mm", 250: "12mm", 300: "15mm"},
+    xl_font: {100: "9mm", 130: "9.5mm", 150: "10mm", 175: "11mm", 200: "12mm", 250: "14mm", 300: "17mm"},
   }
 
 }
