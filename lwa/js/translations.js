@@ -720,7 +720,10 @@ function setDefaultLanguage() {
 
 export function translate() {
   updateFontScale();
-  document.documentElement.addEventListener("resize", updateFontScale);
+  document.documentElement.addEventListener("resize", (e) => {
+    console.log(e);
+    updateFontScale();
+  });
   setDefaultLanguage();
   let matches = document.querySelectorAll("[translate]");
   matches.forEach((item) => {
