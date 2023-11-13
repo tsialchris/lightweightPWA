@@ -225,7 +225,7 @@ function updateFontScale() {
   }
 
   console.log(`Scale factor = ${h}%`);
-  if (h < 100) {
+  /*if (h < 100) {
     h = 100;
   }
 
@@ -242,7 +242,7 @@ function updateFontScale() {
   document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
   document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
   document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
-
+*/
 }
 
 export {
