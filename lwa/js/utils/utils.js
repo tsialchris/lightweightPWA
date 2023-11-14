@@ -217,7 +217,23 @@ function updateFontScale() {
   } else if (userAgent.match(/safari/i)) {
     window.visualViewport.addEventListener("resize", (e) => {
       console.log(e);
-      this.updateFontScale()
+      if (h < 100) {
+        h = 100;
+      }
+
+      if (h > 100 && h <= 130) {
+        h = 130;
+      }
+      if (h > 130 && h <= 150) {
+        h = 150;
+      }
+
+      if (h > 150 && h < 200) {
+        h = 175;
+      }
+      document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
+      document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
+      document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
     })
     h = window.visualViewport.scale * 100;
   } else if (userAgent.match(/opr/i)) {
@@ -225,24 +241,7 @@ function updateFontScale() {
   }
 
   console.log(`Scale factor = ${h}%`);
-  /*if (h < 100) {
-    h = 100;
-  }
 
-  if (h > 100 && h <= 130) {
-    h = 130;
-  }
-  if (h > 130 && h <= 150) {
-    h = 150;
-  }
-
-  if (h > 150 && h < 200) {
-    h = 175;
-  }
-  document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
-  document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
-  document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
-*/
 }
 
 export {
