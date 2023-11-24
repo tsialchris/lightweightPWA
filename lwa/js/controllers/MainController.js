@@ -1,5 +1,5 @@
-import {goToPage, getFontSizeInMillimeters, updateFontScale} from "../utils/utils.js"
-import {getTranslation, translate} from "../translations.js";
+import {goToPage} from "../utils/utils.js"
+import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../environment.js";
 import constants from "../constants.js";
 
@@ -163,22 +163,11 @@ function MainController() {
 
 const mainController = new MainController();
 
-window.onload = (event) => {
-
-  translate();
+window.onload = async (event) => {
+  await translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  updateFontScale();
-
-  try {
-    console.log(" after -------------------------")
-    console.log(`basic font = ${getFontSizeInMillimeters(document.querySelector("p"))}mm`);
-    console.log(`h2 font = ${getFontSizeInMillimeters(document.querySelector("h2"))}mm`);
-    console.log(`h1 font = ${getFontSizeInMillimeters(document.querySelector("h1"))}mm`);
-  } catch (e) {
-
-  }
 }
 
 const queryString = window.location.search;

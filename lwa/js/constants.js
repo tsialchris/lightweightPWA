@@ -1,11 +1,53 @@
 const constants = {
   DEV_DEBUG: "_epiLog_",
   EPI_DOMAIN: "_epiDomain_",
+  FONT_ZOOM: "_fontZoom_",
   APP_LANG: "_appLang_",
   monthNames: ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ],
-
+  FONT_SCALE_MAP: {
+    //1% = 0.014rem
+    basic_font: {
+      100: "1.4rem",
+      110: 0.014 * 2.86 + 1.4 + "rem",
+      115: 0.014 * 2.86 + 1.4 + "rem",
+      125: 0.014 * 22.14 + 1.4 + "rem",
+      130: 0.014 * 22.14 + 1.4 + "rem",
+      150: 0.014 * 39.29 + 1.4 + "rem",
+      170: 0.014 * 48 + 1.4 + "rem",
+      175: 0.014 * 48 + 1.4 + "rem",
+      200: 0.014 * 85.71 + 1.4 + "rem",
+      250: 0.014 * 85.71 + 1.4 + "rem",
+      300: 0.014 * 85.71 + 1.4 + "rem",
+    },
+    l_font: {
+      100: "1.8rem",
+      110: 0.014 * 0 + 1.8 + "rem",
+      115: 0.014 * 0 + 1.8 + "rem",
+      125: 0.014 * 10.5 + 1.8 + "rem",
+      130: 0.014 * 10.5 + 1.8 + "rem",
+      150: 0.014 * 39.29 + 1.8 + "rem",
+      170: 0.014 * 60.71 + 1.8 + "rem",
+      175: 0.014 * 60.71 + 1.8 + "rem",
+      200: 0.014 * 85.71 + 1.8 + "rem",
+      250: 0.014 * 85.71 + 1.8 + "rem",
+      300: 0.014 * 85.71 + 1.8 + "rem",
+    },
+    xl_font: {
+      100: "2.5rem",
+      110: 0.014 * 0 + 2.5 + "rem",
+      115: 0.014 * 0 + 2.5 + "rem",
+      125: 0.014 * 7.14 + 2.5 + "rem",
+      130: 0.014 * 7.14 + 2.5 + "rem",
+      150: 0.014 * 39.29 + 2.5 + "rem",
+      170: 0.014 * 52.86 + 2.5 + "rem",
+      175: 0.014 * 52.86 + 2.5 + "rem",
+      200: 0.014 * 78.57 + 2.5 + "rem",
+      250: 0.014 * 78.57 + 2.5 + "rem",
+      300: 0.014 * 78.57 + 2.5 + "rem",
+    }
+  },
   /*error code value matches with a key in translations. Adding a new code should sync with translations*/
   errorCodes: {
     "gtin_not_created": "001",
@@ -22,14 +64,7 @@ const constants = {
     "get_dsu_timeout": "012",
     "misconfiguration": "099"
   },
-  rtlLangCodes: ["ar", "he"],
+  rtlLangCodes: ["ar", "he"]
   //other rtl language codes to be used for later:  "arc", "arz", "ckb", "dv", "fa", "ha", "he", "khw", "ks", "ps", "sd", "ur", "uz_AF", "yi"
-
-  fontScaleMap: {
-    basic_font: {100: "5mm", 130: "6mm", 150: "7mm", 175: "8mm", 200: "9mm", 250: "11mm", 300: "14mm"},
-    l_font: {100: "7mm", 130: "7.5mm", 150: "8mm", 175: "9mm", 200: "10mm", 250: "12mm", 300: "15mm"},
-    xl_font: {100: "9mm", 130: "9.5mm", 150: "10mm", 175: "11mm", 200: "12mm", 250: "14mm", 300: "17mm"},
-  }
-
 }
 export default constants;

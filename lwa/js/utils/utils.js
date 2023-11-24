@@ -203,46 +203,62 @@ function getFontSizeInMillimeters(element) {
 
   return fontSizeInMillimeters;
 }
+function updateFontZoom() {
+  let zoom = localStorage.getItem(constants.FONT_ZOOM)
 
-function updateFontScale() {
+  if (zoom <= 115) {
+    zoom = 100;
+  }
 
+  if (zoom > 115 && zoom <= 130) {
+    zoom = 130;
+  }
+  if (zoom > 130 && zoom <= 150) {
+    zoom = 150;
+  }
+
+  if (zoom > 150 && zoom < 200) {
+    zoom = 175;
+  }
+  if (zoom >= 200) {
+    zoom = 200;
+  }
+  console.log(`Scale factor = ${zoom}%`);
+  zoomFont(zoom);
+}
+
+function getComputeFontZoom() {
   let userAgent = navigator.userAgent;
-  let h;
+  let computedZoom;
   if (userAgent.match(/chrome|chromium|crios/i)) {
-    h = Math.round(parseFloat(getComputedStyle(document.querySelector(".font-control")).height) / 0.14)
-
-    // h = Math.round(getFontSizeInMillimeters(document.querySelector(".font-control")) / 5) * 100;
+    computedZoom = Math.round(parseFloat(getComputedStyle(document.querySelector(".font-control")).height) / 0.14)
   } else if (userAgent.match(/firefox|fxios/i)) {
     //TO DO
   } else if (userAgent.match(/safari/i)) {
-    /*    window.visualViewport.addEventListener("resize", (e) => {
-          h = window.visualViewport.scale * 100;
-          if (h < 100) {
-            h = 100;
-          }
-
-          if (h > 100 && h <= 130) {
-            h = 130;
-          }
-          if (h > 130 && h <= 150) {
-            h = 150;
-          }
-
-          if (h > 150 && h < 200) {
-            h = 175;
-          }
-          document.documentElement.style.setProperty('--font-size--basic', constants.fontScaleMap.basic_font[h]);
-          document.documentElement.style.setProperty('--font-size--L', constants.fontScaleMap.l_font[h]);
-          document.documentElement.style.setProperty('--font-size--XL', constants.fontScaleMap.xl_font[h]);
-        })*/
-    h = window.visualViewport.scale * 100;
+    computedZoom = window.visualViewport.scale * 100;
+    window.visualViewport.addEventListener("resize", (evt) => {
+      localStorage.setItem(constants.FONT_ZOOM, evt.target * 100);
+      updateFontZoom();
+    })
   } else if (userAgent.match(/opr/i)) {
     //TO DO
   }
-
-  console.log(`Scale factor = ${h}%`);
-
+  return computedZoom;
 }
+function saveFontZoom() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let zoom = urlParams.get("zoom") || localStorage.getItem(constants.FONT_ZOOM) || getComputeFontZoom();
+  localStorage.setItem(constants.FONT_ZOOM, zoom);
+}
+
+function zoomFont(scaleFactor) {
+  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor]);
+  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor]);
+  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor]);
+}
+
+
 
 export {
   convertFromISOtoYYYY_HM,
@@ -255,6 +271,7 @@ export {
   goToErrorPage,
   setTextDirectionForLanguage,
   enableConsolePersistence,
-  updateFontScale,
-  getFontSizeInMillimeters
+  updateFontZoom,
+  getFontSizeInMillimeters,
+  saveFontZoom
 }

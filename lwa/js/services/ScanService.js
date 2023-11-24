@@ -14,7 +14,10 @@ function createOverlay([x, y, w, h], canvasDimensions) {
   canvas.id = "overlay";
   canvas.width = canvasDimensions.width;
   canvas.height = canvasDimensions.height;
-  canvas.setAttribute("style", "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 11");
+  canvas.style.position = "absolute";
+  canvas.style.top = "50%";
+  canvas.style.left = "50%";
+  canvas.style.transform = "translate(-50%, -50%)";
 
   const context = canvas.getContext("2d");
   context.lineWidth = 6;
