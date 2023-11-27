@@ -237,7 +237,7 @@ function getComputeFontZoom() {
   } else if (userAgent.match(/safari/i)) {
     computedZoom = window.visualViewport.scale * 100;
     window.visualViewport.addEventListener("resize", (evt) => {
-      localStorage.setItem(constants.FONT_ZOOM, evt.target * 100);
+      localStorage.setItem(constants.FONT_ZOOM, evt.target.scale * 100);
       updateFontZoom();
     })
   } else if (userAgent.match(/opr/i)) {
