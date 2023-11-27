@@ -203,6 +203,7 @@ function getFontSizeInMillimeters(element) {
 
   return fontSizeInMillimeters;
 }
+
 function updateFontZoom() {
   let zoom = localStorage.getItem(constants.FONT_ZOOM)
 
@@ -220,7 +221,7 @@ function updateFontZoom() {
   if (zoom > 150 && zoom < 200) {
     zoom = 175;
   }
-  if (zoom >= 200) {
+  if (zoom > 200) {
     zoom = 200;
   }
   console.log(`Scale factor = ${zoom}%`);
@@ -236,15 +237,17 @@ function getComputeFontZoom() {
     //TO DO
   } else if (userAgent.match(/safari/i)) {
     computedZoom = window.visualViewport.scale * 100;
-    window.visualViewport.addEventListener("resize", (evt) => {
-      localStorage.setItem(constants.FONT_ZOOM, evt.target.scale * 100);
-      updateFontZoom();
-    })
+    /*let fontControlElem = document.querySelector(".font-control");
+    const resizeObserver = new ResizeObserver((fontControlElem) => {
+console.log("------>>>", fontControlElem.contentBoxSize[0].inlineSize )
+    })*/
+
   } else if (userAgent.match(/opr/i)) {
     //TO DO
   }
   return computedZoom;
 }
+
 function saveFontZoom() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -253,11 +256,11 @@ function saveFontZoom() {
 }
 
 function zoomFont(scaleFactor) {
-  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor]);
-  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor]);
-  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor]);
+  let visualViewportDelta = window.visualViewport.scale > 2 ? window.visualViewport.scale / 2 : 1
+  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor] / visualViewportDelta + "rem");
 }
-
 
 
 export {
