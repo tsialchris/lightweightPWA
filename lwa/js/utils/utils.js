@@ -129,8 +129,11 @@ function goToErrorPage(errorCode, error) {
 function setTextDirectionForLanguage(lang) {
   if (constants.rtlLangCodes.find((rtlLAng) => rtlLAng === lang)) {
     document.querySelector("body").setAttribute("dir", "RTL")
+  } else {
+    document.querySelector("body").setAttribute("dir", "LTR")
   }
 }
+
 
 function isQuotaExceededError(err) {
   return (err instanceof DOMException && (err.name === "QuotaExceededError" || // Firefox
