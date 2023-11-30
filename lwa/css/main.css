@@ -347,10 +347,10 @@ body[dir="RTL"] .terms-content-container h2 {
 
 @keyframes animatedIcon {
     0% {
-        background-image: url(../images/good-icon.svg);
+        background-image: url(../images/good-icon.png);
     }
     55% {
-        background-image: url(../images/wrong-icon.svg);
+        background-image: url(../images/wrong-icon.png);
     }
 }
 
