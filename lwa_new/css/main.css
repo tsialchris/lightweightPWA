@@ -313,13 +313,13 @@ body[dir="RTL"] .terms-content-container h2 {
 
 .content-container {
     align-self: center;
-    background-image: url(../images/medicine-pack.png);
+/*    background: url(../images/medicine-pack.gif) no-repeat;*/
     max-width: 55%;
     width: -moz-available; /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
     width: fill-available;
-    aspect-ratio: 1 / 1;
-    background-position: 15% 97%;
+/*    aspect-ratio: 1 / 1;*/
+    /*background-position: 15% 97%;
     background-repeat: no-repeat;
     transition: 1s auto;
     background-size: 220% 115%;
@@ -329,13 +329,13 @@ body[dir="RTL"] .terms-content-container h2 {
     -ms-animation: animatedBackground 5s linear infinite;
     -o-animation: animatedBackground 5s linear infinite;
     animation-delay: 1s;
-    animation-direction: alternate;
+    animation-direction: alternate;*/
     margin: 12% 90px 6%;
-    border-radius: 15px;
+/*    border-radius: 15px;*/
     min-width: 85px;
 }
 
-.icon-div {
+/*.icon-div {
     position: relative;
     top: -16px;
     right: -16px;
@@ -352,7 +352,7 @@ body[dir="RTL"] .terms-content-container h2 {
     background-size: contain;
     float: right;
     background-repeat: no-repeat;
-}
+}*/
 
 .explain-container {
     align-self: center;
