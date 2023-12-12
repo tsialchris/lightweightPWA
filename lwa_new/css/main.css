@@ -658,7 +658,7 @@ body[dir="RTL"] .terms-content-container h2 {
 
 .info-modal .modal-content.about {
     overflow: hidden;
-    padding: 0px;
+    padding: 0px 1.5rem;
 }
 
 .warning-modal .modal-header {
