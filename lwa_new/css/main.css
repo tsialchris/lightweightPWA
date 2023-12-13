@@ -803,7 +803,6 @@ body[dir="RTL"] .modal-header .close-modal {
 }
 
 body[dir="RTL"] .modal-container,
-body[dir="RTL"] .leaflet-page .page-content,
 body[dir="RTL"] .error-page .page-content {
     text-align: right;
 }
@@ -830,22 +829,6 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container inp
 body[dir="RTL"] .modal-content .languages-container .language-item-container .language-flag {
     margin-right: 10px;
 }
-
-body[dir="RTL"] .leaflet-accordion-item:before {
-    float: unset;
-    background-position: bottom;
-    top: 1.35em;
-    display: block;
-    right: 94%;
-
-}
-
-body[dir="RTL"] #leaflet-content h2 {
-    margin-right: unset;
-    margin-block-start: unset;
-    padding-left: 10%;
-}
-
 
 .loader-container {
     position: absolute;
