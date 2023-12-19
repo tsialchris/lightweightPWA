@@ -9,9 +9,10 @@ html {
 }
 
 body {
-    padding: 0;
     width: 100%;
     height: 100%;
+    padding: 0;
+    position: relative;
     margin: 0 auto;
     font-family: "DM Sans";
     font-size: var(--font-size--basic);
@@ -92,6 +93,13 @@ b {
     background: white;
     height: 100%;
     padding: 20PX;
+}
+
+.loader-container {
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .page-container {
@@ -357,7 +365,7 @@ b {
     background: #fff;
     position: relative;
     color: #04313B;
-    padding: 24px;
+    padding: min(3vh, 3vw);
 }
 
 .popup-modal .modal-content {
@@ -507,6 +515,7 @@ b {
     display: flex;
     flex-direction: column;
     overflow: auto;
+    position: relative;
 }
 
 .info-modal .modal-body .modal-content {
@@ -650,7 +659,7 @@ b {
 }
 
 .error-page .page-content {
-    padding: 0px 24px;
+    padding: min(3vh, 3vw);
 }
 
 
@@ -673,14 +682,12 @@ body[dir="RTL"] .terms-content-container h2 {
 }
 
 body[dir="RTL"] .menu-icon {
-    right: 87vh;
     float: unset;
 }
 
 body[dir="RTL"] .app-menu-container {
     text-align: right;
     border-radius: 0px 14px 14px 14px;
-    right: 0px;
 }
 
 body[dir="RTL"] .app-menu-container:before {
@@ -740,8 +747,8 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
     #settings-modal,
     #leaflet-lang-select,
     .loader-container {
-        max-height: 96vh;
-        height: 96vh;
+        max-height: 96%;
+        height: 96%;
         width: 760px;
         border-radius: 30px;
         padding: 0;
@@ -749,10 +756,8 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
     }
 
     .loader-container {
-        background: white;
-        position: absolute;
         left: calc(50% - 380px);
-        top: 2vh;
+        top: 2%;
     }
 
     .icon-container {
@@ -819,7 +824,6 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
     }
 
     .modal-header.left-aligned-header {
-        border-radius: 30px 30px 0px 0px;
         min-height: 10%;
         justify-content: center;
     }

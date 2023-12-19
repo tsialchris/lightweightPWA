@@ -129,7 +129,6 @@ function LeafletPreviewController() {
     const previewContainer = document.querySelector('#settings-modal');
     previewContainer.style.width = `${width}px`;
     previewContainer.style.height = `${height}px`;
-    previewContainer.style.top = "15px";
     //(document.querySelector(".leaflet-preview-container").getBoundingClientRect().height - height) / 2 + "px";
   }
 
