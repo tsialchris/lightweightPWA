@@ -107,9 +107,9 @@ function LeafletController() {
       */
       result.availableLanguages.forEach((lang, index) => {
         let langRadio = `
-         <div class="language-flag" style="background-image: url(./images/flags/${lang.value}.svg);"></div>
-         <div class="language-label">${lang.label} - (${lang.nativeName})</div>
          <input type="radio" name="languages" ${index === 0 ? "checked" : ""} value="${lang.value}" id="${lang.value}">
+         <div class="language-label">${lang.label} - (${lang.nativeName})</div>
+         <div class="language-flag" style="background-image: url(./images/flags/${lang.value}.svg);"></div>
         `;
         let radioFragment = document.createElement('label');
         radioFragment.classList.add("language-item-container");

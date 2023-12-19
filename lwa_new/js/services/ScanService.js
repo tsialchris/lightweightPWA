@@ -18,6 +18,7 @@ function createOverlay([x, y, w, h], canvasDimensions) {
   canvas.style.top = "50%";
   canvas.style.left = "50%";
   canvas.style.transform = "translate(-50%, -50%)";
+  canvas.style.height = "max(150vh, 150vw)"
 
   const context = canvas.getContext("2d");
   context.lineWidth = 6;
@@ -114,21 +115,21 @@ class ScanService {
     this.status = SCANNER_STATUS.SETTING;
 
     try {
-      if(!this.detectionDone){
-        try{
+      if (!this.detectionDone) {
+        try {
           this.detectionDone = true;
           this.availableCameras = await this.scanner.getCameras("environment");
-        }catch(err){
+        } catch (err) {
           //any error encountered here we ignore for the moment
         }
       }
 
-      if(this.availableCameras && Array.isArray(this.availableCameras) && this.availableCameras.length > 0){
-        if(typeof this.currentCameraIndex === "undefined"){
+      if (this.availableCameras && Array.isArray(this.availableCameras) && this.availableCameras.length > 0) {
+        if (typeof this.currentCameraIndex === "undefined") {
           //let's get the first camera from the array as initialization
           this.currentCameraIndex = 0;
-        }else{
-          if(forceNewCamera){
+        } else {
+          if (forceNewCamera) {
             this.currentCameraIndex = ++this.currentCameraIndex % this.availableCameras.length;
           }
         }
@@ -160,7 +161,7 @@ class ScanService {
   onStatusChanged(status) {
     console.log(`Status has changed to "${status}"`);
     if (status && status === "Access to the camera was denied!") {
-          throw new Error(status)
+      throw new Error(status)
     }
   }
 }
