@@ -70,23 +70,7 @@ function setDefaultLanguage() {
   setTextDirectionForLanguage(appLang);
 }
 
-let resizeListener;
-
-function addResizeListener() {
-  if (!resizeListener) {
-    resizeListener = window.visualViewport.addEventListener("resize", (evt) => {
-      evt.preventDefault();
-      evt.stopPropagation();
-      localStorage.setItem(constants.FONT_ZOOM, evt.target.scale * 100);
-      updateFontZoom();
-    })
-  }
-}
-
 export async function translate() {
-  saveFontZoom();
-  updateFontZoom();
-  addResizeListener();
   setDefaultLanguage();
   let matches = document.querySelectorAll("[translate]");
   currentAppTranslation = await fetchTranslation(localStorage.getItem(constants.APP_LANG));

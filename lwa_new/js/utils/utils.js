@@ -264,6 +264,28 @@ function zoomFont(scaleFactor) {
   document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor] / visualViewportDelta + "rem");
 }
 
+let resizeListener;
+
+function addResizeListener() {
+  if (!resizeListener) {
+    resizeListener = window.visualViewport.addEventListener("resize", (evt) => {
+      evt.preventDefault();
+      evt.stopPropagation();
+      localStorage.setItem(constants.FONT_ZOOM, evt.target.scale * 100);
+      updateFontZoom();
+    })
+  }
+}
+
+function setFontSize() {
+  let testFontContainer = document.querySelector("#font-control");
+  testFontContainer.innerHTML = `<span>Lorem ipsum text example</span>`;
+  saveFontZoom();
+  updateFontZoom();
+  addResizeListener();
+  testFontContainer.innerHTML = "";
+
+}
 
 export {
   convertFromISOtoYYYY_HM,
@@ -278,5 +300,6 @@ export {
   enableConsolePersistence,
   updateFontZoom,
   getFontSizeInMillimeters,
-  saveFontZoom
+  saveFontZoom,
+  setFontSize
 }
