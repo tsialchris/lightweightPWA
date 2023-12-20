@@ -38,9 +38,10 @@ p {
 
 .font-control {
     position: relative;
-    font-size: 1em;
     top: -5000px;
     line-height: 1;
+    font-size: var(--font-size--basic);
+    font-family: 'DM Sans bold';
 }
 
 b {
