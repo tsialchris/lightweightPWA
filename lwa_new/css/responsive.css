@@ -42,7 +42,7 @@ p {
     line-height: 1;
     font-family: 'DM Sans';
     visibility: hidden;
-    position: absolute;
+    position: relative;
 }
 
 b {
@@ -101,7 +101,7 @@ b {
     background: black;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: relative;
 }
 
 .page-container {
