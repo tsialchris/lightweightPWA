@@ -234,7 +234,7 @@ function getComputeFontZoom() {
   let userAgent = navigator.userAgent;
   let computedZoom;
   if (userAgent.match(/chrome|chromium|crios/i)) {
-    computedZoom = Math.round(parseFloat(getComputedStyle(document.querySelector(".font-control")).height) / 0.16)
+    computedZoom = Math.round(parseFloat(getComputedStyle(document.querySelector("#font-control")).height) / 0.16)
   } else if (userAgent.match(/firefox|fxios/i)) {
     //TO DO
   } else if (userAgent.match(/safari/i)) {
