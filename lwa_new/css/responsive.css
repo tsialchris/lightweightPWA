@@ -37,11 +37,12 @@ p {
 }
 
 .font-control {
-    position: relative;
     font-size: 1em;
     top: -5000px;
     line-height: 1;
     font-family: 'DM Sans';
+    visibility: hidden;
+    position: absolute;
 }
 
 b {
