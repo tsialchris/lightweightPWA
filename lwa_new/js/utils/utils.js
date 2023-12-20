@@ -253,7 +253,7 @@ console.log("------>>>", fontControlElem.contentBoxSize[0].inlineSize )
 function saveFontZoom() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  let zoom = urlParams.get("zoom") || localStorage.getItem(constants.FONT_ZOOM) || getComputeFontZoom();
+  let zoom = urlParams.get("zoom") || getComputeFontZoom() || localStorage.getItem(constants.FONT_ZOOM);
   localStorage.setItem(constants.FONT_ZOOM, zoom);
 }
 
