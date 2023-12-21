@@ -29,9 +29,10 @@ h2 {
 }
 
 h3 {
-    font-size: var(--font-size--basic);
+    font-size: var(--font-size--M);
 }
 
+h4,
 p {
     font-size: var(--font-size--basic);
 }
