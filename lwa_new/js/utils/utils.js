@@ -224,8 +224,14 @@ function updateFontZoom(value) {
   if (zoom > 150 && zoom < 200) {
     zoom = 175;
   }
-  if (zoom > 200) {
+  if (zoom >= 200 && zoom < 250) {
     zoom = 200;
+  }
+  if (zoom >= 250 && zoom < 300) {
+    zoom = 250;
+  }
+  if (zoom >= 300) {
+    zoom = 300;
   }
   zoomFont(zoom);
 }
