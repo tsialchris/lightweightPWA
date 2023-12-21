@@ -738,7 +738,7 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
 }
 
 /*---------------------------------------------*/
-@media only screen and (min-device-width: 1281px) {
+/*@media only screen and (min-device-width: 1281px) {
     body {
         background-image: url("./../images/background.jpg");
         background-repeat: no-repeat;
@@ -884,9 +884,9 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
         margin-bottom: 20px;
     }
 
-    /*    .modal-content .languages-container .language-item-container .language-flag {
+    !*    .modal-content .languages-container .language-item-container .language-flag {
             top: 6px;
-        }*/
+        }*!
     .modal-content .languages-container .language-item-container input {
         min-height: 18px;
     }
@@ -920,4 +920,4 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
     .leaflet-accordion-item-content {
         font-size: calc(100% + 1.3vmin);
     }
-}
+}*/
