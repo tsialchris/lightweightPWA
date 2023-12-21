@@ -3,9 +3,7 @@ const constants = {
   EPI_DOMAIN: "_epiDomain_",
   FONT_ZOOM: "_fontZoom_",
   APP_LANG: "_appLang_",
-  monthNames: ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ],
+  monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
   FONT_SCALE_MAP: {
     /*body, h4*/
     basic_font: {
@@ -17,46 +15,42 @@ const constants = {
       175: 1.252, //20px
       200: 1.17019, //22px
       250: 0.982, //24px
-      300: 0.922 //26px
-    },
-    /*H3*/
+      300: 0.769 //26px
+    }, /*H3*/
     m_font: {
       100: 1.8, //18px
-      125: 1.6 - 0.3, //19px
-      130: 1.6 - 0.3, // 19px
-      150: 1.6 - 0.348, //20px
-      170: 1.6 - 0.4298, //22px
-      175: 1.6 - 0.4298, //22px
-      200: 1.6 - 0.618, //24px
-      250: 1.6 - 0.678, //26px
-      300: 1.6 - 0.7 //28px
+      125: 1.555, //19px
+      130: 1.555, // 19px
+      150: 1.421, //20px
+      170: 1.377, //22px
+      175: 1.377, //22px
+      200: 1.277, //24px
+      250: 1.064, //26px
+      300: 0.8277 //28px
     },
     l_font: {
       100: 2.2, //22px
-      125: 1.6 - 0.435, //23px
-      130: 1.6 - 0.435, //23px
-      150: 1.6 - 0.618, //24px
-      170: 1.6 - 0.4298, //22px
-      175: 1.6 - 0.4298, //22px
-      200: 1.6 - 0.618, //24px
-      250: 1.6 - 0.678, //26px
-      300: 1.6 - 0.7 //28px
+      125: 2.29, //23px
+      130: 2.29, //23px
+      150: 1.89, //24px
+      170: 1.887, //27px
+      175: 1.887, //27px
+      200: 1.596, //30px
+      250: 1.351, //33px
+      300: 1.035 //35px
     },
     xl_font: {
-      100: 2.4,
-      110: 0.016 * 0 + 2.4,
-      115: 0.016 * 0 + 2.4,
-      125: 0.016 * 7.14 + 2.4,
-      130: 0.016 * 7.14 + 2.4,
-      150: 0.016 * 39.29 + 2.4,
-      170: 0.016 * 52.86 + 2.4,
-      175: 0.016 * 52.86 + 2.4,
-      200: 0.016 * 78.57 + 2.4,
-      250: 0.016 * 78.57 + 2.4,
-      300: 0.016 * 78.57 + 2.4,
+      100: 2.4, //24px
+      125: 2.5, //25px
+      130: 2.5, //25px
+      150: 2.5, //27px
+      170: 2.487,//30px
+      175: 2.487,//30px
+      200: 2.185,//33px
+      250: 1.473,//36px
+      300: 1.123,//38px
     }
-  },
-  /*error code value matches with a key in translations. Adding a new code should sync with translations*/
+  }, /*error code value matches with a key in translations. Adding a new code should sync with translations*/
   errorCodes: {
     "gtin_not_created": "001",
     "gtin_wrong_length": "002",
