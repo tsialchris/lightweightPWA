@@ -8,7 +8,7 @@ import {focusModalHeader, renderLeaflet, showExpired, showIncorrectDate} from ".
 import {translate} from "../translationUtils.js";
 
 enableConsolePersistence();
-document.getElementsByTagName("body").onload = async (event) => {
+window.onload = async (event) => {
   await translate();
   setFontSize();
 }

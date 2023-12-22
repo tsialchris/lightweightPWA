@@ -6,7 +6,7 @@ import {
 } from "../utils/utils.js";
 
 enableConsolePersistence();
-document.getElementsByTagName("body").onload = async (event) => {
+window.onload = async (event) => {
   await translate();
   setFontSize();
 };
