@@ -210,11 +210,15 @@ function getFontSizeInMillimeters(element) {
 function updateFontZoom(value) {
   let zoom = value || localStorage.getItem(constants.FONT_ZOOM)
 
-  if (zoom <= 115) {
+  if (zoom >= 99 && zoom < 110) {
     zoom = 100;
   }
 
-  if (zoom > 115 && zoom <= 130) {
+  if (zoom >= 110 && zoom < 114) {
+    zoom = 110;
+  }
+
+  if (zoom >= 114 && zoom <= 130) {
     zoom = 130;
   }
   if (zoom > 130 && zoom <= 150) {
@@ -236,24 +240,37 @@ function updateFontZoom(value) {
   zoomFont(zoom);
 }
 
+function getBrowser() {
+  let userAgent = navigator.userAgent;
+
+  if (userAgent.match(/chrome|chromium|crios/i)) {
+    return "chrome"
+  }
+  if (userAgent.match(/firefox|fxios/i)) {
+    return "firefox"
+  }
+  if (userAgent.match(/safari/i)) {
+    return "safari"
+  }
+  if (userAgent.match(/opr/i)) {
+    return "opera"
+  }
+}
+
 function getComputeFontZoom() {
   let userAgent = navigator.userAgent;
-  let computedZoom;
-  if (userAgent.match(/chrome|chromium|crios/i)) {
-    computedZoom = Math.round(parseFloat(getComputedStyle(document.querySelector("#font-control")).height) / 0.16)
-  } else if (userAgent.match(/firefox|fxios/i)) {
-    //TO DO
-  } else if (userAgent.match(/safari/i)) {
-    computedZoom = window.visualViewport.scale * 100;
-    /*let fontControlElem = document.querySelector(".font-control");
-    const resizeObserver = new ResizeObserver((fontControlElem) => {
-console.log("------>>>", fontControlElem.contentBoxSize[0].inlineSize )
-    })*/
-
-  } else if (userAgent.match(/opr/i)) {
-    //TO DO
+  if (getBrowser() === "chrome") {
+    return Math.round(parseFloat(getComputedStyle(document.querySelector("#font-control")).height) / 0.16)
   }
-  return computedZoom;
+
+  if (getBrowser() === "safari") {
+    return window.visualViewport.scale * 100;
+  }
+  if (getBrowser() === "firefox" || getBrowser() === "opera") {
+    //TO DO
+    return 100;
+  }
+
 }
 
 function saveFontZoom() {
@@ -264,11 +281,11 @@ function saveFontZoom() {
 }
 
 function zoomFont(scaleFactor) {
-  let visualViewportDelta = window.visualViewport.scale > 2 ? window.visualViewport.scale / 2 : 1
-  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--M', constants.FONT_SCALE_MAP.m_font[scaleFactor] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor] / visualViewportDelta + "rem");
+  let visualViewportDelta = window.visualViewport.scale;// > 2 ? window.visualViewport.scale / 2 : 1
+  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--M', constants.FONT_SCALE_MAP.m_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
 }
 
 let resizeListener;
