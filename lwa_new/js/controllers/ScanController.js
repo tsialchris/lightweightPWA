@@ -2,11 +2,14 @@ import {
   convertFromISOtoYYYY_HM,
   goToErrorPage,
   goToPage,
-  enableConsolePersistence,
+  enableConsolePersistence, setFontSize,
 } from "../utils/utils.js";
 
 enableConsolePersistence();
-document.getElementsByTagName("body").onload = await translate();
+document.getElementsByTagName("body").onload = async (event) => {
+  await translate();
+  setFontSize();
+};
 
 import interpretGS1scan from "../utils/interpretGS1scan/interpretGS1scan.js";
 import ScanService from "../services/ScanService.js";

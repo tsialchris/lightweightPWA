@@ -1,7 +1,10 @@
-import {goToPage} from "../utils/utils.js"
+import {goToPage, setFontSize} from "../utils/utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 
-document.getElementsByTagName("body").onload = await translate();
+document.getElementsByTagName("body").onload = async (event) => {
+  await translate();
+  setFontSize();
+}
 
 function ErrorController() {
   const queryString = window.location.search;

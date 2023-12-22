@@ -1,5 +1,5 @@
 import {
-  goToErrorPage, goToPage, isExpired, setTextDirectionForLanguage, enableConsolePersistence
+  goToErrorPage, goToPage, isExpired, setTextDirectionForLanguage, enableConsolePersistence, setFontSize
 } from "../utils/utils.js";
 import constants from "../constants.js";
 import LeafletService from "../services/LeafletService.js";
@@ -8,7 +8,10 @@ import {focusModalHeader, renderLeaflet, showExpired, showIncorrectDate} from ".
 import {translate} from "../translationUtils.js";
 
 enableConsolePersistence();
-document.getElementsByTagName("body").onload = await translate();
+document.getElementsByTagName("body").onload = async (event) => {
+  await translate();
+  setFontSize();
+}
 
 function LeafletController() {
 
