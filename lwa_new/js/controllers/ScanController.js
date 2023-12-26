@@ -6,10 +6,10 @@ import {
 } from "../utils/utils.js";
 
 enableConsolePersistence();
-document.getElementsByTagName("body").onload = async (event) => {
+window.onload = async (event) => {
   await translate();
-  setFontSize();
-};
+}
+document.getElementsByTagName("body").onload = setFontSize();
 
 import interpretGS1scan from "../utils/interpretGS1scan/interpretGS1scan.js";
 import ScanService from "../services/ScanService.js";

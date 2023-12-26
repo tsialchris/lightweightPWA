@@ -163,7 +163,7 @@ function MainController() {
 
 const mainController = new MainController();
 
-document.getElementsByTagName("body").onload= async (event) => {
+window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
