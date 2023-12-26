@@ -250,7 +250,7 @@ function LeafletPreviewController() {
 
 const uploadController = new LeafletPreviewController();
 
-window.onload = async (event) => {
+document.getElementsByTagName("body").onload = async (event) => {
   //set device select options
   let options = '';
   devices.forEach(device => {

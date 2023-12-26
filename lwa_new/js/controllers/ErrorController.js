@@ -1,7 +1,7 @@
 import {goToPage, setFontSize} from "../utils/utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 
-window.onload = async (event) => {
+document.getElementsByTagName("body").onload = async (event) => {
   await translate();
   setFontSize();
 }
