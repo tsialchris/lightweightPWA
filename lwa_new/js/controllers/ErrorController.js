@@ -3,7 +3,6 @@ import {getTranslation, translate} from "../translationUtils.js";
 
 window.onload = async (event) => {
   await translate();
-  setFontSize();
 
   function ErrorController() {
     const queryString = window.location.search;
@@ -56,3 +55,5 @@ window.onload = async (event) => {
 
   window.errorController = errorController;
 }
+
+document.getElementsByTagName("body").onload = setFontSize();
