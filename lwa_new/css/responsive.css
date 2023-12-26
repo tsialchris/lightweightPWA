@@ -524,6 +524,7 @@ b {
 .info-modal .modal-body .modal-content {
     padding-bottom: max(18vh, 18vw);
     max-height: 100%;
+    flex-grow: 1;
 }
 
 .modal-content .languages-container {
