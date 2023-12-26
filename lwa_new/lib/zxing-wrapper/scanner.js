@@ -292,8 +292,8 @@ export default function Scanner(domElement, testMode) {
   }
 
   const getCenterArea = () => {
-    let size = scanAreaSize;
     let {width, height} = canvas;
+    let size = Math.min(Math.min(window.innerWidth, window.innerHeight) * 0.8, 350);
     const points = [(width - size) / 2, (height - size) / 2, size, size];
     return points;
   }
