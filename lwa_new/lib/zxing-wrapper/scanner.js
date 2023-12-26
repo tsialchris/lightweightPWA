@@ -283,7 +283,7 @@ export default function Scanner(domElement, testMode) {
 
       context.imageSmoothingEnabled = false;
 
-      canvas.setAttribute("style", "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%");
+      canvas.setAttribute("style", "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);");
       domElement.style.position = 'absolute';
       domElement.style.top = 0;
       domElement.style.bottom = 0;
@@ -395,8 +395,8 @@ export default function Scanner(domElement, testMode) {
       video.muted = true;
       video.loop = true;
       if (!gotFullSupport()) {
-        video.width = 100;
-        video.height = 100;
+        video.width = 1;
+        video.height = 1;
         video.setAttribute("playsinline", "");
       }
       video.addEventListener("loadeddata", () => {

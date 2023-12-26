@@ -18,7 +18,6 @@ function createOverlay([x, y, w, h], canvasDimensions) {
   canvas.style.top = "50%";
   canvas.style.left = "50%";
   canvas.style.transform = "translate(-50%, -50%)";
-  canvas.style.height = "max(150vh, 150vw)"
 
   const context = canvas.getContext("2d");
   context.lineWidth = 6;
