@@ -126,14 +126,14 @@
     text-align: right;
 }
 
-*[dir="RTL"] .leaflet-accordion-item:before {
+#leaflet-content[dir="RTL"] .leaflet-accordion-item:before {
     float: left;
     background-position: bottom;
     top: 2px;
     display: block;
 }
 
-*[dir="RTL"] #leaflet-content h2 {
+#leaflet-content[dir="RTL"]  #leaflet-content h2 {
     margin-right: unset;
     margin-block-start: unset;
     padding-left: 10%;
