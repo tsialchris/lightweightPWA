@@ -62,7 +62,9 @@ function LeafletController() {
     let lang = document.querySelector("input[name='languages']:checked").value
     this.leafletLang = lang;
     getLeaflet(lang);
-    setTextDirectionForLanguage(lang);
+    setTextDirectionForLanguage(lang, "#leaflet-content");
+    setTextDirectionForLanguage(lang, ".modal-body .page-header");
+
     document.querySelector("#leaflet-lang-select").setAttribute('style', 'display:none !important');
   }
 
