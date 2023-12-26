@@ -81,5 +81,12 @@ export async function translate() {
 
 export function getTranslation(key) {
   setDefaultLanguage();
-  return currentAppTranslation[key];
+  if (!currentAppTranslation) {
+    fetchTranslation(localStorage.getItem(constants.APP_LANG)).then(result => {
+      currentAppTranslation = result;
+      return currentAppTranslation[key];
+    });
+  } else {
+    return currentAppTranslation[key];
+  }
 }
