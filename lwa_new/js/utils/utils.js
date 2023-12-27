@@ -207,7 +207,7 @@ function getFontSizeInMillimeters(element) {
   return fontSizeInMillimeters;
 }
 
-function updateFontZoom(value) {
+function updateFontZoom(value, ignoreBrowser) {
   let zoom = value || localStorage.getItem(constants.FONT_ZOOM)
 
   if (zoom >= 99 && zoom < 110) {
@@ -237,7 +237,7 @@ function updateFontZoom(value) {
   if (zoom >= 300) {
     zoom = 300;
   }
-  zoomFont(zoom);
+  zoomFont(zoom, ignoreBrowser);
 }
 
 function getBrowser() {
@@ -280,12 +280,13 @@ function saveFontZoom() {
   localStorage.setItem(constants.FONT_ZOOM, zoom);
 }
 
-function zoomFont(scaleFactor) {
+function zoomFont(scaleFactor, ignoreBrowser) {
   let visualViewportDelta = window.visualViewport.scale;// > 2 ? window.visualViewport.scale / 2 : 1
-  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--M', constants.FONT_SCALE_MAP.m_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
-  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor][getBrowser()] / visualViewportDelta + "rem");
+  let currentBrowser = ignoreBrowser ? "safari" : getBrowser();
+  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor][currentBrowser] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--M', constants.FONT_SCALE_MAP.m_font[scaleFactor][currentBrowser] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor][currentBrowser] / visualViewportDelta + "rem");
+  document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor][currentBrowser] / visualViewportDelta + "rem");
 }
 
 let resizeListener;

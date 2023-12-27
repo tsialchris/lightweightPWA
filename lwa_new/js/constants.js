@@ -83,7 +83,6 @@ const constants = {
         "safari": 2.25,
         "chrome": 2.25
       }, //22.5px
-
       130: {
         "safari": 2.3,
         "chrome": 2.29

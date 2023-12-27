@@ -106,7 +106,6 @@ const languages = [
 
 function LeafletPreviewController() {
 
-
   function getViewPortData() {
     const selectedSize = document.getElementById('viewportSelector').value.split('x');
     const viewPortOrientation = document.querySelector('.orientation-img.selected');
@@ -123,7 +122,8 @@ function LeafletPreviewController() {
     const {width, height} = getViewPortData();
 
     let selectedLang = document.querySelector("#leafletLanguage").value;
-    setTextDirectionForLanguage(selectedLang, "#settings-modal")
+    setTextDirectionForLanguage(selectedLang, "#leaflet-content");
+    setTextDirectionForLanguage(selectedLang, "#settings-modal .page-header")
 
     // Set the viewport size dynamically within the iframe
     const previewContainer = document.querySelector('#settings-modal');
@@ -143,7 +143,7 @@ function LeafletPreviewController() {
   }
 
   function changeZoom(event) {
-    updateFontZoom(event.target.value);
+    updateFontZoom(event.target.value, true);
   }
 
   this.uploadFilesInput = document.querySelector("input[type='file']");
