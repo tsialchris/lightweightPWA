@@ -196,15 +196,15 @@ function LeafletPreviewController() {
     changeViewport();
   }
 
-  async function updateFileList(event) {
-    let fileToRemove = event.currentTarget.getAttribute("fileName");
-    uploadedFiles = uploadedFiles.filter(item => {
-      if (item.name !== fileToRemove) {
-        return item;
-      }
-    });
-    await renderLeafletView(uploadedFiles);
-  }
+  /*  async function updateFileList(event) {
+      let fileToRemove = event.currentTarget.getAttribute("fileName");
+      uploadedFiles = uploadedFiles.filter(item => {
+        if (item.name !== fileToRemove) {
+          return item;
+        }
+      });
+      await renderLeafletView(uploadedFiles);
+    }*/
 
   async function renderFileList(files) {
     let xmlContent;
@@ -214,10 +214,9 @@ function LeafletPreviewController() {
     for (let file of files) {
       let divElement = document.createElement("div");
       divElement.classList.add("file-li-element");
-      divElement.innerHTML = `<p>${file.name}</p>
-      <button type="button" fileName="${file.name}" class="btn delete-file-btn"><span>×</span></button>`
+      divElement.innerHTML = `<p>${file.name}</p>`
       fileListElement.append(divElement);
-      divElement.querySelector(".delete-file-btn").addEventListener("click", updateFileList);
+      // divElement.querySelector(".delete-file-btn").addEventListener("click", updateFileList);
       if (file.name.endsWith('.xml')) {
         xmlContent = await getFileContent(file);
       } else {
@@ -237,11 +236,11 @@ function LeafletPreviewController() {
       return;
     }
 
-    files = [...uploadedFiles, ...files]
+    //files = [...uploadedFiles, ...files]
 
     uploadedFiles = files;
     await renderLeafletView(uploadedFiles);
-
+    this.uploadFilesBtn.querySelector("span").innerText = "Reset and Upload Leaflet Files";
   }
 
   this.uploadFilesInput.addEventListener('change', this.uploadFileHandler);
