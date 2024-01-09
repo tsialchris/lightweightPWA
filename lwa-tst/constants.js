@@ -12,66 +12,66 @@ const constants = {
         "chrome": "calc(1.6rem + 0.1vmin)"
       }, //16px
       110: {
-        "safari": "calc(1.6rem + 0.2vmin)",
+        "safari": "calc(1.6rem/1.1 + 0.2vmin)",
         "chrome": "calc(1.6rem + 0.2vmin)"
       }, //16.5px
       130: {
-        "safari": "calc(1.6rem + 0.4vmin)",
+        "safari": "calc(1.6rem/1.3 + 0.4vmin)",
         "chrome": "calc(1.6rem + 0.4vmin)"
       }, //17.5px
       150: {
-        "safari": "calc(1.6rem + 0.6vmin)",
+        "safari": "calc(1.6rem/1.5 + 0.6vmin)",
         "chrome": "calc(1.6rem + 0.6vmin)"
       }, //18px
       175: {
-        "safari": "calc(1.6rem + 0.8vmin)",
+        "safari": "calc(1.6rem/1.75 + 0.8vmin)",
         "chrome": "calc(1.6rem + 0.8vmin)"
       }, //20px
       200: {
-        "safari": "calc(1.6rem + 1.1vmin)",
+        "safari": "calc(1.6rem/2 + 1.1vmin)",
         "chrome": "calc(1.6rem + 1.1vmin)"
       }, //22px
       250: {
-        "safari": "calc(1.6rem + 1.5vmin)",
+        "safari": "calc(1.6rem/2.5 + 1.5vmin))",
         "chrome": "calc(1.6rem + 1.5vmin)"
       }, //24px
       300: {
-        "safari": "calc(1.6rem + 1.8vmin)",
+        "safari": "calc(1.6rem/3 + 1.8vmin)",
         "chrome": "calc(1.6rem + 1.8vmin)"
       }  //26px
     }, /*H3*/
     m_font: {
       100: {
-        "safari": "calc(1.6rem + 1vmin)",
-        "chrome": "calc(1.6rem + 1vmin)"
+        "safari": "calc(1.6rem + 0.5vmin)",
+        "chrome": "calc(1.6rem + 0.5vmin)"
       }, //18px
       110: {
-        "safari": "calc(1.6rem + 1.1vmin)",
-        "chrome": "calc(1.6rem + 1.1vmin)"
+        "safari": "calc(1.6rem/1.1 + 0.6vmin)",
+        "chrome": "calc(1.6rem + 0.6vmin)"
       }, //18.5px
       130: {
-        "safari": "calc(1.6rem + 1.3vmin)",
-        "chrome": "calc(1.6rem + 1.3vmin)"
+        "safari": "calc(1.6rem/1.3 + 0.8vmin)",
+        "chrome": "calc(1.6rem + 0.8vmin)"
       }, //19px
       150: {
-        "safari": "calc(1.6rem + 1.5vmin)",
-        "chrome": "calc(1.6rem + 1.5vmin)"
+        "safari": "calc(1.6rem/1.5 + 1vmin)",
+        "chrome": "calc(1.6rem + 1vmin)"
       }, //20px
       175: {
-        "safari": "calc(1.6rem + 1.7vmin)",
-        "chrome": "calc(1.6rem + 1.7vmin)"
+        "safari": "calc(1.6rem/1.75 + 1.25vmin)",
+        "chrome": "calc(1.6rem + 1.25vmin)"
       }, //22px
       200: {
-        "safari": "calc(1.6rem + 2vmin)",
-        "chrome": "calc(1.6rem + 2vmin)"
+        "safari": "calc(1.6rem/2 + 1.5vmin)",
+        "chrome": "calc(1.6rem + 1.5vmin)"
       }, //24px
       250: {
-        "safari": "calc(1.6rem + 2.3vmin)",
-        "chrome": "calc(1.6rem + 2.3vmin)"
+        "safari": "calc(1.6rem/2.5 + 1.8vmin)",
+        "chrome": "calc(1.6rem + 1.8vmin)"
       }, //26px
       300: {
-        "safari": "calc(1.6rem + 2.5vmin)",
-        "chrome": "calc(1.6rem + 2.5vmin)"
+        "safari": "calc(1.6rem/3 + 2.1vmin)",
+        "chrome": "calc(1.6rem + 2.1vmin)"
       } //28px
     },
     l_font: {
@@ -80,66 +80,66 @@ const constants = {
         "chrome": "calc(1.6rem + 1.2vmin)"
       }, //22px
       110: {
-        "safari": "calc(1.6rem + 1.3vmin)",
+        "safari": "calc(1.6rem/1.1 + 1.3vmin)",
         "chrome": "calc(1.6rem + 1.3vmin)"
       }, //22.5px
       130: {
-        "safari": "calc(1.6rem + 1.5vmin)",
+        "safari": "calc(1.6rem/1.3 + 1.5vmin)",
         "chrome": "calc(1.6rem + 1.5vmin)"
       }, //23px
       150: {
-        "safari": "calc(1.6rem + 1.7vmin)",
+        "safari": "calc(1.6rem/1.5 + 1.7vmin)",
         "chrome": "calc(1.6rem + 1.7vmin)"
       }, //24px
       175: {
-        "safari": "calc(1.6rem + 1.9vmin)",
+        "safari": "calc(1.6rem/1.75 + 1.9vmin)",
         "chrome": "calc(1.6rem + 1.9vmin)"
       }, //27px
       200: {
-        "safari": "calc(1.6rem + 2.1vmin)",
+        "safari": "calc(1.6rem/2 + 2.1vmin)",
         "chrome": "calc(1.6rem + 2.1vmin)"
       }, //30px
       250: {
-        "safari": "calc(1.6rem + 2.3vmin)",
+        "safari": "calc(1.6rem/2.5 + 2.3vmin)",
         "chrome": "calc(1.6rem + 2.3vmin)"
       }, //33px
       300: {
-        "safari": "calc(1.6rem + 2.5vmin)",
+        "safari": "calc(1.6rem/3 + 2.5vmin)",
         "chrome": "calc(1.6rem + 2.5vmin)"
       } //35px
     },
     xl_font: {
       100: {
-        "safari": "calc(1.6rem + 1.4vmin)",
-        "chrome": "calc(1.6rem + 1.4vmin)"
+        "safari": "calc(1.6rem + 1.6vmin)",
+        "chrome": "calc(1.6rem + 1.6vmin)"
       }, //24px
       110: {
-        "safari": "calc(1.6rem + 1.5vmin)",
-        "chrome": "calc(1.6rem + 1.5vmin)"
+        "safari": "calc(1.6rem/1.1 + 1.7vmin)",
+        "chrome": "calc(1.6rem + 1.7vmin)"
       }, //24.5px
       130: {
-        "safari": "calc(1.6rem + 1.7vmin)",
-        "chrome": "calc(1.6rem + 1.7vmin)"
+        "safari": "calc(1.6rem/1.3 + 1.9vmin)",
+        "chrome": "calc(1.6rem + 1.9vmin)"
       }, //25px
       150: {
-        "safari": "calc(1.6rem + 1.9vmin)",
-        "chrome": "calc(1.6rem + 1.9vmin)"
+        "safari": "calc(1.6rem/1.5 + 2.1vmin)",
+        "chrome": "calc(1.6rem + 2.1vmin)"
       }, //27px
       175: {
-        "safari": "calc(1.6rem + 2.1vmin)",
-        "chrome": "calc(1.6rem + 2.1vmin)"
+        "safari": "calc(1.6rem/1.75 + 2.3vmin)",
+        "chrome": "calc(1.6rem + 2.3vmin)"
       },//30px
       200: {
-        "safari": "calc(1.6rem + 2.3vmin)",
-        "chrome": "calc(1.6rem + 2.3vmin)"
+        "safari": "calc(1.6rem/2 + 2.5vmin)",
+        "chrome": "calc(1.6rem + 2.5vmin)"
       },//33px
       250: {
-        "safari": "calc(1.6rem + 2.6vmin)",
-        "chrome": "calc(1.6rem + 2.6vmin)"
+        "safari": "calc(1.6rem/2.5 + 2.9vmin)",
+        "chrome": "calc(1.6rem + 2.9vmin)"
       },//36px
       300: {
-        "safari": "calc(1.6rem + 2.9vmin)",
-        "chrome": "calc(1.6rem + 2.9vmin)"
+        "safari": "calc(1.6rem/3 + 3.2vmin)",
+        "chrome": "calc(1.6rem + 3.2vmin)"
       },//38px
     }
   }, /*error code value matches with a key in translations. Adding a new code should sync with translations*/
