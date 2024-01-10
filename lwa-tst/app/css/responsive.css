@@ -45,7 +45,7 @@ body[app-lang="ar"] button {
     font-family: "Noto Sans", "Noto Sans Arab"
 }
 
-h1, h1 span {
+h1 {
     font-size: var(--font-size--XL);
 }
 
