@@ -160,13 +160,13 @@ function MainController() {
 
 const mainController = new MainController();
 
-document.addEventListener('DOMContentLoaded', async (event) => {
+window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setFontSize();
-})
+  setTimeout(setFontSize, 0);
+}
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let epiDomain = urlParams.get("setdomain") || localStorage.getItem(constants.EPI_DOMAIN) || environment.epiDomain;
