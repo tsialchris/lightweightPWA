@@ -314,7 +314,7 @@ b {
 }
 
 .app-menu-container.hidden {
-    display: none;
+   visibility: hidden;
 }
 
 .hiddenElement {
