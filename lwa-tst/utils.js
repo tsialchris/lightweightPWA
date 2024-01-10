@@ -307,7 +307,6 @@ function addResizeListener() {
 }
 
 function setFontSize() {
-  return;
   let testFontContainer = document.querySelector("#font-control");
   testFontContainer.innerHTML = `<span>A-W</span>`;
   saveFontZoom();
