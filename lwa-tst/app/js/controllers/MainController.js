@@ -165,7 +165,7 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setTimeout(setFontSize, 0);
+  setTimeout(setFontSize, 500);
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
