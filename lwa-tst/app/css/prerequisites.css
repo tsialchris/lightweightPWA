@@ -11,9 +11,9 @@
     --yellow-100: #FFECBB;
     font-size: 62.5%; /* (62.5/100) * 16px = 10px */
     --font-size--basic: calc(1.6rem + 0.1vmin);
-    --font-size--M: calc(1.6rem + 1vmin);
-    --font-size--L: calc(1.6rem + 1.2vmin);
-    --font-size--XL: calc(1.6rem + 1.4vmin);
+    --font-size--M: calc(1.6rem + 1.1vmin);
+    --font-size--L: calc(1.6rem + 1.4vmin);
+    --font-size--XL: calc(1.6rem + 1.6vmin);
 }
 
 @font-face {
