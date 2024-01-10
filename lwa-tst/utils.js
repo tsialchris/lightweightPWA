@@ -282,6 +282,7 @@ function saveFontZoom() {
 
 function zoomFont(scaleFactor, ignoreBrowser) {
   console.log("zoom = ", scaleFactor);
+
   if(scaleFactor === "100"){
     return
   }
