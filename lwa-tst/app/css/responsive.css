@@ -407,8 +407,7 @@ b {
 }
 
 #settings-modal {
-    visibility: hidden;
-    display: flex;
+    display: none;
     position: relative;
 }
 
