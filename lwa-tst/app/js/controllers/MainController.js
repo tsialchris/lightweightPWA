@@ -80,7 +80,7 @@ function MainController() {
 
     let modal = document.querySelector("#settings-modal");
 
-    modal.setAttribute('style', 'display:flex');
+    modal.setAttribute('style', 'display:flex !important; font-size: var(--font-size--basic);');
     document.querySelector(".page-container").setAttribute('style', 'display:none !important');
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
