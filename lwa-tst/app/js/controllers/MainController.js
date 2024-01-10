@@ -166,7 +166,7 @@ window.onload = async (event) => {
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
 }
-document.getElementsByTagName("body").onload = setFontSize();
+document.querySelector("body").onload = setFontSize;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let epiDomain = urlParams.get("setdomain") || localStorage.getItem(constants.EPI_DOMAIN) || environment.epiDomain;

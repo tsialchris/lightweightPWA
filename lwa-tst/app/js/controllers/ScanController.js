@@ -14,7 +14,7 @@ enableConsolePersistence();
 window.onload = async (event) => {
   await translate();
 }
-document.getElementsByTagName("body").onload = setFontSize();
+document.querySelector("body").onload = setFontSize();
 
 
 function ScanController() {

@@ -57,4 +57,4 @@ window.onload = async (event) => {
   window.errorController = errorController;
 }
 
-document.getElementsByTagName("body").onload = setFontSize();
+document.querySelector("body").onload = setFontSize();
