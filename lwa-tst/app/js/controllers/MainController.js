@@ -81,7 +81,6 @@ function MainController() {
     let modal = document.querySelector("#settings-modal");
 
     modal.setAttribute('style', 'display:flex;');
-    zoomFont(100);
     document.querySelector(".page-container").setAttribute('style', 'display:none !important');
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
