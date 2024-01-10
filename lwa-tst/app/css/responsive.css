@@ -63,11 +63,8 @@ p {
 }
 
 #font-control {
-    font-size: 1em;
     top: -5000px;
-    line-height: 1;
     font-weight: 400;
-    visibility: hidden;
     position: relative;
 }
 
