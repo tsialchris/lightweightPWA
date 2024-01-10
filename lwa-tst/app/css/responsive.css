@@ -32,6 +32,10 @@ body[app-lang="ja"] {
     font-family: "Noto Sans", "Noto Sans Japan"
 }
 
+body[app-lang="ar"] {
+    font-family: "Noto Sans", "Noto Sans Arab"
+}
+
 h1 {
     font-size: var(--font-size--XL);
 }
