@@ -347,6 +347,7 @@ export {
   getFontSizeInMillimeters,
   saveFontZoom,
   setFontSize,
+  zoomFont,
   loadAppVersion,
   load404Err
 }

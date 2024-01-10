@@ -1,4 +1,4 @@
-import {goToPage, setFontSize} from "../../../utils.js"
+import {goToPage, setFontSize, zoomFont} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
@@ -80,7 +80,8 @@ function MainController() {
 
     let modal = document.querySelector("#settings-modal");
 
-    modal.setAttribute('style', 'display:flex !important; font-size: var(--font-size--basic);');
+    modal.setAttribute('style', 'display:flex;');
+    zoomFont(100);
     document.querySelector(".page-container").setAttribute('style', 'display:none !important');
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
