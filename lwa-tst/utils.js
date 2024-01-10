@@ -314,7 +314,6 @@ function setFontSize() {
   updateFontZoom();
   addResizeListener();
   testFontContainer.innerHTML = "";
-
 }
 
 function loadAppVersion() {
