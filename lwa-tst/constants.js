@@ -131,15 +131,15 @@ const constants = {
       },//30px
       200: {
         "safari": "calc(1.6rem/2 + 2.5vmin)",
-        "chrome": "calc(1.6rem + 2.5vmin)"
+        "chrome": "calc(1.6rem + 3.5vmin)"
       },//33px
       250: {
         "safari": "calc(1.6rem/2.5 + 2.9vmin)",
-        "chrome": "calc(1.6rem + 2.9vmin)"
+        "chrome": "calc(1.6rem + 3.9vmin)"
       },//36px
       300: {
         "safari": "calc(1.6rem/3 + 3.2vmin)",
-        "chrome": "calc(1.6rem + 3.2vmin)"
+        "chrome": "calc(1.6rem + 4.2vmin)"
       },//38px
     }
   }, /*error code value matches with a key in translations. Adding a new code should sync with translations*/
