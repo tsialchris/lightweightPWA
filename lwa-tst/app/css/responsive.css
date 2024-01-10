@@ -313,9 +313,11 @@ b {
     background-size: contain;
 }
 
+/*
 .app-menu-container.hidden {
    visibility: hidden;
 }
+*/
 
 .hiddenElement {
     display: none !important;
