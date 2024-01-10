@@ -63,6 +63,7 @@ p {
 }
 
 #font-control {
+    font-size: 1em;
     top: -5000px;
     font-weight: 400;
     position: relative;
