@@ -1,4 +1,4 @@
-import {goToPage, setFontSize, zoomFont} from "../../../utils.js"
+import {goToPage, saveFontZoom, setFontSize, updateFontZoom, zoomFont} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
@@ -165,7 +165,13 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setTimeout(setFontSize, 500);
+  setTimeout(() => {
+    let testFontContainer = document.querySelector("#font-control");
+    testFontContainer.innerText = "ABCXYZ"
+    setTimeout(() => {
+      setFontSize();
+    })
+  }, 0);
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
