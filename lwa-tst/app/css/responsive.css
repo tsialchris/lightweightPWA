@@ -463,7 +463,6 @@ b {
     justify-content: center;
     flex-grow: 1;
     word-break: break-word;
-    display: none;
     background: rgba(0, 0, 0, 0.7);
     z-index: 100;
     top: 25%;
