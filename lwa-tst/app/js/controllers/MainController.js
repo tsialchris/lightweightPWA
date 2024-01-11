@@ -35,19 +35,19 @@ function MainController() {
     let menuExpanded = menuButton.getAttribute("aria-expanded") != "true";
     menuButton.setAttribute("aria-expanded", menuExpanded);
     let menuContainer = document.querySelector(".app-menu-container");
-    menuContainer.classList.toggle("hiddenElement");
+    menuContainer.classList.toggle("hidden");
   }
 
   this.checkOnboarding = function () {
     let usrAgreedTerms = getCookie("usr_agreed_terms");
     if (!usrAgreedTerms) {
-      document.querySelector(".welcome-container #welcome-text").classList.add("hiddenElement")
+      document.querySelector(".welcome-container #onbording-text").classList.remove("hiddenElement")
       document.querySelector(".content-container").classList.add("hiddenElement");
       document.querySelector(".explain-container").classList.add("hiddenElement");
       document.querySelector(".scan-button-container").classList.add("hiddenElement");
     } else {
       document.querySelector(".terms-content-container").classList.add("hiddenElement");
-      document.querySelector(".welcome-container #onbording-text").classList.add("hiddenElement");
+      document.querySelector(".welcome-container #welcome-text").classList.remove("hiddenElement");
     }
     document.querySelector("#app_version_number").innerHTML = `${environment.appBuildVersion}`;
   }
@@ -67,8 +67,8 @@ function MainController() {
   }
 
   this.closeModal = function () {
-    document.querySelector("#settings-modal").classList.add("hiddenElement");
-    document.querySelector(".page-container").classList.remove("hiddenElement");
+    document.querySelector("#settings-modal").setAttribute('style', 'display:none !important');
+    document.querySelector(".page-container").setAttribute('style', 'display:flex !important');
   }
 
   this.showModal = function (key) {
@@ -80,8 +80,8 @@ function MainController() {
 
     let modal = document.querySelector("#settings-modal");
 
-    modal.classList.remove("hiddenElement");
-    document.querySelector(".page-container").classList.add("hiddenElement");
+    modal.setAttribute('style', 'display:flex;');
+    document.querySelector(".page-container").setAttribute('style', 'display:none !important');
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
     let contentKey = key + "_content";
@@ -127,14 +127,14 @@ function MainController() {
     document.getElementById("hamburger-menu-button").addEventListener("click", this.toggleMenu);
     document.addEventListener('keydown', evt => {
       if (evt.key === 'Escape') {
-        if (!menuContainer.classList.contains("hiddenElement")) {
-          menuContainer.classList.add("hiddenElement");
+        if (!menuContainer.classList.contains("hidden")) {
+          menuContainer.classList.add("hidden");
         }
       }
     });
     document.querySelector("body").addEventListener("click", (event) => {
       if (event.target != menuContainer && event.target != menuButton) {
-        menuContainer.classList.add("hiddenElement");
+        menuContainer.classList.add("hidden");
       }
     })
     document.querySelectorAll(".app-menu-container li.forward-to-page").forEach(item => {
@@ -163,11 +163,9 @@ const mainController = new MainController();
 window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
-  document.querySelector(".app-menu-container").classList.add("hiddenElement");
-  document.querySelector("#settings-modal").classList.add("hiddenElement");
   //document.querySelector(".page-container").classList.remove("hiddenElement");
-  document.querySelector(".loader-container").classList.add("hiddenElement");
-  // setTimeout(setFontSize, 0);
+  document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  setTimeout(setFontSize, 0);
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

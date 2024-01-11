@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="tst">Test</div>
+
 <div class="loader-container main-page-loader">
     <div class="loader"></div>
 </div>
@@ -22,7 +22,7 @@
  -->
         <button id="hamburger-menu-button" class="menu-icon" tabindex="1" aria-label="menu"
                 aria-expanded="false"></button>
-        <ul class="app-menu-container" role="list">
+        <ul class="app-menu-container hidden" role="list">
             <li id="terms-link" class="forward-to-page" modal-name="terms" role="listitem" tabindex="2">
                 <div class="label" translate="fwd_terms"></div>
                 <div class="fwd-icon"></div>
@@ -48,8 +48,8 @@
         </ul>
     </div>
     <div class="welcome-container" role="main" tabindex="0">
-        <h1 id="welcome-text" translate="welcome"></h1>
-        <h1 id="onbording-text" translate="onboarding_welcome"></h1>
+        <span id="welcome-text" translate="welcome" class="hiddenElement"></span>
+        <span id="onbording-text" translate="onboarding_welcome" class="hiddenElement"></span>
     </div>
     <div class="terms-content-container" role="contentinfo">
         <div class="terms-container">
