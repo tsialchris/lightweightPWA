@@ -9,10 +9,10 @@
     --red-100: #FEEFEE;
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
-    --font-size--basic: calc(1.6rem + 0.1vmin);
-    --font-size--M: calc(1.8rem + 0.1vmin);
-    --font-size--L: calc(2.2rem + 0.1vmin);
-    --font-size--XL: calc(2.4rem + 0.1vmin);
+    --font-size--basic: calc(100% + 0.1vmin);
+    --font-size--M: calc(100% + 0.2rem + 0.1vmin);
+    --font-size--L: calc(100% + 0.6rem + 0.1vmin);
+    --font-size--XL: calc(100% + 0.8rem + 0.1vmin);
 }
 
 @font-face {

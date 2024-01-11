@@ -16,7 +16,7 @@ body {
     position: relative;
     margin: 0 auto;
     font-family: "Noto Sans";
-    font-size: var(--font-size--basic);
+    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
 }
