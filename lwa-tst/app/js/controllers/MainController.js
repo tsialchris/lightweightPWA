@@ -36,7 +36,6 @@ function MainController() {
     menuButton.setAttribute("aria-expanded", menuExpanded);
     let menuContainer = document.querySelector(".app-menu-container");
     menuContainer.classList.toggle("hidden");
-    setFontSize();
   }
 
   this.checkOnboarding = function () {
@@ -51,7 +50,6 @@ function MainController() {
       document.querySelector(".welcome-container #welcome-text").classList.remove("hiddenElement");
     }
     document.querySelector("#app_version_number").innerHTML = `${environment.appBuildVersion}`;
-    setFontSize();
   }
 
   this.submitTerms = function (status) {
@@ -93,7 +91,6 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
-    setFontSize();
   }
 
   let addEventListeners = () => {

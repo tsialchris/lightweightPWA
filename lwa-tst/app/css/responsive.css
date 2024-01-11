@@ -316,7 +316,9 @@ b {
 }
 
 .hiddenElement {
-    display: none !important;
+    visibility: hidden;
+    height: 0;
+    display: block;
 }
 
 .content-container {
