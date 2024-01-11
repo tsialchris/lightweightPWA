@@ -166,7 +166,7 @@ window.onload = async (event) => {
   document.querySelector(".app-menu-container").classList.add("hiddenElement");
   document.querySelector("#settings-modal").classList.add("hiddenElement");
   //document.querySelector(".page-container").classList.remove("hiddenElement");
-  document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  document.querySelector(".loader-container").classList.add("hiddenElement");
   // setTimeout(setFontSize, 0);
 }
 const queryString = window.location.search;
