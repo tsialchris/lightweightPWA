@@ -309,8 +309,8 @@ function setFontSize() {
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
-/*  let testFontContainer = document.querySelector("#font-control");
-  testFontContainer.innerHTML = "";*/
+  let testFontContainer = document.querySelector("#font-control");
+  testFontContainer.innerHTML = "";
 }
 
 function loadAppVersion() {
