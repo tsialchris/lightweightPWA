@@ -210,11 +210,12 @@ b {
     font-weight: 700;
     text-align: center;
     padding: min(3vh, 3vw) 7vh 1vh;
-    font-size: var(--font-size--XL);
+    font-size: calc(100% + 1.2vmin);
 }
 
 .welcome-container h1 {
     margin: 0;
+    font-size: inherit;
 }
 
 .terms-content-container h2 {
@@ -227,6 +228,7 @@ b {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    font-size: calc(100% + 0.1vmin);
 }
 
 .terms-container {
@@ -435,6 +437,10 @@ b {
     position: relative;
     background-size: contain !important;
     background: url(./../images/error-icon.svg) no-repeat;
+}
+
+.leaflet-page .product-name, .modal-header .header-title, .modal-header .modal-title {
+    font-size: calc(100% + 1.7vmin);
 }
 
 .warning-modal .modal-header {
