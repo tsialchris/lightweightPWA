@@ -1,7 +1,7 @@
 import {setTextDirectionForLanguage} from "../../utils.js";
 import constants from "../../constants.js";
 
-const supportedLanguageCodes = ["ar", "de", "en", "es", "es-419", "fr", "ko", "nl", "pt", "pt-br", "uk", "zh", "it"];
+const supportedLanguageCodes = ["ar", "de", "en", "es", "es-419", "fr", "ko", "nl", "pt", "pt-br", "uk", "zh", "it", "no"];
 
 const langSubtypesMap = {
   "de-de": "de",
@@ -35,7 +35,11 @@ const langSubtypesMap = {
   "zh-cn": "zh",
   "zh-hans": "zh",
   "zh-hant": "zh",
-  "zh-hk": "zh"
+  "zh-hk": "zh",
+  "nb": "no",
+  "nn": "no",
+  "it-CH": "it",
+  "it-IT": "it",
 }
 
 function transformToISOStandardLangCode(code) {
