@@ -1,4 +1,4 @@
-import Scanner from "./../../lib/zxing-wrapper/scanner.js";
+import Scanner from "./../../lib/zxing-wrapper/scanner.js"
 
 const SCANNER_STATUS = {
   INITIALIZING: 'Initializing scanner...',
