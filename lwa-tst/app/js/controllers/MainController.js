@@ -1,4 +1,4 @@
-import {goToPage, setFontSize} from "../../../utils.js"
+import {goToPage, setFontSize, updateFontZoom} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
@@ -91,6 +91,7 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
+    updateFontZoom();
   }
 
   let addEventListeners = () => {

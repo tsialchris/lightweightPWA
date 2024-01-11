@@ -307,14 +307,12 @@ function addResizeListener() {
 }
 
 function setFontSize() {
-  let fontControl = document.createElement("div");
-  fontControl.id = "font-control";
-  fontControl.innerText = "ABC";
-  document.body.prepend(fontControl);
+  let testFontContainer = document.querySelector("#font-control");
+  testFontContainer.innerText = "ABC";
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
-  fontControl.remove()
+  testFontContainer.innerText = "";
 }
 
 function loadAppVersion() {
