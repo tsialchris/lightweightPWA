@@ -209,7 +209,7 @@ function getFontSizeInMillimeters(element) {
 
 function updateFontZoom(value, ignoreBrowser) {
   let zoom = value || localStorage.getItem(constants.FONT_ZOOM)
-
+  console.log("zoom = ", zoom);
   if (zoom >= 99 && zoom < 110) {
     zoom = 100;
   }
@@ -281,12 +281,12 @@ function saveFontZoom() {
 }
 
 function zoomFont(scaleFactor, ignoreBrowser) {
-  if(scaleFactor === "100"){
+  if (scaleFactor === "100") {
     return
   }
   let visualViewportDelta = window.visualViewport.scale;// > 2 ? window.visualViewport.scale / 2 : 1
   let currentBrowser = ignoreBrowser ? "safari" : getBrowser();
-  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor][currentBrowser] );
+  document.documentElement.style.setProperty('--font-size--basic', constants.FONT_SCALE_MAP.basic_font[scaleFactor][currentBrowser]);
   document.documentElement.style.setProperty('--font-size--M', constants.FONT_SCALE_MAP.m_font[scaleFactor][currentBrowser]);
   document.documentElement.style.setProperty('--font-size--L', constants.FONT_SCALE_MAP.l_font[scaleFactor][currentBrowser]);
   document.documentElement.style.setProperty('--font-size--XL', constants.FONT_SCALE_MAP.xl_font[scaleFactor][currentBrowser]);
@@ -306,11 +306,12 @@ function addResizeListener() {
 }
 
 function setFontSize() {
+  let testFontContainer = document.querySelector("#font-control");
+  testFontContainer.innerText = "ABC";
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
-  let testFontContainer = document.querySelector("#font-control");
-  testFontContainer.innerHTML = "";
+  testFontContainer.innerText = "";
 }
 
 function loadAppVersion() {
