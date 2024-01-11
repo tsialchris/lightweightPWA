@@ -93,6 +93,7 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
+    setFontSize();
   }
 
   let addEventListeners = () => {
