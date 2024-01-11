@@ -310,10 +310,6 @@ b {
     background-size: contain;
 }
 
-.app-menu-container.hidden {
-    visibility: hidden;
-}
-
 .hiddenElement {
     display: none !important;
 }
@@ -404,7 +400,6 @@ b {
 }
 
 #settings-modal {
-    display: none;
     position: relative;
 }
 
