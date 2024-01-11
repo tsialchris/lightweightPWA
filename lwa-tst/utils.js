@@ -310,7 +310,7 @@ function setFontSize() {
   let fontControl = document.createElement("div");
   fontControl.id = "font-control";
   fontControl.innerText = "ABC";
-  document.body.appendChild(fontControl);
+  document.body.prepend(fontControl);
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
