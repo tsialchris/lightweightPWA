@@ -164,8 +164,7 @@ window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
   //document.querySelector(".page-container").classList.remove("hiddenElement");
- // document.querySelector(".loader-container").setAttribute('style', 'display:none');
-//  setTimeout(setFontSize, 0);
+  document.querySelector(".loader-container").setAttribute('style', 'display:none');
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

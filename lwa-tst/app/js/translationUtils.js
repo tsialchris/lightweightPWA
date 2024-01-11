@@ -1,4 +1,4 @@
-import {setTextDirectionForLanguage} from "../../utils.js";
+import {setFontSize, setTextDirectionForLanguage} from "../../utils.js";
 import constants from "../../constants.js";
 
 const supportedLanguageCodes = ["ar", "de", "en", "es", "es-419", "fr", "ko", "nl", "pt", "pt-br", "uk", "zh", "it", "no"];
@@ -78,6 +78,7 @@ function setDefaultLanguage() {
 
 export async function translate() {
   setDefaultLanguage();
+  setFontSize();
   let matches = document.querySelectorAll("[translate]");
   currentAppTranslation = await fetchTranslation(localStorage.getItem(constants.APP_LANG));
   matches.forEach((item) => {
