@@ -82,7 +82,7 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
-    document.querySelector(".#home-page").classList.add("hiddenElement");
+    document.querySelector("#home-page").classList.add("hiddenElement");
     modal.classList.remove("hiddenElement");
   }
 
