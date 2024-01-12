@@ -1,4 +1,4 @@
-import {goToPage, setFontSize, updateFontZoom} from "../../../utils.js"
+import {goToPage, setFontSize} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
@@ -168,7 +168,7 @@ const mainController = new MainController();
 window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
-  //document.querySelector(".page-container").classList.remove("hiddenElement");
+  document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
   setTimeout(setFontSize, 0);
 }
