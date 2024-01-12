@@ -1,4 +1,4 @@
-import {goToPage, setFontSize} from "../../../utils.js"
+import {goToPage, setFontSize, updateFontZoom} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
@@ -73,9 +73,6 @@ function MainController() {
 
   function populateModal(key) {
     let modal = document.querySelector("#settings-modal");
-
-    modal.classList.remove("hiddenElement");
-    document.querySelector(".page-container").classList.add("hiddenElement");
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
     let contentKey = key + "_content";
@@ -85,6 +82,8 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
+    document.querySelector(".page-container").classList.add("hiddenElement");
+    modal.classList.remove("hiddenElement");
   }
 
   this.showModal = function (key) {
