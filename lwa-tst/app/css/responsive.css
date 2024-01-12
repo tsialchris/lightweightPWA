@@ -536,6 +536,10 @@ b {
     width: 100%;
 }
 
+.modal-header .modal-subtitle {
+    width: 100%;
+}
+
 .modal-header h1 {
     margin-block-start: 0;
     margin-block-end: 0;
