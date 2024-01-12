@@ -408,8 +408,8 @@ b {
 }
 
 #settings-modal {
-    display: none;
     position: relative;
+    display: flex;
 }
 
 #settings-modal .modal-header {

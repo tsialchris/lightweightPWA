@@ -67,8 +67,8 @@ function MainController() {
   }
 
   this.closeModal = function () {
-    document.querySelector("#settings-modal").setAttribute('style', 'display:none !important');
-    document.querySelector(".page-container").setAttribute('style', 'display:flex !important');
+    document.querySelector("#settings-modal").classList.add("hiddenElement");
+    document.querySelector(".page-container").classList.remove("hiddenElement")
   }
 
   this.showModal = function (key) {
@@ -80,8 +80,8 @@ function MainController() {
 
     let modal = document.querySelector("#settings-modal");
 
-    modal.setAttribute('style', 'display:flex;');
-    document.querySelector(".page-container").setAttribute('style', 'display:none !important');
+    modal.classList.remove("hiddenElement");
+    document.querySelector(".page-container").classList.add("hiddenElement");
     let titleKey = key + "_modal_title";
     let subtitleKey = key + "_modal_subtitle";
     let contentKey = key + "_content";
