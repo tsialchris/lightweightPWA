@@ -93,7 +93,7 @@ function MainController() {
           return;
         }*/
     populateModal(key);
-    updateFontZoom();
+    setFontSize();
   }
 
 
