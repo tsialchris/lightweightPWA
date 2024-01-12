@@ -29,7 +29,7 @@ const constants = {
       }, //20px
       200: {
         "safari": "calc(1.6rem/2 + 1.1vmin)",
-        "chrome": "calc(1.6rem + 1.1vmin)"
+        "chrome": "calc(1.6rem)"
       }, //22px
       250: {
         "safari": "calc(1.6rem/2.5 + 1.5vmin))",
@@ -63,7 +63,7 @@ const constants = {
       }, //22px
       200: {
         "safari": "calc(1.6rem/2 + 1.5vmin)",
-        "chrome": "calc(1.6rem + 1.5vmin)"
+        "chrome": "calc(1.7rem)"
       }, //24px
       250: {
         "safari": "calc(1.6rem/2.5 + 1.8vmin)",
@@ -97,7 +97,7 @@ const constants = {
       }, //27px
       200: {
         "safari": "calc(1.6rem/2 + 2.7vmin)",
-        "chrome": "calc(1.6rem + 2.7vmin)"
+        "chrome": "calc(1.8rem)"
       }, //30px
       250: {
         "safari": "calc(1.6rem/2.5 + 3.1vmin)",
@@ -131,7 +131,7 @@ const constants = {
       },//30px
       200: {
         "safari": "calc(1.6rem/2 + 3.5vmin)",
-        "chrome": "calc(1.6rem + 3.5vmin)"
+        "chrome": "calc(2rem)"
       },//33px
       250: {
         "safari": "calc(1.6rem/2.5 + 4vmin)",
