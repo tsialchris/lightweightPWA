@@ -48,8 +48,8 @@
         </ul>
     </div>
     <div class="welcome-container" role="main" tabindex="0">
-        <h1 id="welcome-text" translate="welcome" class="hiddenElement"></h1>
-        <h1 id="onbording-text" translate="onboarding_welcome" class="hiddenElement"></h1>
+        <span role="heading" aria-level="1" id="welcome-text" translate="welcome" class="hiddenElement"></span>
+        <span role="heading" aria-level="1" id="onbording-text" translate="onboarding_welcome" class="hiddenElement"></span>
     </div>
     <div class="terms-content-container" role="contentinfo">
         <div class="terms-container">
@@ -80,10 +80,10 @@
     <div class="modal-body">
         <div class="modal-header left-aligned-header">
             <div class="icon-title-container">
-                <h1 class="modal-title bold-title" tabindex="2"></h1>
+                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"></div>
                 <!--<div class="modal-icon"></div>-->
             </div>
-            <div class="modal-subtitle" tabindex="3"></div>
+            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"></div>
             <button id="close-modal-button" class="close-modal" aria-label="close" tabindex="1"></button>
         </div>
         <div class="modal-content" tabindex="4">
