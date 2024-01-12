@@ -68,7 +68,7 @@ function MainController() {
 
   this.closeModal = function () {
     document.querySelector("#settings-modal").classList.add("hiddenElement");
-    document.querySelector(".page-container").classList.remove("hiddenElement")
+    document.querySelector("#home-page").classList.remove("hiddenElement")
   }
 
   function populateModal(key) {
@@ -82,7 +82,7 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
-    document.querySelector(".page-container").classList.add("hiddenElement");
+    document.querySelector(".#home-page").classList.add("hiddenElement");
     modal.classList.remove("hiddenElement");
   }
 
