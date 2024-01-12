@@ -533,6 +533,7 @@ b {
 .modal-header.left-aligned-header .modal-title {
     text-align: left;
     margin-right: 12px;
+    width: 100%;
 }
 
 .modal-header h1 {

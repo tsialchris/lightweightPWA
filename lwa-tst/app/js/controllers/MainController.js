@@ -91,7 +91,7 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
-    updateFontZoom();
+    setTimeout(updateFontZoom, 500);
   }
 
   let addEventListeners = () => {
