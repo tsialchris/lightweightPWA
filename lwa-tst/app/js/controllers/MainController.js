@@ -71,13 +71,7 @@ function MainController() {
     document.querySelector(".page-container").classList.remove("hiddenElement")
   }
 
-  this.showModal = function (key) {
-    this.toggleMenu();
-    /*    if (key === "about") {
-          window.open("https://Pharmaledger.eu").focus();
-          return;
-        }*/
-
+  function populateModal(key) {
     let modal = document.querySelector("#settings-modal");
 
     modal.classList.remove("hiddenElement");
@@ -91,8 +85,18 @@ function MainController() {
     contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
-    setTimeout(updateFontZoom, 500);
   }
+
+  this.showModal = function (key) {
+    this.toggleMenu();
+    /*    if (key === "about") {
+          window.open("https://Pharmaledger.eu").focus();
+          return;
+        }*/
+    populateModal(key);
+    updateFontZoom();
+  }
+
 
   let addEventListeners = () => {
     let menuContainer = document.querySelector(".app-menu-container");
