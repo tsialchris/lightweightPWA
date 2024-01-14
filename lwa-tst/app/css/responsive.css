@@ -125,7 +125,6 @@ b {
     background: black;
     height: 100%;
     width: 100%;
-    position: absolute;
 }
 
 .page-container {
@@ -409,7 +408,7 @@ b {
 
 #settings-modal {
     position: relative;
-    display: flex;
+    display: block;
 }
 
 #settings-modal .modal-header {

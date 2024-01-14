@@ -79,7 +79,6 @@ function MainController() {
     modal.querySelector(".modal-title").innerHTML = getTranslation(titleKey);
     modal.querySelector(".modal-subtitle").innerHTML = getTranslation(subtitleKey);
     let contentElement = modal.querySelector(".modal-content");
-    contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
     document.querySelector("#home-page").classList.add("hiddenElement");
@@ -93,7 +92,7 @@ function MainController() {
           return;
         }*/
     populateModal(key);
-    setFontSize();
+    //setFontSize();
   }
 
 
