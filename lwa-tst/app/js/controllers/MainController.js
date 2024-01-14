@@ -164,11 +164,12 @@ function MainController() {
 const mainController = new MainController();
 
 window.onload = async (event) => {
+  setFontSize();
   await translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setTimeout(setFontSize, 0);
+ // setTimeout(setFontSize, 0);
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
