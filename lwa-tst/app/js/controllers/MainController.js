@@ -79,6 +79,7 @@ function MainController() {
     modal.querySelector(".modal-title").innerHTML = getTranslation(titleKey);
     modal.querySelector(".modal-subtitle").innerHTML = getTranslation(subtitleKey);
     let contentElement = modal.querySelector(".modal-content");
+    contentElement.className = "modal-content";
     contentElement.classList.add(key);
     contentElement.innerHTML = getTranslation(contentKey);
     document.querySelector("#home-page").classList.add("hiddenElement");
@@ -92,7 +93,7 @@ function MainController() {
           return;
         }*/
     populateModal(key);
-    //setFontSize();
+    setFontSize();
   }
 
 
@@ -164,12 +165,11 @@ function MainController() {
 const mainController = new MainController();
 
 window.onload = async (event) => {
-  setFontSize();
   await translate();
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
- // setTimeout(setFontSize, 0);
+  setTimeout(setFontSize, 0);
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
