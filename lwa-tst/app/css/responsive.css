@@ -20,10 +20,6 @@ body {
     flex-direction: column;
 }
 
-body * {
-    font-size: var(--font-size--basic);
-}
-
 button {
     font-family: "Noto Sans";
 }
@@ -48,11 +44,11 @@ body[app-lang="ar"] button {
     font-family: "Noto Sans", "Noto Sans Arab"
 }
 
-h1 {
+h1, .modal-title {
     font-size: var(--font-size--XL);
 }
 
-h2 {
+h2, .welcome-container, .scan-button {
     font-size: var(--font-size--L);
 }
 
@@ -61,7 +57,10 @@ h3 {
 }
 
 h4,
-p {
+p,
+.terms-content-container,
+.settings-modal,
+.app-menu-container {
     font-size: var(--font-size--basic);
 }
 
@@ -78,7 +77,6 @@ b {
 }
 
 .bold-title {
-    font-size: var(--font-size--XL);
     font-weight: 700;
 }
 
@@ -186,7 +184,6 @@ b {
     z-index: 10;
     text-align: left;
     left: min(3vh, 3vw);
-    font-size: var(--font-size--basic);
     box-shadow: 0px 15px 20px rgba(28, 34, 40, 0.3);
     list-style-type: none;
     right: 0;
@@ -216,7 +213,6 @@ b {
     font-weight: 700;
     text-align: center;
     padding: min(3vh, 3vw) 7vh 1vh;
-    font-size: var(--font-size--XL);
 }
 
 .welcome-container h1 {
@@ -346,7 +342,6 @@ b {
 .explain-container {
     align-self: center;
     text-align: center;
-    font-size: var(--font-size--basic);
     padding: 1vh min(3vh, 3vw);
 }
 
@@ -371,7 +366,6 @@ b {
     border-radius: 5vh;
     border: 0;
     font-weight: 700;
-    font-size: var(--font-size--L);
     text-align: center;
     position: absolute;
     right: 4vh;
@@ -405,7 +399,6 @@ b {
 .popup-modal .modal-content {
     top: -15px;
     border-radius: 15px 15px 30px 30px;
-    font-size: var(--font-size--L);;
     font-weight: 400;
 }
 
@@ -578,7 +571,6 @@ b {
 
 .modal-content .languages-container .language-item-container {
     font-weight: 500;
-    font-size: var(--font-size--basic);
     border: 0.5px solid var(--grey);
     margin-bottom: 10px;
     display: flex;
@@ -632,7 +624,6 @@ b {
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
-    font-size: var(--font-size--basic);
     height: 15%;
     max-height: 25%;
     overflow: auto;
@@ -653,7 +644,6 @@ b {
     color: white;
     border: 0;
     font-weight: 500;
-    font-size: var(--font-size--basic);
     padding: 0 min(3vh, 3vw);
 }
 
@@ -675,14 +665,12 @@ b {
     border-radius: 62px;
     border: 0;
     color: #fff;
-    font-size: var(--font-size--L);
     font-weight: 700;
     height: 56px;
 }
 
 .go-back-button {
     font-weight: 700;
-    font-size: var(--font-size--L);
     line-height: 140%;
     text-align: center;
     color: #516266;
@@ -697,7 +685,6 @@ b {
     position: relative;
     color: #04313B;
     background: #fff;
-    font-size: var(--font-size--basic);
     flex-grow: 1;
 }
 
