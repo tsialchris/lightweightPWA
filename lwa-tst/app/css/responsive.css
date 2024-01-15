@@ -139,6 +139,8 @@ b {
     margin: 0;
     overflow: auto;
     word-break: break-word;
+    height: 100%;
+    width: 100%;
 }
 
 .page-container.scan-page {
