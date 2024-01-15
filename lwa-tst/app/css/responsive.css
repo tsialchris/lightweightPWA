@@ -15,9 +15,13 @@ body {
     padding: 0;
     position: relative;
     margin: 0 auto;
-    font-size: var(--font-size--basic);
+    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
+}
+
+body * {
+    font-size: var(--font-size--basic);
 }
 
 button {
