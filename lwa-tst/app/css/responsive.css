@@ -496,12 +496,8 @@ b {
 }
 
 .modal-header.left-aligned-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 2.5rem min(3vh, 3vw);
 }
-
 
 .modal-header.centered-header .modal-icon {
     height: 35px;
@@ -517,9 +513,6 @@ b {
 }
 
 .modal-header.left-aligned-header .icon-title-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     width: -moz-available; /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
     width: fill-available;
