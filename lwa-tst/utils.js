@@ -304,16 +304,11 @@ function addResizeListener() {
 
 function setFontSize() {
   let testFontContainer = document.querySelector("#font-control");
-  testFontContainer.classList.remove("hiddenElement");
-  let innerDiv = document.createElement("div");
-  innerDiv.innerHTML = "ABC";
-  testFontContainer.append(innerDiv);
+  testFontContainer.innerHTML = "ABC";
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
-  testFontContainer.remove(innerDiv);
-  testFontContainer.classList.add("hiddenElement");
-
+  testFontContainer.innerHTML = "";
 }
 
 function loadAppVersion() {
