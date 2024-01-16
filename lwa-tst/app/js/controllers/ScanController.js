@@ -150,6 +150,11 @@ function ScanController() {
     document.getElementById("close-modal-button").addEventListener("click", (event) => {
       this.closeModal(event.currentTarget.getAttribute("modal-id"));
     })
+    window.visualViewport.addEventListener("resize", (evt) => {
+      //try to assure canvas render
+      location.reload();
+    })
+
 
   }
 
