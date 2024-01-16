@@ -416,6 +416,8 @@ b {
 #settings-modal .modal-header {
     background-color: var(--olivegreen);
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
 #settings-modal .modal-header .close-modal {
