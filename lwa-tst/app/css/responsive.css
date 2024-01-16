@@ -53,6 +53,7 @@ body[app-lang="ar"] button {
     display: flex;
     flex-direction: column;
     height: max-content;
+    width: 100%;
 }
 
 h1 {
