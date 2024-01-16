@@ -426,7 +426,6 @@ b {
 }
 
 .modal-header .close-modal {
-    position: absolute;
     background: url(./../images/close-modal.svg) no-repeat center;
     background-size: contain;
     height: 20px;

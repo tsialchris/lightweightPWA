@@ -19,9 +19,10 @@ function MenuPageController() {
 const menuPageController = new MenuPageController();
 
 window.onload = async (event) => {
- // document.querySelector("#settings-modal").classList.remove("hiddenElement");
+  // document.querySelector("#settings-modal").classList.remove("hiddenElement");
   await translate();
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  document.querySelector(".modal-header .close-modal").style.position = "absolute";
   //setFontSize();
 }
 
