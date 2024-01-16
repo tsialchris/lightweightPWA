@@ -93,6 +93,7 @@ function MainController() {
           return;
         }*/
     // setFontSize();
+    document.querySelector("#settings-modal").classList.remove("hiddenElement");
     document.querySelector("#home-page").classList.add("hiddenElement");
     let modal = document.querySelector(`#settings-modal .modal-body.${key}`);
     modal.classList.remove("hiddenElement");
