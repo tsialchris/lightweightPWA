@@ -210,6 +210,7 @@ function getFontSizeInMillimeters(element) {
 function updateFontZoom(value, ignoreBrowser) {
   let zoom = value || localStorage.getItem(constants.FONT_ZOOM)
   console.log("zoom = ", zoom);
+  return;
   if (zoom >= 99 && zoom < 110) {
     zoom = 100;
   }
@@ -304,11 +305,12 @@ function addResizeListener() {
 
 function setFontSize() {
   let testFontContainer = document.querySelector("#font-control");
-  testFontContainer.innerHTML = "ABC";
+  testFontContainer.classList.remove("hiddenElement");
+  testFontContainer.getClientRects();
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
-  testFontContainer.innerHTML = "";
+  testFontContainer.classList.add("hiddenElement");
 }
 
 function loadAppVersion() {

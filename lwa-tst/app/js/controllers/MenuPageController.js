@@ -22,7 +22,7 @@ window.onload = async (event) => {
   await translate();
   document.querySelector("#settings-modal").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  // setFontSize();
+  setFontSize();
 }
 
 window.menuPageController = menuPageController;
