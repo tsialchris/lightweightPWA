@@ -308,12 +308,14 @@ function addResizeListener() {
 function setFontSize() {
   let testFontContainer = document.querySelector("#font-control");
   testFontContainer.classList.remove("hiddenElement");
+  testFontContainer.style.height = "max-content";
   testFontContainer.querySelector("div").innerHTML = "ABC";
-  testFontContainer.querySelector("div").style.height = "100%";
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
+  testFontContainer.style.height = "0px";
   testFontContainer.classList.add("hiddenElement");
+
 }
 
 function loadAppVersion() {
