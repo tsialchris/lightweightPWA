@@ -162,7 +162,6 @@ function MainController() {
       this.submitTerms(true)
     })
     document.getElementById("scan-button").addEventListener("click", this.scanHandler)
-    document.getElementById("go-home-button").addEventListener("click", this.goHome)
 
 
   }
