@@ -186,12 +186,12 @@ b {
     z-index: 10;
     text-align: left;
     left: min(3vh, 3vw);
-    font-size: var(--font-size--basic);
     box-shadow: 0px 15px 20px rgba(28, 34, 40, 0.3);
     list-style-type: none;
     right: 0;
     top: max(5vh, 5vw);
     padding-inline: 0;
+    font-size: calc(1.6em + 0.1vmin);
 }
 
 .app-menu-container:before {
@@ -313,7 +313,7 @@ b {
 }
 
 .forward-to-page .fwd-icon {
-    width: 0.7vh;
+    width: 1.6rem;
     background: url("../images/right-arrow-icon.svg") no-repeat center;
     background-size: contain;
 }
