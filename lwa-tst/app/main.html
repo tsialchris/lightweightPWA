@@ -76,19 +76,58 @@
         </button>
     </div>
 </div>
-<div id="settings-modal" class="modal-container info-modal hiddenElement">
-    <div class="modal-body">
+<div id="settings-modal" class="modal-container info-modal ">
+    <div class="modal-body terms hiddenElement">
         <div class="modal-header left-aligned-header">
             <div class="icon-title-container">
-                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"></div>
+                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"
+                     translate="terms_modal_title"></div>
                 <!--<div class="modal-icon"></div>-->
             </div>
-            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"></div>
-            <button id="close-modal-button" class="close-modal" aria-label="close" tabindex="1"></button>
+            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"
+                 translate="terms_modal_subtitle"></div>
+            <button class="close-modal" aria-label="close" tabindex="1"></button>
         </div>
-        <div class="modal-content" tabindex="4">
-            <div class="generated-content-container"></div>
+        <div class="modal-content" tabindex="4" translate="terms_content"></div>
+    </div>
+    <div class="modal-body privacy hiddenElement">
+        <div class="modal-header left-aligned-header">
+            <div class="icon-title-container">
+                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"
+                     translate="privacy_modal_title"></div>
+                <!--<div class="modal-icon"></div>-->
+            </div>
+            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"
+                 translate="privacy_modal_subtitle"></div>
+            <button class="close-modal" aria-label="close" tabindex="1"></button>
         </div>
+        <div class="modal-content" tabindex="4" translate="privacy_content"></div>
+    </div>
+    <div class="modal-body about hiddenElement">
+        <div class="modal-header left-aligned-header">
+            <div class="icon-title-container">
+                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"
+                     translate="about_modal_title"></div>
+                <!--<div class="modal-icon"></div>-->
+            </div>
+            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"
+                 translate="about_modal_subtitle"></div>
+            <button class="close-modal" aria-label="close" tabindex="1"></button>
+        </div>
+        <div class="modal-content" tabindex="4" translate="about_content"></div>
+    </div>
+    <div class="modal-body help hiddenElement">
+        <div class="modal-header left-aligned-header">
+            <div class="icon-title-container">
+                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2"
+                     translate="help_modal_title"></div>
+                <!--<div class="modal-icon"></div>-->
+            </div>
+            <div role="heading" aria-level="2" class="modal-subtitle" tabindex="3"
+                 translate="help_modal_subtitle"></div>
+            <button class="close-modal" aria-label="close" tabindex="1"></button>
+        </div>
+        <div class="modal-content" tabindex="4" translate="help_content"></div>
     </div>
     <button id="go-home-button" class="scan-button go-home-button" translate="go_home"></button>
 </div>

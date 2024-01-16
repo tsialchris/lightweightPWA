@@ -93,7 +93,12 @@ function MainController() {
           return;
         }*/
     // setFontSize();
-    populateModal(key);
+    document.querySelector("#home-page").classList.add("hiddenElement");
+    let modal = document.querySelector(`#settings-modal .modal-body.${key}`);
+    modal.classList.remove("hiddenElement");
+    modal.querySelector(".close-modal").addEventListener("click", this.closeModal);
+
+    //  populateModal(key);
 
   }
 
@@ -154,7 +159,6 @@ function MainController() {
       this.submitTerms(true)
     })
     document.getElementById("scan-button").addEventListener("click", this.scanHandler)
-    document.getElementById("close-modal-button").addEventListener("click", this.closeModal)
     document.getElementById("go-home-button").addEventListener("click", this.goHome)
 
 
@@ -170,7 +174,7 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
- // setFontSize();
+  // setFontSize();
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
