@@ -22,9 +22,9 @@ window.onload = async (event) => {
   // document.querySelector("#settings-modal").classList.remove("hiddenElement");
   await translate();
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setTimeout(() => {
+  /*setTimeout(() => {
     document.querySelector(".modal-header .close-modal").style.position = "absolute";
-  }, 500);
+  }, 500);*/
   //setFontSize();
 }
 
