@@ -131,7 +131,8 @@ b {
     position: absolute;
 }
 
-.page-container {
+.page-container,
+#settings-modal {
     flex-grow: 1;
     color: #fff;
     align-self: center;
@@ -410,16 +411,6 @@ b {
 
 .popup-modal .modal-body {
     margin: max(3vh, 3vw);
-}
-
-#settings-modal {
-    position: relative;
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    margin: 0;
-    word-break: break-word;
-    width: 100%;
 }
 
 #settings-modal .modal-header {
