@@ -15,7 +15,7 @@ body {
     padding: 0;
     position: relative;
     margin: 0 auto;
-    font-size: var(--font-size--basic);
+    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
 }
@@ -44,6 +44,14 @@ body[app-lang="ar"] button {
     font-family: "Noto Sans", "Noto Sans Arab"
 }
 
+#font-control {
+    font-size: 1em;
+    line-height: 1;
+    font-weight: 400;
+    position: relative;
+    opacity: 0;
+}
+
 h1 {
     font-size: var(--font-size--XL);
 }
@@ -57,16 +65,9 @@ h3 {
 }
 
 h4,
-p {
+p,
+.page-container {
     font-size: var(--font-size--basic);
-}
-
-#font-control {
-    font-size: 1em;
-    line-height: 1;
-    font-weight: 400;
-    position: relative;
-    opacity: 0;
 }
 
 b {
