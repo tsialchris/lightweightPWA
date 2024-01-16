@@ -176,6 +176,9 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  setTimeout(() => {
+    document.querySelector(".app-menu-container ").style.position = "absolute";
+  }, 0);
   //setFontSize();
 }
 const queryString = window.location.search;
