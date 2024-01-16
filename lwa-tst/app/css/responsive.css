@@ -59,7 +59,7 @@ h3 {
 h4,
 p,
 .page-container,
-.settings-modal {
+#settings-modal {
     font-size: var(--font-size--basic);
 }
 
