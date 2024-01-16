@@ -58,7 +58,8 @@ h3 {
 
 h4,
 p,
-.page-container {
+.page-container,
+.settings-modal {
     font-size: var(--font-size--basic);
 }
 
@@ -413,7 +414,12 @@ b {
 
 #settings-modal {
     position: relative;
-    display: block;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    margin: 0;
+    word-break: break-word;
+    width: 100%;
 }
 
 #settings-modal .modal-header {

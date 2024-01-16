@@ -92,7 +92,7 @@ function MainController() {
           window.open("https://Pharmaledger.eu").focus();
           return;
         }*/
-   // setFontSize();
+    // setFontSize();
     populateModal(key);
 
   }
@@ -170,7 +170,7 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   document.querySelector(".page-container").classList.remove("hiddenElement");
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
-  setTimeout(setFontSize, 0);
+ // setFontSize();
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
