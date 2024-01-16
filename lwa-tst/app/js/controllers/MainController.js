@@ -92,8 +92,9 @@ function MainController() {
           window.open("https://Pharmaledger.eu").focus();
           return;
         }*/
+   // setFontSize();
     populateModal(key);
-    setFontSize();
+
   }
 
 

@@ -308,6 +308,7 @@ function addResizeListener() {
 function setFontSize() {
   let testFontContainer = document.querySelector("#font-control");
   testFontContainer.classList.remove("hiddenElement");
+  testFontContainer.querySelector("div").innerHTML = "ABC"
   saveFontZoom();
   updateFontZoom();
   addResizeListener();
