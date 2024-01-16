@@ -88,17 +88,19 @@ function MainController() {
 
   this.showModal = function (key) {
     this.toggleMenu();
+    goToPage(`/${key}-page.html`)
     /*    if (key === "about") {
           window.open("https://Pharmaledger.eu").focus();
           return;
         }*/
     // setFontSize();
-    document.querySelector("#settings-modal").classList.remove("hiddenElement");
-    document.querySelector("#home-page").classList.add("hiddenElement");
-    let modal = document.querySelector(`#settings-modal .modal-body.${key}`);
-    modal.classList.remove("hiddenElement");
-    modal.querySelector(".close-modal").addEventListener("click", this.closeModal);
 
+    /*  document.querySelector("#settings-modal").classList.remove("hiddenElement");
+      document.querySelector("#home-page").classList.add("hiddenElement");
+      let modal = document.querySelector(`#settings-modal .modal-body.${key}`);
+      modal.classList.remove("hiddenElement");
+      modal.querySelector(".close-modal").addEventListener("click", this.closeModal);
+  */
     //  populateModal(key);
 
   }
