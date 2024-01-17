@@ -75,7 +75,7 @@ function LeafletController() {
     this.leafletLang = lang;
     getLeaflet(lang);
     setTextDirectionForLanguage(lang, "#leaflet-content");
-    setTextDirectionForLanguage(lang, ".modal-body .page-header");
+    setTextDirectionForLanguage(lang, ".modal-body .modal-header");
 
     document.querySelector("#leaflet-lang-select").classList.add("hiddenElement");
   }
