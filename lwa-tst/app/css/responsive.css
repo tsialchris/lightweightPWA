@@ -440,11 +440,13 @@ b {
     border: 0;
 }
 
+/*
 .modal-header .modal-icon {
     position: relative;
     background-size: contain !important;
     background: url(./../images/error-icon.svg) no-repeat;
 }
+*/
 
 .warning-modal .modal-header {
     background: linear-gradient(0deg, #FFFAED, #FFFAED), #FFFFFF;
@@ -503,7 +505,6 @@ b {
 
 .modal-header.left-aligned-header {
     padding: 2.5rem min(3vh, 3vw);
-    display: flex;
 }
 
 .modal-header.centered-header .modal-icon {
@@ -524,8 +525,6 @@ b {
     width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
     width: fill-available;
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .modal-header.centered-header .modal-title {
@@ -536,6 +535,13 @@ b {
 .modal-header.left-aligned-header .modal-title {
     text-align: left;
     margin-right: 12px;
+}
+
+.modal-header.left-aligned-header .modal-title:after {
+    position: absolute;
+    content: url(./../images/error-icon.svg);
+    margin-left: 12px;
+    height: 100%;
 }
 
 .modal-header .modal-subtitle {
@@ -755,6 +761,15 @@ body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
     margin-left: 12px;
     margin-right: unset;
 }
+
+body[dir="RTL"].modal-header.left-aligned-header .modal-title:before {
+    position: absolute;
+    content: url(./../images/error-icon.svg);
+    margin-right: 12px;
+    margin-left: unset;
+    height: 100%;
+}
+
 
 body[dir="RTL"] .terms-container .terms-buttons-container {
     margin-right: 25px;
