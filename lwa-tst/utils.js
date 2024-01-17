@@ -209,8 +209,7 @@ function getFontSizeInMillimeters(element) {
 
 function updateFontZoom(value, ignoreBrowser) {
   let zoom = value || localStorage.getItem(constants.FONT_ZOOM)
-  console.log("zoom = ", zoom);
-  return;
+
   if (zoom >= 99 && zoom < 110) {
     zoom = 100;
   }

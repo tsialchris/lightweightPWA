@@ -1,34 +1,10 @@
-import {goToPage, setFontSize, updateFontZoom} from "../../../utils.js"
+import {goToPage} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 import environment from "../../../environment.js";
 import constants from "../../../constants.js";
 
 
 function MainController() {
-
-  let getCookie = function (cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return null;
-  }
-
-  function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    exdays = exdays || 365;
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
 
   this.toggleMenu = function () {
     let menuButton = document.getElementById("hamburger-menu-button");
@@ -39,7 +15,7 @@ function MainController() {
   }
 
   this.checkOnboarding = function () {
-    let usrAgreedTerms = getCookie("usr_agreed_terms");
+    let usrAgreedTerms = localStorage.getItem(constants.USR_AGREED_TERMS);
     if (!usrAgreedTerms) {
       document.querySelector(".welcome-container #onbording-text").classList.remove("hiddenElement")
       document.querySelector(".content-container").classList.add("hiddenElement");
@@ -54,55 +30,18 @@ function MainController() {
 
   this.submitTerms = function (status) {
     if (status) {
-      setCookie("usr_agreed_terms", true);
+      localStorage.setItem(constants.USR_AGREED_TERMS, true);
     }
     location.reload();
   }
+
   this.scanHandler = async function () {
     goToPage("/scan.html")
-  }
-
-  this.goHome = function () {
-    goToPage("/main.html")
-  }
-
-  this.closeModal = function () {
-    document.querySelector("#settings-modal").classList.add("hiddenElement");
-    document.querySelector("#home-page").classList.remove("hiddenElement")
-  }
-
-  function populateModal(key) {
-    let modal = document.querySelector("#settings-modal");
-    let titleKey = key + "_modal_title";
-    let subtitleKey = key + "_modal_subtitle";
-    let contentKey = key + "_content";
-    modal.querySelector(".modal-title").innerHTML = getTranslation(titleKey);
-    modal.querySelector(".modal-subtitle").innerHTML = getTranslation(subtitleKey);
-    let contentElement = modal.querySelector(".modal-content");
-    contentElement.className = "modal-content";
-    contentElement.classList.add(key);
-    contentElement.innerHTML = getTranslation(contentKey);
-    document.querySelector("#home-page").classList.add("hiddenElement");
-    modal.classList.remove("hiddenElement");
   }
 
   this.showModal = function (key) {
     this.toggleMenu();
     goToPage(`/${key}-page.html`)
-    /*    if (key === "about") {
-          window.open("https://Pharmaledger.eu").focus();
-          return;
-        }*/
-    // setFontSize();
-
-    /*  document.querySelector("#settings-modal").classList.remove("hiddenElement");
-      document.querySelector("#home-page").classList.add("hiddenElement");
-      let modal = document.querySelector(`#settings-modal .modal-body.${key}`);
-      modal.classList.remove("hiddenElement");
-      modal.querySelector(".close-modal").addEventListener("click", this.closeModal);
-  */
-    //  populateModal(key);
-
   }
 
 
@@ -163,11 +102,9 @@ function MainController() {
     })
     document.getElementById("scan-button").addEventListener("click", this.scanHandler)
 
-
   }
   addEventListeners();
 }
-
 
 const mainController = new MainController();
 
@@ -179,7 +116,6 @@ window.onload = async (event) => {
   setTimeout(() => {
     document.querySelector(".app-menu-container ").style.position = "absolute";
   }, 0);
-  //setFontSize();
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

@@ -1,7 +1,5 @@
-import {goToPage, setFontSize, updateFontZoom} from "../../../utils.js"
-import {getTranslation, translate} from "../translationUtils.js";
-import environment from "../../../environment.js";
-import constants from "../../../constants.js";
+import {goToPage} from "../../../utils.js"
+import {translate} from "../translationUtils.js";
 
 
 function MenuPageController() {
@@ -25,7 +23,6 @@ window.onload = async (event) => {
   setTimeout(() => {
     document.querySelector(".modal-header .close-modal").style.position = "absolute";
   }, 0);
-  //setFontSize();
 }
 
 window.menuPageController = menuPageController;
