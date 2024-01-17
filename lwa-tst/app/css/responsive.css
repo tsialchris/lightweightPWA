@@ -537,7 +537,7 @@ b {
     margin-right: 12px;
 }
 
-.modal-header.left-aligned-header .modal-title:after {
+.error-page .modal-header.left-aligned-header .modal-title:after {
     position: absolute;
     content: url(./../images/error-icon.svg);
     margin-left: 12px;
@@ -762,7 +762,7 @@ body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
     margin-right: unset;
 }
 
-body[dir="RTL"].modal-header.left-aligned-header .modal-title:before {
+body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before {
     position: absolute;
     content: url(./../images/error-icon.svg);
     margin-right: 12px;
