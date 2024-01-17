@@ -9,15 +9,12 @@
     margin: 0;
 }
 
-.product-description {
+/*.product-description {
     font-size: var(--font-size--L);
-}
+}*/
 
 #leaflet-content {
     text-align: start;
-    height: 100%;
-    width: 100%;
-
 }
 
 #leaflet-content,
