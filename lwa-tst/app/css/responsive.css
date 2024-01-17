@@ -795,7 +795,7 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
 dialog {
     border: none;
     padding: 0;
-    border-radius: 15px 15px 30px 30px;
+    border-radius: 30px;
     font-size: var(--font-size--L);
     font-weight: 400;
 }
