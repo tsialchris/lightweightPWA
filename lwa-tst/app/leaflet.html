@@ -14,17 +14,15 @@
     <div class="loader"></div>
 </div>
 
-<div id="settings-modal" class="modal-container info-modal hiddenElement">
-    <div class="modal-body leaflet">
-        <div class="modal-header left-aligned-header">
+<div id="settings-modal" class="page-container fill-available-width leaflet-page info-modal hiddenElement">
+
+    <div class="modal-body">
+        <div class="page-header modal-header left-aligned-header">
             <div class="icon-title-container" tabindex="0">
-                <div role="heading" aria-level="1" class="modal-title bold-title" tabindex="2" >
-                    Medicine Title Placeholder
-                </div>
+                <h1 class="product-name bold-title"></h1>
+                <!--<div class="modal-icon leaflet-title-icon hiddenElement"></div>-->
             </div>
-            <div class="product-description modal-subtitle" tabindex="0">
-                Medicine Description Placeholder
-            </div>
+            <div class="product-description" tabindex="0"></div>
         </div>
         <div class="modal-content">
             <div class="leaflet-content-wrapper">
@@ -43,7 +41,7 @@
             <div class="icon-title-container">
                 <div class="modal-icon"></div>
                 <div class="modal-title bold-title" id="expired-title" translate="leaflet_expired_title"
-                    role="alert"></div>
+                     role="alert"></div>
             </div>
             <button class="close-modal" modal-id="expired-modal" tabindex="0"
                     aria-label="close error message"></button>

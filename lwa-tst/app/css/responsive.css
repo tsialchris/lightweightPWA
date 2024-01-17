@@ -413,6 +413,14 @@ b {
     padding: min(3vh, 3vw);
 }
 
+.error-page .modal-content {
+    height: 100%;
+}
+
+.modal-container.popup-modal {
+    display: flex;
+}
+
 .popup-modal .modal-content {
     top: -15px;
     border-radius: 15px 15px 30px 30px;
@@ -474,7 +482,7 @@ b {
 }
 
 .modal-header.left-aligned-header .modal-icon {
-    height: 75%;
+    height: 90%;
     aspect-ratio: 1;
     background-position: center;
 }
@@ -540,25 +548,6 @@ b {
     text-align: left;
     margin-right: 12px;
 }
-
-/*
-.error-page .modal-header.left-aligned-header .modal-title:after {
-    margin-left: 12px;
-    aspect-ratio: 1;
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background-size: contain;
-    background: url(./../images/error-icon.svg) no-repeat center;
-}
-*/
-
-/*
-.modal-header .modal-subtitle {
-    width: 100%;
-}
-*/
 
 .modal-header h1 {
     margin-block-start: 0;
@@ -701,30 +690,6 @@ b {
     background: none;
 }
 
-.leaflet-page .page-content,
-.error-page .page-content {
-    position: relative;
-    color: #04313B;
-    background: #fff;
-    font-size: var(--font-size--basic);
-    flex-grow: 1;
-}
-
-.error-page .page-content {
-    padding: min(3vh, 3vw);
-}
-
-
-/*
-.leaflet-content-wrapper {
-    margin-bottom: 16vh;
-}
-
-.leaflet-page.info-modal .modal-body {
-    margin: 0;
-}
-*/
-
 /*RTL rules*/
 
 body[dir="RTL"] .loader {
@@ -775,18 +740,6 @@ body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
     margin-left: 12px;
     margin-right: unset;
 }
-
-/*body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before {
-    margin-right: 12px;
-    aspect-ratio: 1;
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background-size: contain;
-    background: url(./../images/error-icon.svg) no-repeat center;
-}*/
-
 
 body[dir="RTL"] .terms-container .terms-buttons-container {
     margin-right: 25px;
