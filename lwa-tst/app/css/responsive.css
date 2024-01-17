@@ -538,10 +538,14 @@ b {
 }
 
 .error-page .modal-header.left-aligned-header .modal-title:after {
-    position: absolute;
-    content: url(./../images/error-icon.svg);
     margin-left: 12px;
-    height: 100%;
+    aspect-ratio: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-size: contain;
+    background: url(./../images/error-icon.svg) no-repeat center;
 }
 
 .modal-header .modal-subtitle {
@@ -763,11 +767,14 @@ body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
 }
 
 body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before {
-    position: absolute;
-    content: url(./../images/error-icon.svg);
     margin-right: 12px;
-    margin-left: unset;
-    height: 100%;
+    aspect-ratio: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-size: contain;
+    background: url(./../images/error-icon.svg) no-repeat center;
 }
 
 
