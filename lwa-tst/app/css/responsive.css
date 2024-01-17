@@ -153,6 +153,11 @@ b {
 
 .page-container.error-page .page-header {
     background: var(--green-200);
+    display: flex;
+}
+
+.page-container.error-page .icon-title-container {
+    display: flex;
 }
 
 .icon-container {
@@ -538,6 +543,7 @@ b {
     margin-right: 12px;
 }
 
+/*
 .error-page .modal-header.left-aligned-header .modal-title:after {
     margin-left: 12px;
     aspect-ratio: 1;
@@ -548,10 +554,13 @@ b {
     background-size: contain;
     background: url(./../images/error-icon.svg) no-repeat center;
 }
+*/
 
+/*
 .modal-header .modal-subtitle {
     width: 100%;
 }
+*/
 
 .modal-header h1 {
     margin-block-start: 0;
@@ -769,7 +778,7 @@ body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
     margin-right: unset;
 }
 
-body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before {
+/*body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before {
     margin-right: 12px;
     aspect-ratio: 1;
     content: '';
@@ -778,7 +787,7 @@ body[dir="RTL"].error-page .modal-header.left-aligned-header .modal-title:before
     bottom: 0;
     background-size: contain;
     background: url(./../images/error-icon.svg) no-repeat center;
-}
+}*/
 
 
 body[dir="RTL"] .terms-container .terms-buttons-container {
