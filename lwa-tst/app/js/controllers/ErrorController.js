@@ -4,7 +4,7 @@ import {getTranslation, translate} from "../translationUtils.js";
 window.onload = async (event) => {
   await translate();
 
-  function ErrorController() {
+ async function ErrorController() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let errorCode = urlParams.get("errorCode") || "010";
@@ -19,18 +19,18 @@ window.onload = async (event) => {
       case "010":
       case "013":
       case "099":
-        document.querySelector(".modal-title.header-title").innerHTML = getTranslation("product_not_found_title");
-        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${getTranslation("product_not_found")} </b></p> <p>${getTranslation("err_code")} ${errorCode}</p>`;
+        document.querySelector(".modal-title.header-title").innerHTML = await getTranslation("product_not_found_title");
+        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${await getTranslation("product_not_found")} </b></p> <p>${await getTranslation("err_code")} ${errorCode}</p>`;
         break;
       case "011":
-        document.querySelector(".modal-title.header-title").innerHTML = getTranslation("product_not_loaded_title");
-        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${getTranslation("product_not_loaded")} </b></p>`;
+        document.querySelector(".modal-title.header-title").innerHTML = await getTranslation("product_not_loaded_title");
+        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${await getTranslation("product_not_loaded")} </b></p>`;
         break;
       case "004":
       case "007":
       case "012":
-        document.querySelector(".modal-title.header-title").innerHTML = getTranslation("product_not_loaded_title");
-        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${getTranslation("system_busy")} </b></p>`;
+        document.querySelector(".modal-title.header-title").innerHTML = await getTranslation("product_not_loaded_title");
+        document.querySelector(".page-content .error-text").innerHTML = `<p> <b>${await getTranslation("system_busy")} </b></p>`;
         break;
     }
 
@@ -51,7 +51,7 @@ window.onload = async (event) => {
     });
   }
 
-  const errorController = new ErrorController();
+  const errorController = await new ErrorController();
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
 
   window.errorController = errorController;
