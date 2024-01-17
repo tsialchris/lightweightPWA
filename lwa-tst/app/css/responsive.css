@@ -447,13 +447,11 @@ b {
     border: 0;
 }
 
-/*
-.modal-header .modal-icon {
+.error-page .modal-header .modal-icon {
     position: relative;
     background-size: contain !important;
     background: url(./../images/error-icon.svg) no-repeat;
 }
-*/
 
 .warning-modal .modal-header {
     background: linear-gradient(0deg, #FFFAED, #FFFAED), #FFFFFF;
