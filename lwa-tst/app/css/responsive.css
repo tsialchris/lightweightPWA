@@ -573,7 +573,7 @@ b {
     flex-grow: 1;
 }
 
-.modal-content .languages-container {
+dialog .languages-container {
     overflow: hidden;
 }
 
@@ -582,7 +582,7 @@ b {
     font-weight: 400;
 }
 
-.modal-content .languages-container .language-item-container {
+dialog .languages-container .language-item-container {
     font-weight: 500;
     font-size: var(--font-size--basic);
     border: 0.5px solid var(--grey);
@@ -595,11 +595,11 @@ b {
     overflow: auto;
 }
 
-.modal-content .languages-container .language-item-container:has(input[name='languages']:checked) {
+dialog .languages-container .language-item-container:has(input[name='languages']:checked) {
     background: var(--grey);
 }
 
-.modal-content .languages-container .language-item-container .language-flag {
+dialog .languages-container .language-item-container .language-flag {
     vertical-align: baseline;
     width: 5rem;
     position: relative;
@@ -615,13 +615,13 @@ b {
     box-shadow: inset 0 0 10px var(--grey);
 }
 
-.modal-content .languages-container .language-item-container .language-label {
+dialog .languages-container .language-item-container .language-label {
     flex-grow: 1;
     word-break: keep-all;
     text-align: left;
 }
 
-.modal-content .languages-container .language-item-container input {
+dialog .languages-container .language-item-container input {
     width: 10%;
     position: relative;
     height: fit-content;
@@ -783,12 +783,12 @@ body[dir="RTL"] .terms-container .terms-buttons-container {
     margin-right: 25px;
 }
 
-body[dir="RTL"] .modal-content .languages-container .language-item-container input {
+body[dir="RTL"] dialog .languages-container .language-item-container input {
     margin-right: unset;
     margin-left: 15px;
 }
 
-body[dir="RTL"] .modal-content .languages-container .language-item-container .language-flag {
+body[dir="RTL"] dialog.languages-container .language-item-container .language-flag {
     margin-right: 10px;
 }
 
@@ -798,16 +798,6 @@ dialog {
     border-radius: 30px;
     font-size: var(--font-size--L);
     font-weight: 400;
-}
-
-dialog header {
-    height: 5rem;
-    background-color: var(--red-100);
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    font-size: 20px;
-    align-items: center;
 }
 
 dialog section {
