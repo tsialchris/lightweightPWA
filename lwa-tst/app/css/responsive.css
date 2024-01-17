@@ -573,7 +573,7 @@ b {
     flex-grow: 1;
 }
 
-dialog .languages-container {
+.modal-content .languages-container {
     overflow: hidden;
 }
 
@@ -582,7 +582,7 @@ dialog .languages-container {
     font-weight: 400;
 }
 
-dialog .languages-container .language-item-container {
+.modal-content .languages-container .language-item-container {
     font-weight: 500;
     font-size: var(--font-size--basic);
     border: 0.5px solid var(--grey);
@@ -595,11 +595,11 @@ dialog .languages-container .language-item-container {
     overflow: auto;
 }
 
-dialog .languages-container .language-item-container:has(input[name='languages']:checked) {
+.modal-content .languages-container .language-item-container:has(input[name='languages']:checked) {
     background: var(--grey);
 }
 
-dialog .languages-container .language-item-container .language-flag {
+.modal-content .languages-container .language-item-container .language-flag {
     vertical-align: baseline;
     width: 5rem;
     position: relative;
@@ -615,13 +615,13 @@ dialog .languages-container .language-item-container .language-flag {
     box-shadow: inset 0 0 10px var(--grey);
 }
 
-dialog .languages-container .language-item-container .language-label {
+.modal-content .languages-container .language-item-container .language-label {
     flex-grow: 1;
     word-break: keep-all;
     text-align: left;
 }
 
-dialog .languages-container .language-item-container input {
+.modal-content .languages-container .language-item-container input {
     width: 10%;
     position: relative;
     height: fit-content;
@@ -783,48 +783,14 @@ body[dir="RTL"] .terms-container .terms-buttons-container {
     margin-right: 25px;
 }
 
-body[dir="RTL"] dialog .languages-container .language-item-container input {
+body[dir="RTL"] .modal-content .languages-container .language-item-container input {
     margin-right: unset;
     margin-left: 15px;
 }
 
-body[dir="RTL"] dialog.languages-container .language-item-container .language-flag {
+body[dir="RTL"] .modal-content .languages-container .language-item-container .language-flag {
     margin-right: 10px;
 }
-
-dialog {
-    border: none;
-    padding: 0;
-    border-radius: 30px;
-    font-size: var(--font-size--L);
-    font-weight: 400;
-}
-
-dialog section {
-    text-align: left;
-    margin: max(3vh, 3vw);
-}
-
-dialog section p {
-    font-weight: 500;
-    font-size: 16px;
-}
-
-dialog footer {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    flex-direction: column;
-    margin: max(3vh, 3vw);
-}
-
-dialog footer button {
-    background: var(--olivegreen);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 
 /*---------------------------------------------*/
 /*@media only screen and (min-device-width: 1281px) {

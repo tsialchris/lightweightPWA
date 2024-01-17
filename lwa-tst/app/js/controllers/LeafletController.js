@@ -110,19 +110,13 @@ function LeafletController() {
 
   let showAvailableLanguages = function (result) {
     document.getElementById("settings-modal").classList.add("hiddenElement");
-    const dialog = document.querySelector("dialog");
-    const closeButton = document.querySelector("dialog button");
-    closeButton.addEventListener("click", () => {
-      dialog.close();
-    })
     // document.querySelector(".product-name").innerText = translations[window.currentLanguage]["select_lang_title"];
     // document.querySelector(".product-description").innerText = translations[window.currentLanguage]["select_lang_subtitle"];
     // let langList = `<div class="select-lang-text">${translations[window.currentLanguage]["select_lang_text"]}</div><select class="languages-list">`;
     document.querySelector(".loader-container").setAttribute('style', 'display:none');
     if (result.availableLanguages.length >= 1) {
-/*      let langSelectContainer = document.querySelector("#leaflet-lang-select");
-      langSelectContainer.classList.remove("hiddenElement");*/
-      dialog.showModal();
+      let langSelectContainer = document.querySelector("#leaflet-lang-select");
+      langSelectContainer.classList.remove("hiddenElement");
       document.querySelector(".proceed-button.no-leaflet").classList.add("hiddenElement");
       //  document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
       let languagesContainer = document.querySelector(".languages-container");
