@@ -114,9 +114,7 @@ let validateLeafletFiles = function (htmlContent, leafletImages, uploadedImages)
 }
 
 let renderLeaflet = function (leafletData) {
-  document.querySelector(".modal-body.leaflet .modal-title").innerText = leafletData.productData.name;
-  document.querySelector(".modal-body.leaflet .modal-subtitle").innerText = leafletData.productData.description;
-  /* document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");*/
+   /* document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");*/
   let xmlService = new XMLDisplayService("#leaflet-content");
   let resultDocument = xmlService.getHTMLFromXML(leafletData.xmlContent);
   let leafletImages = resultDocument.querySelectorAll("img");
@@ -144,6 +142,8 @@ let renderLeaflet = function (leafletData) {
   xmlService.activateLeafletInnerLinks(leafletLinks);
   handleLeafletAccordion();
   document.querySelector(".loader-container").setAttribute('style', 'display:none');
+  document.querySelector(".modal-body.leaflet .modal-title").innerText = leafletData.productData.name;
+  document.querySelector(".modal-body.leaflet .modal-subtitle").innerText = leafletData.productData.description;
   focusModalHeader();
 }
 
