@@ -29,7 +29,7 @@ function ScanController() {
     try {
       await this.scanService.setup(forceNewCamera);
     } catch (err) {
-      this.redirectToError(err);
+      await this.redirectToError(err);
     }
     await this.startScanning();
     document.querySelector(".loader-container").setAttribute('style', 'display:none');
@@ -43,15 +43,15 @@ function ScanController() {
     }
   }
 
-  this.redirectToError = function (err) {
+  this.redirectToError = async function (err) {
     console.log("Error on scanService ", err);
     let modal = document.querySelector("#scan-error");
     modal.setAttribute("tabindex", "0");
     document.querySelector(".scan-cancel").setAttribute("tabindex", "-1");
     document.querySelector(".camera-switch").setAttribute("tabindex", "-1");
     if (err.scanResult) {
-      modal.querySelector(".modal-title").innerHTML = getTranslation("scan_parse_error");
-      modal.querySelector(".modal-content").innerHTML = `<div>${getTranslation("scan_parse_error_message")}  ${err.scanResult}</div>`;
+      modal.querySelector(".modal-title").innerHTML = await getTranslation("scan_parse_error");
+      modal.querySelector(".modal-content").innerHTML = `<div>${await getTranslation("scan_parse_error_message")}  ${err.scanResult}</div>`;
     }
     modal.setAttribute('style', 'display: flex');
     modal.focus();
@@ -74,9 +74,9 @@ function ScanController() {
         clearInterval(this.scanInterval);
         scanResult = result.text;
         this.processGS1Fields(scanResult)
-      }).catch(err => {
+      }).catch(async (err) => {
         err.scanResult = scanResult;
-        this.redirectToError(err);
+        await this.redirectToError(err);
         console.log("Caught", err);
       });
     }, 100);
