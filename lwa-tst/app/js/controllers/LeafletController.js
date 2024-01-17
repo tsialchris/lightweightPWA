@@ -109,7 +109,6 @@ function LeafletController() {
   }
 
   let showAvailableLanguages = function (result) {
-    document.getElementById("settings-modal").classList.add("hiddenElement");
     // document.querySelector(".product-name").innerText = translations[window.currentLanguage]["select_lang_title"];
     // document.querySelector(".product-description").innerText = translations[window.currentLanguage]["select_lang_subtitle"];
     // let langList = `<div class="select-lang-text">${translations[window.currentLanguage]["select_lang_text"]}</div><select class="languages-list">`;
