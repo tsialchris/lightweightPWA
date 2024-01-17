@@ -3,6 +3,7 @@ const constants = {
   EPI_DOMAIN: "_epiDomain_",
   FONT_ZOOM: "_fontZoom_",
   APP_LANG: "_appLang_",
+  USR_AGREED_TERMS:"usr_agreed_terms",
   monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
   FONT_SCALE_MAP: {
     /*body, h4*/
@@ -42,12 +43,12 @@ const constants = {
     }, /*H3*/
     m_font: {
       100: {
-        "safari": "calc(1.6rem + 0.65vmin)",
-        "chrome": "calc(1.6rem +0.65vmin)"
+        "safari": "calc(1.6rem + 0.5vmin)",
+        "chrome": "calc(1.6rem + 0.5vmin)"
       }, //18px
       110: {
-        "safari": "calc(1.6rem/1.1 + 0.7vmin)",
-        "chrome": "calc(1.6rem + 0.7vmin)"
+        "safari": "calc(1.6rem/1.1 + 0.6vmin)",
+        "chrome": "calc(1.6rem + 0.6vmin)"
       }, //18.5px
       130: {
         "safari": "calc(1.6rem/1.3 + 0.8vmin)",
@@ -76,70 +77,70 @@ const constants = {
     },
     l_font: {
       100: {
-        "safari": "calc(1.6rem + 1.7vmin)",
-        "chrome": "calc(1.6rem + 1.7vmin)"
+        "safari": "calc(1.6rem + 1.2vmin)",
+        "chrome": "calc(1.6rem + 1.2vmin)"
       }, //22px
       110: {
-        "safari": "calc(1.6rem/1.1 + 1.8vmin)",
-        "chrome": "calc(1.6rem + 1.8vmin)"
+        "safari": "calc(1.6rem/1.1 + 1.3vmin)",
+        "chrome": "calc(1.6rem + 1.3vmin)"
       }, //22.5px
       130: {
-        "safari": "calc(1.6rem/1.3 + 1.9vmin)",
-        "chrome": "calc(1.6rem + 1.9vmin)"
+        "safari": "calc(1.6rem/1.3 + 1.5vmin)",
+        "chrome": "calc(1.6rem + 1.5vmin)"
       }, //23px
       150: {
-        "safari": "calc(1.6rem/1.5 + 2.1vmin)",
-        "chrome": "calc(1.6rem + 2.1vmin)"
+        "safari": "calc(1.6rem/1.5 + 1.7vmin)",
+        "chrome": "calc(1.6rem + 1.7vmin)"
       }, //24px
       175: {
-        "safari": "calc(1.6rem/1.75 + 2.4vmin)",
-        "chrome": "calc(1.6rem + 2.4vmin)"
+        "safari": "calc(1.6rem/1.75 + 1.9vmin)",
+        "chrome": "calc(1.6rem + 1.9vmin)"
       }, //27px
       200: {
-        "safari": "calc(1.6rem/2 + 2.7vmin)",
-        "chrome": "calc(1.6rem + 2.7vmin)"
+        "safari": "calc(1.6rem/2 + 2.1vmin)",
+        "chrome": "calc(1.6rem + 2.1vmin)"
       }, //30px
       250: {
-        "safari": "calc(1.6rem/2.5 + 3.1vmin)",
-        "chrome": "calc(1.6rem + 3.1vmin)"
+        "safari": "calc(1.6rem/2.5 + 2.3vmin)",
+        "chrome": "calc(1.6rem + 2.3vmin)"
       }, //33px
       300: {
-        "safari": "calc(1.6rem/3 + 3.5vmin)",
-        "chrome": "calc(1.6rem + 3.5vmin)"
+        "safari": "calc(1.6rem/3 + 2.5vmin)",
+        "chrome": "calc(1.6rem + 2.5vmin)"
       } //35px
     },
     xl_font: {
       100: {
-        "safari": "calc(1.6rem + 2.3vmin)",
-        "chrome": "calc(1.6rem + 2.3vmin)"
+        "safari": "calc(1.6rem + 2vmin)",
+        "chrome": "calc(1.6rem + 2vmin)"
       }, //24px
       110: {
-        "safari": "calc(1.6rem/1.1 + 2.5vmin)",
-        "chrome": "calc(1.6rem + 2.5vmin)"
+        "safari": "calc(1.6rem/1.1 + 1.7vmin)",
+        "chrome": "calc(1.6rem + 1.7vmin)"
       }, //24.5px
       130: {
-        "safari": "calc(1.6rem/1.3 + 2.7vmin)",
-        "chrome": "calc(1.6rem + 2.7vmin)"
+        "safari": "calc(1.6rem/1.3 + 1.9vmin)",
+        "chrome": "calc(1.6rem + 1.9vmin)"
       }, //25px
       150: {
-        "safari": "calc(1.6rem/1.5 + 3vmin)",
-        "chrome": "calc(1.6rem + 3vmin)"
+        "safari": "calc(1.6rem/1.5 + 2.1vmin)",
+        "chrome": "calc(1.6rem + 2.1vmin)"
       }, //27px
       175: {
-        "safari": "calc(1.6rem/1.75 + 3.2vmin)",
-        "chrome": "calc(1.6rem + 3.2vmin)"
+        "safari": "calc(1.6rem/1.75 + 2.3vmin)",
+        "chrome": "calc(1.6rem + 2.3vmin)"
       },//30px
       200: {
-        "safari": "calc(1.6rem/2 + 3.5vmin)",
-        "chrome": "calc(1.6rem + 3.5vmin)"
+        "safari": "calc(1.6rem/2 + 6vmin)",
+        "chrome": "calc(1.6rem + 6vmin)"
       },//33px
       250: {
-        "safari": "calc(1.6rem/2.5 + 4vmin)",
-        "chrome": "calc(1.6rem + 4vmin)"
+        "safari": "calc(1.6rem/2.5 + 8vmin)",
+        "chrome": "calc(1.6rem + 8vmin)"
       },//36px
       300: {
-        "safari": "calc(1.6rem/3 + 4.5vmin)",
-        "chrome": "calc(1.6rem + 4.5vmin)"
+        "safari": "calc(1.6rem/3 + 10vmin)",
+        "chrome": "calc(1.6rem + 10vmin)"
       },//38px
     }
   }, /*error code value matches with a key in translations. Adding a new code should sync with translations*/
