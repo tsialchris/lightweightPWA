@@ -792,6 +792,48 @@ body[dir="RTL"] .modal-content .languages-container .language-item-container .la
     margin-right: 10px;
 }
 
+dialog {
+    border-radius: 8px;
+    border: none;
+    max-width: 400px;
+    padding: 0;
+}
+
+dialog header {
+    height: 5rem;
+    background-color: var(--red-100);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-size: 20px;
+    align-items: center;
+}
+
+dialog section {
+    text-align: left;
+    padding: 10px;
+}
+
+dialog section p {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+dialog footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+dialog footer button {
+    background: var(--olivegreen);
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
 /*---------------------------------------------*/
 /*@media only screen and (min-device-width: 1281px) {
     body {
