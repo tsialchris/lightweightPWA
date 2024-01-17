@@ -114,8 +114,8 @@ let validateLeafletFiles = function (htmlContent, leafletImages, uploadedImages)
 }
 
 let renderLeaflet = function (leafletData) {
-  document.querySelector(".icon-title-container").innerText = leafletData.productData.name;
-  document.querySelector(".modal-subtitle").innerText = leafletData.productData.description;
+  document.querySelector(".modal-body.leaflet .modal-title").innerText = leafletData.productData.name;
+  document.querySelector(".modal-body.leaflet .modal-subtitle").innerText = leafletData.productData.description;
   /* document.querySelector(".leaflet-title-icon").classList.remove("hiddenElement");*/
   let xmlService = new XMLDisplayService("#leaflet-content");
   let resultDocument = xmlService.getHTMLFromXML(leafletData.xmlContent);
