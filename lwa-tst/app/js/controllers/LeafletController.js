@@ -116,7 +116,7 @@ function LeafletController() {
     document.querySelector(".loader-container").setAttribute('style', 'display:none');
     if (result.availableLanguages.length >= 1) {
       let langSelectContainer = document.querySelector("#leaflet-lang-select");
-      langSelectContainer.setAttribute('style', 'display:flex !important');
+      langSelectContainer.setAttribute('style', 'display:block !important');
       document.querySelector(".proceed-button.no-leaflet").setAttribute('style', 'display:none');
       //  document.querySelector(".text-section.no-leaflet").setAttribute('style', 'display:none');
       let languagesContainer = document.querySelector(".languages-container");

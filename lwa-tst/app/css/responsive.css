@@ -517,7 +517,7 @@ b {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 2vh;
+    padding: 2vmax 0;
 }
 
 .modal-header.left-aligned-header .icon-title-container {
