@@ -325,9 +325,10 @@ const sanitationRegex = /(<iframe>([\s\S]*)<\/iframe>)|(<script>([\s\S]*)<\/scri
 function insertInDom(selector, htmlStr) {
   let domElement = document.querySelector(selector);
   if (domElement && !sanitationRegex.test(htmlStr)) {
+    domElement.innerHTML = `<div>ABC</div>`;
+    let h = window.getComputedStyle(domElement).height;
     domElement.innerHTML = htmlStr;
-   /* domElement.style.height = "0px";
-    domElement.style.height = "100%";*/
+    domElement.style.fontSize = h;
   } else {
     goToErrorPage(null, new Error("The provided HTML fragment contains invalid or unsafe elements."));
   }
