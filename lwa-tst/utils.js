@@ -326,8 +326,8 @@ function insertInDom(selector, htmlStr) {
   let domElement = document.querySelector(selector);
   if (domElement && !sanitationRegex.test(htmlStr)) {
     domElement.innerHTML = htmlStr;
-    domElement.style.height = "0px";
-    domElement.style.height = "100%";
+   /* domElement.style.height = "0px";
+    domElement.style.height = "100%";*/
   } else {
     goToErrorPage(null, new Error("The provided HTML fragment contains invalid or unsafe elements."));
   }
