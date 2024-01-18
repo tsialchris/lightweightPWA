@@ -10,10 +10,10 @@
     --yellow-200: #FFCB45;
     --yellow-100: #FFECBB;
     /* font-size: 62.5%; !* (62.5/100) * 16px = 10px *!*/
-    --font-size--basic: calc(100% + 0.1vmin);
-    --font-size--M: calc(100% + 0.65vmin);
-    --font-size--L: calc(100% + 1.7vmin);
-    --font-size--XL: calc(100% + 2.3vmin);
+    --font-size--basic: calc(160% + 0.1vmin);
+    --font-size--M: calc(160% + 0.65vmin);
+    --font-size--L: calc(160% + 1.7vmin);
+    --font-size--XL: calc(160% + 2.3vmin);
 }
 
 @font-face {
