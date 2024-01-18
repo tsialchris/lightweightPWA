@@ -320,6 +320,10 @@ function loadAppVersion() {
   goToPage(appRootPage);
 }
 
+function insertInDom(selector, htmlStr) {
+  document.querySelector(selector).innerHTML = htmlStr;
+}
+
 export {
   convertFromISOtoYYYY_HM,
   convertToLastMonthDay,
@@ -336,5 +340,6 @@ export {
   saveFontZoom,
   setFontSize,
   zoomFont,
-  loadAppVersion
+  loadAppVersion,
+  insertInDom
 }

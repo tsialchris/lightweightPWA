@@ -104,14 +104,15 @@ export async function translate() {
   });
 }
 
-export function getTranslation(key) {
+export async function getTranslation(key) {
   setDefaultLanguage();
   if (!currentAppTranslation) {
-    fetchTranslation(localStorage.getItem(constants.APP_LANG)).then(result => {
-      currentAppTranslation = result;
-      return currentAppTranslation[key];
-    });
-  } else {
-    return currentAppTranslation[key];
+    currentAppTranslation = await fetchTranslation(localStorage.getItem(constants.APP_LANG));
+    /* fetchTranslation(localStorage.getItem(constants.APP_LANG)).then(result => {
+       currentAppTranslation = result;
+       return currentAppTranslation[key];
+     });*/
   }
+  return currentAppTranslation[key];
+
 }
