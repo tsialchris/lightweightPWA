@@ -16,8 +16,6 @@ body {
     position: relative;
     margin: 0 auto;
     font-size: var(--font-size--basic);
-    display: flex;
-    flex-direction: column;
 }
 
 button {
