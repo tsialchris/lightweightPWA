@@ -14,6 +14,9 @@ body {
     margin: 0 auto;
     font-size: var(--font-size--basic);
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
 }
 
 button {
@@ -139,6 +142,8 @@ b {
     overflow: auto;
     word-break: break-word;
     min-height: 100%;
+    flex-grow: 1;
+    justify-content: stretch;
 }
 
 .page-container.scan-page {
