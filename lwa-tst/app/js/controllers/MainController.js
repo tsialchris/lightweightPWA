@@ -113,8 +113,10 @@ window.onload = async (event) => {
   mainController.checkOnboarding();
   setTimeout(() => {
     document.querySelector(".app-menu-container ").style.position = "absolute";
-    document.querySelector(".page-container").classList.remove("hiddenElement");
     document.querySelector(".loader-container").setAttribute('style', 'display:none');
+    document.querySelector(".page-container").classList.remove("hiddenElement");
+    document.querySelector(".page-container").style.height = "0px";
+    document.querySelector(".page-container").style.height = "100%";
   }, 0);
 }
 const queryString = window.location.search;
