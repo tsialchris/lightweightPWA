@@ -2,7 +2,10 @@ import {goToPage} from "../../../utils.js"
 import {getTranslation, translate} from "../translationUtils.js";
 
 window.onload = async (event) => {
-  await translate();
+  setTimeout(async () => {
+    await translate();
+  }, 100);
+
 
   function ErrorController() {
     const queryString = window.location.search;

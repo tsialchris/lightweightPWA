@@ -410,10 +410,12 @@ b {
     position: relative;
     color: #04313B;
     padding: min(3vh, 3vw);
+    flex-grow: 1;
 }
 
 .error-page .modal-content {
     height: 100%;
+    flex-grow: 1;
 }
 
 .modal-container.popup-modal {
