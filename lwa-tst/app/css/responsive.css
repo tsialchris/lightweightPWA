@@ -1,22 +1,23 @@
 @import "leaflet.css";
 
 html {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
     font-size: 62.5%;
     font-family: "Noto Sans";
-    height: -moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
 }
 
 body {
+    width: 100%;
+    height: 100%;
     padding: 0;
     position: relative;
     margin: 0 auto;
     font-size: var(--font-size--basic);
-    min-height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
 }
 
 button {
@@ -132,6 +133,7 @@ b {
 
 .page-container,
 #settings-modal {
+    flex-grow: 1;
     color: #fff;
     align-self: center;
     display: flex;
@@ -141,9 +143,8 @@ b {
     margin: 0;
     overflow: auto;
     word-break: break-word;
-    min-height: 100%;
-    flex-grow: 1;
-    justify-content: stretch;
+    height: 100%;
+    width: 100%;
 }
 
 .page-container.scan-page {
@@ -153,6 +154,7 @@ b {
 .page-container.error-page .page-header {
     background: var(--green-200);
     display: flex;
+    flex-direction: column;
 }
 
 .page-container.error-page .icon-title-container {
@@ -326,12 +328,11 @@ b {
 }
 
 .hiddenElement {
-/*    visibility: hidden;
+    visibility: hidden;
     height: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: block;*/
-    display: none;
+    display: block;
 }
 
 .content-container {
@@ -411,12 +412,10 @@ b {
     position: relative;
     color: #04313B;
     padding: min(3vh, 3vw);
-    flex-grow: 1;
 }
 
 .error-page .modal-content {
     height: 100%;
-    flex-grow: 1;
 }
 
 .modal-container.popup-modal {
@@ -647,7 +646,6 @@ b {
     position: relative !important;
     max-width: 100%;
     height: 100%;
-    flex-grow: 1;
 }
 
 .scan-cancel,
@@ -742,6 +740,7 @@ body[dir="RTL"] .scan-button.go-home-button {
 body[dir="RTL"] .modal-header.left-aligned-header .modal-title {
     margin-left: 12px;
     margin-right: unset;
+    text-align: right;
 }
 
 body[dir="RTL"] .terms-container .terms-buttons-container {
