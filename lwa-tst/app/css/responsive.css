@@ -326,11 +326,12 @@ b {
 }
 
 .hiddenElement {
-    visibility: hidden;
+/*    visibility: hidden;
     height: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: block;
+    display: block;*/
+    display: none;
 }
 
 .content-container {
