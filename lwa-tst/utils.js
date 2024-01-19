@@ -320,22 +320,6 @@ function loadAppVersion() {
   goToPage(appRootPage);
 }
 
-const sanitationRegex = /(<iframe>([\s\S]*)<\/iframe>)|(<script>([\s\S]*)<\/script>)/g;
-
-function insertInDom(selector, htmlStr) {
-  let domElement = document.querySelector(selector);
-  if (domElement && !sanitationRegex.test(htmlStr)) {
-    domElement.innerHTML = `<div style="opacity: 0;">ABC</div>`;
-    let fsz = window.getComputedStyle(domElement.querySelector("div")).fontSize
-    domElement.innerHTML = htmlStr;
-    domElement.style.fontSize = fsz;
-  } else {
-    goToErrorPage(null, new Error("The provided HTML fragment contains invalid or unsafe elements."));
-  }
-
-
-}
-
 export {
   convertFromISOtoYYYY_HM,
   convertToLastMonthDay,
@@ -352,6 +336,5 @@ export {
   saveFontZoom,
   setFontSize,
   zoomFont,
-  loadAppVersion,
-  insertInDom
+  loadAppVersion
 }

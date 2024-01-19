@@ -1,7 +1,7 @@
 import {setTextDirectionForLanguage} from "../../utils.js";
 import constants from "../../constants.js";
 
-const supportedLanguageCodes = ["ar", "de", "en", "es", "es-419", "fr", "ko", "nl", "pt", "pt-br", "uk", "zh", "it", "no", "pl"];
+const supportedLanguageCodes = ["ar", "de", "en", "es", "es-419", "fr", "ko", "nl", "pt-br", "uk", "it", "no", "pl"];
 
 const langSubtypesMap = {
   "ar-ae": "ar",
@@ -104,15 +104,14 @@ export async function translate() {
   });
 }
 
-export async function getTranslation(key) {
+export function getTranslation(key) {
   setDefaultLanguage();
   if (!currentAppTranslation) {
-    currentAppTranslation = await fetchTranslation(localStorage.getItem(constants.APP_LANG));
-    /* fetchTranslation(localStorage.getItem(constants.APP_LANG)).then(result => {
-       currentAppTranslation = result;
-       return currentAppTranslation[key];
-     });*/
+    fetchTranslation(localStorage.getItem(constants.APP_LANG)).then(result => {
+      currentAppTranslation = result;
+      return currentAppTranslation[key];
+    });
+  } else {
+    return currentAppTranslation[key];
   }
-  return currentAppTranslation[key];
-
 }
