@@ -111,12 +111,10 @@ const mainController = new MainController();
 window.onload = async (event) => {
   await translate();
   mainController.checkOnboarding();
+  document.querySelector(".page-container").classList.remove("hiddenElement");
+  document.querySelector(".loader-container").setAttribute('style', 'display:none');
   setTimeout(() => {
     document.querySelector(".app-menu-container ").style.position = "absolute";
-    document.querySelector(".loader-container").setAttribute('style', 'display:none');
-    document.querySelector(".page-container").classList.remove("hiddenElement");
-    document.querySelector(".page-container").style.height = "0px";
-    document.querySelector(".page-container").style.height = "100%";
   }, 0);
 }
 const queryString = window.location.search;
