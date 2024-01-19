@@ -10,6 +10,7 @@ body {
     position: relative;
     margin: 0 auto;
     font-size: var(--font-size--basic);
+    min-height: 100vh;
 }
 
 button {
@@ -134,11 +135,7 @@ b {
     margin: 0;
     overflow: auto;
     word-break: break-word;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+    min-height: 100vh;
 }
 
 .page-container.scan-page {
