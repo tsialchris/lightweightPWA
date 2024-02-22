@@ -1,2 +1,2 @@
-# lightweightPWA
-Hosting the lightweightPWA for demo
+# LWA
+LWA Application code
